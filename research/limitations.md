@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
-# Limitations (living document, M0 draft)
+# Limitations (living document, M0 draft, M2 additions)
 
-No results exist yet. These limitations are known from the design and will be revisited at M4.
+No confirmatory results exist yet. These limitations are known from the design and will be revisited at M4.
 
 ## Construct validity
 - "Volatility clustering" is measured by one statistic (mean ACF of absolute returns, lags 1 to 10) at one sampling interval; other measures (GARCH fits, long-memory exponents) are not used.
@@ -23,3 +23,9 @@ No results exist yet. These limitations are known from the design and will be re
 
 ## Tooling
 - No TeX distribution: `manuscript.tex` is generated but not compiled locally; PDFs use pandoc and Typst.
+
+## Implementation (added in M2)
+- Self-trades are allowed and accounting-neutral; a real venue would usually prevent them (D-006).
+- Prices have a floor of one tick. In the exploratory pilot (J-0003) the low-liquidity arm with trend followers reached that floor in every development seed, so results for that cell would describe the floor mechanics as much as the agents (D-007, item 3).
+- Pilot runtimes were measured on a shared, heavily loaded machine; uncontended timings are lower.
+- Figures are plain generated SVG; the PDF summaries were checked by text extraction only (no rasteriser installed), not by visual inspection.

@@ -37,3 +37,37 @@ Append-only. Each entry: id, date, decision, who decided, rationale, alternative
 - **Decided by:** proposed by the AI assistant; pending the owner.
 - **Rationale:** the question is about a model's emergent behaviour; real data would add licence risk (LOBSTER rights unclear) without being needed for any registered hypothesis.
 - **Consequences:** no claim compares simulated statistics with real-market values numerically; stylized facts are cited qualitatively only.
+
+## D-006 (2026-11-24): implementation choices where the draft protocol was silent (M2)
+
+- **Decided by:** the AI assistant during implementation; pending the owner's review before the freeze. None changes the analysis plan.
+- **Decision:**
+  1. Self-trades are allowed (an agent's market or marketable order may fill against its own resting order). They are accounting-neutral and counted in `counts.self_fills`.
+  2. A market sell is rejected when the agent's free inventory is below its size; a market buy is rejected when the agent's free cash is below the best ask, and otherwise walks the book capped by its free cash. Rejections count towards `rejected_fraction`.
+  3. The ZI limit offset is drawn on 0..delta, so offset 0 gives a marketable limit order (it executes and rests any remainder), as the draft text implies.
+  4. When the reference side is empty: ZI orders price from the last mid; TF, MR and PA limit orders go one tick inside the opposite best, or to the mid when both sides are empty. Prices snap to the grid away from crossing and never go below one tick (price floor).
+  5. The initial book is 20 orders per side, owned by ZI agents drawn from the `init` stream, at 1..delta ticks from the initial price.
+  6. Streams: one `SeedSequence(seed)` spawned into six named streams (activation, zi, strategic for TF and MR, pa, shock, init). Each rule draws a fixed number of uniforms per activation, so arms sharing a seed share the activation sequence (common random numbers).
+  7. The TF signal compares the current mid with the recorded mid L steps earlier; the MR moving average is the mean of the last L recorded mids (fewer at the start).
+  8. The `dt` reanalysis of EXP-004 is computed at run time (`vci_dt10`, `vci_dt200`) so that no full-resolution series must be stored.
+- **Alternatives:** self-trade prevention; capping market sells to free inventory instead of rejecting them.
+- **Consequences:** documented in code docstrings and `research/limitations.md`; the owner should fold them into protocol section 3 before the freeze (D-007, item 5).
+
+## D-007 (2026-11-24): proposed protocol amendments from the exploratory pilot (pending the owner)
+
+- **Decided by:** proposed by the AI assistant; **not applied**. The owner decides each item before the freeze (G-FREEZE). Basis: journal J-0003 (exploratory, development seeds 1..40).
+- **Proposals:**
+  1. **Compute budget.** Replace the planning target "at most 10 s per run" with the measured values: 0.64 to 0.68 s per run uncontended serial, 1.7 to 3.3 s per run under heavy machine load with 8 workers; projected full matrix (480 runs) about 2.3 min wall on 8 workers.
+  2. **Seed count.** The measured SD of the paired A1 minus A0 VCI difference is 0.051 (20 development seeds). Thirty seeds then detect about 0.027 VCI units (d_z 0.53). Runs are cheap, so the owner may raise the count (for example 100 seeds per arm: d_z about 0.28, about 1,600 runs, roughly 8 min wall). The choice must be made on cost and spread only, not on the pilot's effect estimates, and fixed before the freeze. The confirmatory seed range would then need extending beyond 1030.
+  3. **Degenerate cell in EXP-002.** The low-liquidity ZI+TF arm (`zi_market_prob` 0.35) was flagged in 10 of 10 development seeds: one-sided fraction about 0.19 and the mid reaching the 1-tick price floor. Under the draft rule this arm would be reported as a model failure. Options: keep it and report it as a failure; move the low level to a value checked on development seeds to stay non-degenerate (for example 0.3); or add an explicit floor mechanism. The owner decides.
+  4. **Placebo activity matching (EXP-004).** The measured TF skip fraction in A1 is 0.45%, below the 5% threshold, so `pa_skip_prob` stays 0 under the draft rule. With tick 2 the TF skip fraction is 21%; the draft rule matches only to tick-1 A1, which the owner may want to confirm.
+  5. **Formal model.** Fold the D-006 implementation choices into protocol section 3 so that the frozen text describes the code.
+  6. **Sampling-interval sensitivity.** The pilot shows the VCI contrast depends visibly on `dt` (values differ across 10, 50 and 200). No amendment to the analysis is proposed; this observation supports keeping EXP-004 mandatory. The pilot's effect estimates are exploratory and not quoted.
+- **Consequences:** none until the owner decides. The confirmatory configs in `experiments/configs/EXP-00N.json` hold the draft v0.1 values and are refused by the runner until a hash is recorded.
+
+## D-008 (2026-11-24): no plotting dependency; figures are generated SVG
+
+- **Decided by:** the AI assistant (M2).
+- **Decision:** `market.report` writes SVG figures directly (with title and description elements for accessibility) instead of adding matplotlib. Typst embeds the SVG files in the PDF summaries. The runtime dependency remains numpy only.
+- **Alternatives:** matplotlib (pinned before 2026-11-10).
+- **Consequences:** simpler lockfile; figure styling is basic and may be revised at M4 or M5 by the owner's choice.

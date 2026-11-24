@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
 # MARKET: can simple trading rules generate volatility and liquidity patterns?
 
-**Status: M0 (bootstrap and feasibility), 2026-11-24. No engine, no experiments, no findings yet.**
+**Status: M2 (core implementation) done, 2026-11-24, pending owner review. The protocol is not frozen: no confirmatory experiment has run and there are no findings.** Exploratory runs on development seeds exist only to plan the freeze.
 
 ## Question
 
@@ -16,6 +16,8 @@ Random order flow alone already reproduces much of the behaviour of real order b
 - Control files, feasibility audit, literature and dataset audit: `research/feasibility.md`, `research/literature_review.md`, `data/manifest.json`.
 - A **draft** protocol (not frozen): `research/protocol.md`, with four registered experiments in `research/experiment_registry.csv` and draft protocols in `research/experiments/EXP-001` to `EXP-004`.
 - A manuscript skeleton (headings only): `research/paper/manuscript.md`.
+- The simulation engine (`src/market/`): price-time-priority order book with partial fills, cash and inventory accounting, random-order, trend-following, mean-reverting and placebo agents, metrics, versioned result schemas, run manifests, a runner that refuses confirmatory configs while the protocol is unfrozen, and a report generator. Tests in `tests/`.
+- Exploratory smoke and pilot outputs: `results/exploratory/` (labelled exploratory; not evidence).
 - Locked dependencies: `pyproject.toml`, `uv.lock`.
 
 ## Experiments
@@ -32,9 +34,11 @@ Random order flow alone already reproduces much of the behaviour of real order b
 ```
 uv sync --frozen
 uv run pytest
+uv run python -m market.cli smoke
+uv run python -m market.cli report --results results/exploratory/smoke
 ```
 
-Only an import smoke test exists at M0.
+`uv run python -m market.cli run --exp EXP-001` is refused until the owner freezes the protocol.
 
 ## Scope, cost and exclusions
 

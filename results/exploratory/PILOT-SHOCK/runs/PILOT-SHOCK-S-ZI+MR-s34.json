@@ -1,0 +1,112 @@
+{
+  "arm": "S-ZI+MR",
+  "config": {
+    "burn_in": 10000,
+    "composition": {
+      "MR": 30,
+      "PA": 0,
+      "TF": 0,
+      "ZI": 70
+    },
+    "extra_vci_intervals": [
+      10,
+      200
+    ],
+    "initial_cash": 1000000,
+    "initial_inventory": 1000,
+    "initial_orders_per_side": 20,
+    "initial_price": 1000,
+    "lookback": 500,
+    "max_order_size": 5,
+    "order_lifetime": 2000,
+    "pa_skip_prob": 0.0,
+    "sample_interval": 50,
+    "shock_fraction": 0.5,
+    "shock_inventory": 1000000,
+    "shock_step": 50000,
+    "steps": 100000,
+    "strategic_market_prob": 0.5,
+    "tick": 1,
+    "zi_limit_offset": 10,
+    "zi_market_prob": 0.2
+  },
+  "config_hash": "c595e7d64929bca744ba6053bb42c79289add6b3b5e268d85fe99db98289c31b",
+  "counts": {
+    "activations": {
+      "MR": 30241,
+      "PA": 0,
+      "TF": 0,
+      "ZI": 69759
+    },
+    "expired": 31806,
+    "fills": 55909,
+    "limit_orders": 70840,
+    "market_orders": 29144,
+    "market_unfilled_units": 0,
+    "no_order": {
+      "MR": 17,
+      "PA": 0,
+      "TF": 0,
+      "ZI": 0
+    },
+    "rejected": 0,
+    "rejected_post_burn_in": 0,
+    "seed_orders_placed": 40,
+    "seed_orders_rejected": 0,
+    "self_fills": 539,
+    "submitted": 99984,
+    "submitted_post_burn_in": 89984
+  },
+  "error": null,
+  "exp_id": "PILOT-SHOCK",
+  "flags": {
+    "degenerate": false,
+    "fewer_than_50_nonzero_returns": false,
+    "one_sided_over_5pct": false,
+    "vci_undefined": false
+  },
+  "invariants": {
+    "checked": 1,
+    "passed": true
+  },
+  "label": "exploratory",
+  "metrics": {
+    "excess_kurtosis": -0.0212635856014729,
+    "final_mid": 997.5,
+    "max_drawdown": 0.009955201592832252,
+    "mean_depth_at_best": 217.9575,
+    "mean_spread": 2.8092888888888887,
+    "mean_wealth_change_MR": -1146.9333333333334,
+    "mean_wealth_change_PA": null,
+    "mean_wealth_change_TF": null,
+    "mean_wealth_change_ZI": -3073.907142857143,
+    "n_nonzero_returns": 1493,
+    "n_returns": 1800,
+    "one_sided_fraction": 0.0,
+    "realised_volatility": 0.001381917677010109,
+    "rejected_fraction": 0.0,
+    "return_acf1": -0.4597420325157018,
+    "shock_drawdown": 0.0059850374064838174,
+    "shock_recovery_censored": false,
+    "shock_recovery_steps": 0,
+    "shock_window_truncated": false,
+    "tf_skip_fraction": null,
+    "vci": 0.03150724477526597,
+    "vci_dt10": 0.04539500139426576,
+    "vci_dt200": 0.03853532452682947,
+    "volume_per_step": 1.0142444444444445
+  },
+  "run_id": "PILOT-SHOCK-S-ZI+MR-s34",
+  "runtime_s": 1.4959370830001717,
+  "schema": "market.run_result",
+  "schema_version": "1.0.0",
+  "seed": 34,
+  "shock": {
+    "bid_depth": 1042,
+    "filled": 521,
+    "pre_shock_mid": 1002.5,
+    "qty": 521,
+    "step": 50000
+  },
+  "status": "ok"
+}

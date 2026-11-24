@@ -19,7 +19,7 @@ from pathlib import Path
 
 from .config import ConfigError
 from .report import build_report
-from .runner import GateError, load_experiment, parse_experiment, repo_root, run_experiment
+from .runner import GateError, check_gate, load_experiment, parse_experiment, repo_root, run_experiment
 
 SMOKE_CONFIG = {
     "exp_id": "SMOKE",
@@ -57,6 +57,7 @@ def cmd_run(args) -> int:
     path = Path(args.config) if args.config else repo_root() / "experiments" / "configs" / f"{args.exp}.json"
     try:
         spec = load_experiment(path)
+        check_gate(spec)
         default_out = repo_root() / "results" / ("confirmatory" if spec.label == "confirmatory" else "exploratory") / spec.exp_id
         out = Path(args.out or default_out)
         print(f"{spec.label.upper()} {spec.exp_id}: {len(spec.arms)} arms x {len(spec.seeds)} seeds -> {out}")
@@ -110,6 +111,9 @@ def main(argv: list[str] | None = None) -> int:
     t = sub.add_parser("test", help="run the test suite")
     t.add_argument("pytest_args", nargs=argparse.REMAINDER)
     t.set_defaults(func=cmd_test)
+    argv = list(sys.argv[1:] if argv is None else argv)
+    if argv and argv[0] == "test":  # pass every remaining argument to pytest unchanged
+        return cmd_test(argparse.Namespace(pytest_args=argv[1:]))
     args = p.parse_args(argv)
     return args.func(args)
 

@@ -1,0 +1,102 @@
+{
+  "arm": "med-ZI+TF",
+  "config": {
+    "burn_in": 10000,
+    "composition": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 30,
+      "ZI": 70
+    },
+    "extra_vci_intervals": [
+      10,
+      200
+    ],
+    "initial_cash": 1000000,
+    "initial_inventory": 1000,
+    "initial_orders_per_side": 20,
+    "initial_price": 1000,
+    "lookback": 500,
+    "max_order_size": 5,
+    "order_lifetime": 2000,
+    "pa_skip_prob": 0.0,
+    "sample_interval": 50,
+    "shock_fraction": 0.5,
+    "shock_inventory": 1000000,
+    "shock_step": null,
+    "steps": 100000,
+    "strategic_market_prob": 0.5,
+    "tick": 1,
+    "zi_limit_offset": 10,
+    "zi_market_prob": 0.2
+  },
+  "config_hash": "6e7846fb117d88e4a7a3f00662190c544b8794dd45becdefda8895855b023f0e",
+  "counts": {
+    "activations": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 30054,
+      "ZI": 69946
+    },
+    "expired": 31311,
+    "fills": 56307,
+    "limit_orders": 70835,
+    "market_orders": 29059,
+    "market_unfilled_units": 57,
+    "no_order": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 106,
+      "ZI": 0
+    },
+    "rejected": 308,
+    "rejected_post_burn_in": 308,
+    "seed_orders_placed": 40,
+    "seed_orders_rejected": 0,
+    "self_fills": 286,
+    "submitted": 99894,
+    "submitted_post_burn_in": 89898
+  },
+  "error": null,
+  "exp_id": "PILOT-LIQ",
+  "flags": {
+    "degenerate": false,
+    "fewer_than_50_nonzero_returns": false,
+    "one_sided_over_5pct": false,
+    "vci_undefined": false
+  },
+  "invariants": {
+    "checked": 1,
+    "passed": true
+  },
+  "label": "exploratory",
+  "metrics": {
+    "excess_kurtosis": 5.730611638972039,
+    "final_mid": 1381.5,
+    "max_drawdown": 0.125127507650459,
+    "mean_depth_at_best": 100.45773333333334,
+    "mean_spread": 1.3586555555555555,
+    "mean_wealth_change_MR": null,
+    "mean_wealth_change_PA": null,
+    "mean_wealth_change_TF": 462695.3333333333,
+    "mean_wealth_change_ZI": 346702.0,
+    "n_nonzero_returns": 885,
+    "n_returns": 1800,
+    "one_sided_fraction": 0.0,
+    "realised_volatility": 0.0004632005865183156,
+    "rejected_fraction": 0.0034261051413824557,
+    "return_acf1": 0.1578012783059389,
+    "tf_skip_fraction": 0.0035269847607639583,
+    "vci": 0.23847582323430627,
+    "vci_dt10": 0.14084991829226573,
+    "vci_dt200": 0.6801793678372443,
+    "volume_per_step": 1.0126
+  },
+  "run_id": "PILOT-LIQ-med-ZI+TF-s25",
+  "runtime_s": 1.9679069169997092,
+  "schema": "market.run_result",
+  "schema_version": "1.0.0",
+  "seed": 25,
+  "shock": null,
+  "status": "ok"
+}

@@ -6,9 +6,9 @@ Five focused development days (planning estimate, master prompt section 1). Effo
 | ID | Milestone | Depends on | Priority | Effort | Status | Blockers |
 | --- | --- | --- | --- | --- | --- | --- |
 | M0 | Bootstrap and feasibility | none | P0 | 4 h | done (2026-11-24), pending owner review of the gate | none |
-| M1 | Research and preregistration | M0 | P0 | 4 h | in progress (drafts written in M0) | owner freeze (G-FREEZE); fuller literature search on aggressiveness-matched controls |
-| M2 | Core implementation | M1 draft (not the freeze) | P0 | 10 h | not started | none |
-| M3 | Experiments | M1 freeze, M2 | P0 | 5 h | not started | owner freeze |
+| M1 | Research and preregistration | M0 | P0 | 4 h | in progress (drafts written in M0; throughput and seed spread measured in M2, J-0003) | owner freeze (G-FREEZE) and decisions on D-007 proposals; fuller literature search on aggressiveness-matched controls |
+| M2 | Core implementation | M1 draft (not the freeze) | P0 | 10 h | done (2026-11-24), pending owner review | none |
+| M3 | Experiments | M1 freeze, M2 | P0 | 5 h | not started (smoke matrix done as exploratory J-0002) | owner freeze |
 | M4 | Interpretation | M3 | P0 | 6 h | not started | none |
 | M5 | Interactive experience | M2 (schema), M4 (published results) | P1 | 8 h | not started | none |
 | M6 | Release candidate | M4, M5 | P0 | 3 h | not started | owner approval for any publication (G-PUBLIC) |
@@ -30,6 +30,7 @@ Five focused development days (planning estimate, master prompt section 1). Effo
 - Tests: matching, partial fills, conservation, no negative balances, deterministic ordering, hand-computed examples, property tests (hypothesis), invalid inputs, extreme parameters.
 - 11.6 addition: versioned JSON result schema, run manifests (runtime, peak memory, OS, CPU, package versions, git revision, config), report generators built with the core.
 - **Acceptance:** all tests pass (counts recorded from actual runs); correctness before UI.
+- **Status (2026-11-24):** done, pending owner review. Engine, ledger, agents, metrics, analysis helpers, schemas (`run_result` and `run_manifest` 1.0.0), runner with freeze gate, report generator (CSV tables, SVG figures, Markdown and Typst PDF summaries) and CLI implemented. Tests: 110 passed, 0 failed. Exploratory smoke run (J-0002) and pre-freeze pilot (J-0003) on development seeds; amendment proposals in `research/decision_log.md` D-007. Not done in M2: per-experiment `report.md` files (they belong to M3, after confirmatory runs).
 
 ## M3: Experiments
 - Smoke matrix (exploratory), then the frozen full matrix (480 runs planned).

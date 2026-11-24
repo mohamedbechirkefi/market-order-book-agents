@@ -1,0 +1,362 @@
+{
+  "batch_id": "PILOT-SHOCK-20261124T160750Z",
+  "created_utc": "2026-11-24T16:07:50+00:00",
+  "environment": {
+    "cpu": "Apple M1 Pro",
+    "cpu_count": 10,
+    "machine": "arm64",
+    "market": "0.0.0",
+    "numpy": "2.5.4",
+    "os": "Darwin 24.3.0 (macOS-15.3.1-arm64-arm-64bit)",
+    "python": "3.12.1"
+  },
+  "exp_id": "PILOT-SHOCK",
+  "experiment_config_path": "experiments/configs/pilot-shock.json",
+  "experiment_config_sha256": "388df3824e217a0ce7dd76312b5e146af512c436b98c000224924abaaa8f7ac0",
+  "git": {
+    "dirty": false,
+    "revision": "6e3ea17c32d268269f84601b1c1d925c7636a42d"
+  },
+  "label": "exploratory",
+  "protocol": {
+    "frozen": false,
+    "path": null,
+    "sha256": null
+  },
+  "runs": [
+    {
+      "arm": "S-ZI",
+      "config_hash": "17b85d943df78445a7708aa45cf016531d0ad9ce19de3f67fe0129cef6f4c1ce",
+      "peak_rss_bytes": 57278464,
+      "result_path": "runs/PILOT-SHOCK-S-ZI-s31.json",
+      "result_sha256": "617f70f30b0fadeed55c6f72ecdbd483f3e5736de23b83a70ecab1304cdfe79f",
+      "run_id": "PILOT-SHOCK-S-ZI-s31",
+      "runtime_s": 2.2420485000002373,
+      "seed": 31,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI",
+      "config_hash": "17b85d943df78445a7708aa45cf016531d0ad9ce19de3f67fe0129cef6f4c1ce",
+      "peak_rss_bytes": 53739520,
+      "result_path": "runs/PILOT-SHOCK-S-ZI-s32.json",
+      "result_sha256": "cbcba548b6ea2f418ecfeb5330f1993118f6a5d5bff7a3d60c0ec195cf2daa46",
+      "run_id": "PILOT-SHOCK-S-ZI-s32",
+      "runtime_s": 2.3056844160000765,
+      "seed": 32,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI",
+      "config_hash": "17b85d943df78445a7708aa45cf016531d0ad9ce19de3f67fe0129cef6f4c1ce",
+      "peak_rss_bytes": 56164352,
+      "result_path": "runs/PILOT-SHOCK-S-ZI-s33.json",
+      "result_sha256": "94fe3e249972b2aee541fee527e422405ab36c158b69508c6793f3b5bc42b1c9",
+      "run_id": "PILOT-SHOCK-S-ZI-s33",
+      "runtime_s": 2.3284770000009303,
+      "seed": 33,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI",
+      "config_hash": "17b85d943df78445a7708aa45cf016531d0ad9ce19de3f67fe0129cef6f4c1ce",
+      "peak_rss_bytes": 53116928,
+      "result_path": "runs/PILOT-SHOCK-S-ZI-s34.json",
+      "result_sha256": "34358787a6792c28a97bf5b0f1376e0485ee35b4a30162036a9af50b483c54b5",
+      "run_id": "PILOT-SHOCK-S-ZI-s34",
+      "runtime_s": 2.394711750001079,
+      "seed": 34,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI",
+      "config_hash": "17b85d943df78445a7708aa45cf016531d0ad9ce19de3f67fe0129cef6f4c1ce",
+      "peak_rss_bytes": 57475072,
+      "result_path": "runs/PILOT-SHOCK-S-ZI-s35.json",
+      "result_sha256": "e4eb1d2ecdd6b00d19bbc7306c929acec0c720bc09ee910fba9a41c6369db995",
+      "run_id": "PILOT-SHOCK-S-ZI-s35",
+      "runtime_s": 2.4070395000017015,
+      "seed": 35,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI",
+      "config_hash": "17b85d943df78445a7708aa45cf016531d0ad9ce19de3f67fe0129cef6f4c1ce",
+      "peak_rss_bytes": 56918016,
+      "result_path": "runs/PILOT-SHOCK-S-ZI-s36.json",
+      "result_sha256": "3b921a8f29d25b7119dc7c9f955108dbccce5aeb98da44f7ff407f9d8be86bc9",
+      "run_id": "PILOT-SHOCK-S-ZI-s36",
+      "runtime_s": 2.356653708000522,
+      "seed": 36,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI",
+      "config_hash": "17b85d943df78445a7708aa45cf016531d0ad9ce19de3f67fe0129cef6f4c1ce",
+      "peak_rss_bytes": 59670528,
+      "result_path": "runs/PILOT-SHOCK-S-ZI-s37.json",
+      "result_sha256": "c211873b54851d3fdedad6095ff2f805202b390a32fa934e650bf22edce8bcce",
+      "run_id": "PILOT-SHOCK-S-ZI-s37",
+      "runtime_s": 2.2667857500000537,
+      "seed": 37,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI",
+      "config_hash": "17b85d943df78445a7708aa45cf016531d0ad9ce19de3f67fe0129cef6f4c1ce",
+      "peak_rss_bytes": 52903936,
+      "result_path": "runs/PILOT-SHOCK-S-ZI-s38.json",
+      "result_sha256": "0a75c51f23a2cad1d793090a693a28082af10fa2a7a61812a64f5bb416c41ba6",
+      "run_id": "PILOT-SHOCK-S-ZI-s38",
+      "runtime_s": 2.3258031660006964,
+      "seed": 38,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI",
+      "config_hash": "17b85d943df78445a7708aa45cf016531d0ad9ce19de3f67fe0129cef6f4c1ce",
+      "peak_rss_bytes": 65994752,
+      "result_path": "runs/PILOT-SHOCK-S-ZI-s39.json",
+      "result_sha256": "e367f8e1abb91bc45e276f378a8ef71cf1c6e0a43b77c00335b93ae4b4b5614c",
+      "run_id": "PILOT-SHOCK-S-ZI-s39",
+      "runtime_s": 1.8067090419990564,
+      "seed": 39,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI",
+      "config_hash": "17b85d943df78445a7708aa45cf016531d0ad9ce19de3f67fe0129cef6f4c1ce",
+      "peak_rss_bytes": 68304896,
+      "result_path": "runs/PILOT-SHOCK-S-ZI-s40.json",
+      "result_sha256": "63949e76dfa3088b4a444ec397f4368072022736bd89b1c2e48edaeb0f7a5446",
+      "run_id": "PILOT-SHOCK-S-ZI-s40",
+      "runtime_s": 1.6794942079995963,
+      "seed": 40,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+TF",
+      "config_hash": "8957c455fd2d57759920258a768d4408a7704509a855370548abba8b797150ff",
+      "peak_rss_bytes": 63979520,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+TF-s31.json",
+      "result_sha256": "35ae6a001aa0e869464618937ca89a319c1b329fd9f9cdd205712e4b28483140",
+      "run_id": "PILOT-SHOCK-S-ZI+TF-s31",
+      "runtime_s": 1.774803250000332,
+      "seed": 31,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+TF",
+      "config_hash": "8957c455fd2d57759920258a768d4408a7704509a855370548abba8b797150ff",
+      "peak_rss_bytes": 60293120,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+TF-s32.json",
+      "result_sha256": "e7b900cfada1105c6b1ea577d945806a99755e43038e20654da8e94a23635ed9",
+      "run_id": "PILOT-SHOCK-S-ZI+TF-s32",
+      "runtime_s": 1.6602857500001846,
+      "seed": 32,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+TF",
+      "config_hash": "8957c455fd2d57759920258a768d4408a7704509a855370548abba8b797150ff",
+      "peak_rss_bytes": 57802752,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+TF-s33.json",
+      "result_sha256": "89ade0dd98493b309c4d96561c4e1a33c2f692bc7a255f747f43337c4e38f270",
+      "run_id": "PILOT-SHOCK-S-ZI+TF-s33",
+      "runtime_s": 1.7597804999986693,
+      "seed": 33,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+TF",
+      "config_hash": "8957c455fd2d57759920258a768d4408a7704509a855370548abba8b797150ff",
+      "peak_rss_bytes": 62062592,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+TF-s34.json",
+      "result_sha256": "cc93ed39fa6f74b8bf050fa0edef0da5e21e93369376ab561ba278daa9ff6ce2",
+      "run_id": "PILOT-SHOCK-S-ZI+TF-s34",
+      "runtime_s": 1.6702256669996132,
+      "seed": 34,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+TF",
+      "config_hash": "8957c455fd2d57759920258a768d4408a7704509a855370548abba8b797150ff",
+      "peak_rss_bytes": 59572224,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+TF-s35.json",
+      "result_sha256": "19039bfc5a05e1ba41f10294780cbfc8389aaf7aa82e24a4fc8e28bb633affc4",
+      "run_id": "PILOT-SHOCK-S-ZI+TF-s35",
+      "runtime_s": 1.627601041998787,
+      "seed": 35,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+TF",
+      "config_hash": "8957c455fd2d57759920258a768d4408a7704509a855370548abba8b797150ff",
+      "peak_rss_bytes": 58720256,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+TF-s36.json",
+      "result_sha256": "825d0b48b5ff6088f85f35b1b5c1aedcb6161338f65066f33d080f239b5c96ac",
+      "run_id": "PILOT-SHOCK-S-ZI+TF-s36",
+      "runtime_s": 1.7360600829997566,
+      "seed": 36,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+TF",
+      "config_hash": "8957c455fd2d57759920258a768d4408a7704509a855370548abba8b797150ff",
+      "peak_rss_bytes": 66748416,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+TF-s37.json",
+      "result_sha256": "de59e5684ba4a33caa76bb569667d5adb59a1754e828099dd7f6120e509b9b64",
+      "run_id": "PILOT-SHOCK-S-ZI+TF-s37",
+      "runtime_s": 1.4349323749993346,
+      "seed": 37,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+TF",
+      "config_hash": "8957c455fd2d57759920258a768d4408a7704509a855370548abba8b797150ff",
+      "peak_rss_bytes": 69255168,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+TF-s38.json",
+      "result_sha256": "d486d0e2ab329edee6ea834f10d72d41bead0d73592c09c42b8a9eb9bc07cd31",
+      "run_id": "PILOT-SHOCK-S-ZI+TF-s38",
+      "runtime_s": 1.4397710840003128,
+      "seed": 38,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+TF",
+      "config_hash": "8957c455fd2d57759920258a768d4408a7704509a855370548abba8b797150ff",
+      "peak_rss_bytes": 65929216,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+TF-s39.json",
+      "result_sha256": "1c18b4beaec25bca90aef9453427b3e40f2946ef1f36d6bbbb952e9226ff2853",
+      "run_id": "PILOT-SHOCK-S-ZI+TF-s39",
+      "runtime_s": 1.4480224159997306,
+      "seed": 39,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+TF",
+      "config_hash": "8957c455fd2d57759920258a768d4408a7704509a855370548abba8b797150ff",
+      "peak_rss_bytes": 67715072,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+TF-s40.json",
+      "result_sha256": "b565cf19eba6fd7f70954a2e749ed2ce343b8773998acb797813cb1e0462f660",
+      "run_id": "PILOT-SHOCK-S-ZI+TF-s40",
+      "runtime_s": 1.4794128329995146,
+      "seed": 40,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+MR",
+      "config_hash": "c595e7d64929bca744ba6053bb42c79289add6b3b5e268d85fe99db98289c31b",
+      "peak_rss_bytes": 69271552,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+MR-s31.json",
+      "result_sha256": "5aeb5ee7e3eafc27e4743177a25462d2a57893c941c10a660d293aa1df98ef7d",
+      "run_id": "PILOT-SHOCK-S-ZI+MR-s31",
+      "runtime_s": 1.5575587080002151,
+      "seed": 31,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+MR",
+      "config_hash": "c595e7d64929bca744ba6053bb42c79289add6b3b5e268d85fe99db98289c31b",
+      "peak_rss_bytes": 67158016,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+MR-s32.json",
+      "result_sha256": "7dc6737e3411d60f8cddcff2581a6c1013371fa0ea872137b86e56a65506180a",
+      "run_id": "PILOT-SHOCK-S-ZI+MR-s32",
+      "runtime_s": 1.3968738340008713,
+      "seed": 32,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+MR",
+      "config_hash": "c595e7d64929bca744ba6053bb42c79289add6b3b5e268d85fe99db98289c31b",
+      "peak_rss_bytes": 65142784,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+MR-s33.json",
+      "result_sha256": "a9d2ab802952f5f49826c4e7489720bf6dd8fdab35255e867a4f8f2449715288",
+      "run_id": "PILOT-SHOCK-S-ZI+MR-s33",
+      "runtime_s": 1.3688413750005566,
+      "seed": 33,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+MR",
+      "config_hash": "c595e7d64929bca744ba6053bb42c79289add6b3b5e268d85fe99db98289c31b",
+      "peak_rss_bytes": 66338816,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+MR-s34.json",
+      "result_sha256": "73667e2c301b218bbc3f5522511430f7cb7cc6f69a4fe949b4e9a3ed2b57cf5a",
+      "run_id": "PILOT-SHOCK-S-ZI+MR-s34",
+      "runtime_s": 1.4959370830001717,
+      "seed": 34,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+MR",
+      "config_hash": "c595e7d64929bca744ba6053bb42c79289add6b3b5e268d85fe99db98289c31b",
+      "peak_rss_bytes": 68108288,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+MR-s35.json",
+      "result_sha256": "f1a1ba1be49e1dc75a580d0f8fd1a2d22851110d8162291c2e953c4d028776da",
+      "run_id": "PILOT-SHOCK-S-ZI+MR-s35",
+      "runtime_s": 1.342139792001035,
+      "seed": 35,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+MR",
+      "config_hash": "c595e7d64929bca744ba6053bb42c79289add6b3b5e268d85fe99db98289c31b",
+      "peak_rss_bytes": 71696384,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+MR-s36.json",
+      "result_sha256": "208b9c68bc4790b7937d36d6e038cba90d82a2ad91d84ee616f9eee097823c8e",
+      "run_id": "PILOT-SHOCK-S-ZI+MR-s36",
+      "runtime_s": 1.3807657079996716,
+      "seed": 36,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+MR",
+      "config_hash": "c595e7d64929bca744ba6053bb42c79289add6b3b5e268d85fe99db98289c31b",
+      "peak_rss_bytes": 70975488,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+MR-s37.json",
+      "result_sha256": "67c2211a39629a8dab5e20ab07eea8943abee06c9975cff7d28eb7b9dcf033d9",
+      "run_id": "PILOT-SHOCK-S-ZI+MR-s37",
+      "runtime_s": 1.320694416999686,
+      "seed": 37,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+MR",
+      "config_hash": "c595e7d64929bca744ba6053bb42c79289add6b3b5e268d85fe99db98289c31b",
+      "peak_rss_bytes": 68517888,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+MR-s38.json",
+      "result_sha256": "a3fe615933224c1ba6ccc77394cf20a4d3ac68d858ee3e51943febfa84a51452",
+      "run_id": "PILOT-SHOCK-S-ZI+MR-s38",
+      "runtime_s": 1.4423566250006843,
+      "seed": 38,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+MR",
+      "config_hash": "c595e7d64929bca744ba6053bb42c79289add6b3b5e268d85fe99db98289c31b",
+      "peak_rss_bytes": 69025792,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+MR-s39.json",
+      "result_sha256": "dcb7976e2ca36866119861137b8f9cb4b42cc4da6a3f6374af043d67d5d686b4",
+      "run_id": "PILOT-SHOCK-S-ZI+MR-s39",
+      "runtime_s": 1.388868125000954,
+      "seed": 39,
+      "status": "ok"
+    },
+    {
+      "arm": "S-ZI+MR",
+      "config_hash": "c595e7d64929bca744ba6053bb42c79289add6b3b5e268d85fe99db98289c31b",
+      "peak_rss_bytes": 72122368,
+      "result_path": "runs/PILOT-SHOCK-S-ZI+MR-s40.json",
+      "result_sha256": "c8f4c4fb8c7c8de75cfe342259f740fb654e08e74c68f1f0d855b616083412e7",
+      "run_id": "PILOT-SHOCK-S-ZI+MR-s40",
+      "runtime_s": 1.31896874999984,
+      "seed": 40,
+      "status": "ok"
+    }
+  ],
+  "schema": "market.run_manifest",
+  "schema_version": "1.0.0",
+  "wall_time_s": 7.233612500000163,
+  "workers": 8
+}

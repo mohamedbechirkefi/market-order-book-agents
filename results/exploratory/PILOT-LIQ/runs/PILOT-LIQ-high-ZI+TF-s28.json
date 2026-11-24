@@ -1,0 +1,102 @@
+{
+  "arm": "high-ZI+TF",
+  "config": {
+    "burn_in": 10000,
+    "composition": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 30,
+      "ZI": 70
+    },
+    "extra_vci_intervals": [
+      10,
+      200
+    ],
+    "initial_cash": 1000000,
+    "initial_inventory": 1000,
+    "initial_orders_per_side": 20,
+    "initial_price": 1000,
+    "lookback": 500,
+    "max_order_size": 5,
+    "order_lifetime": 2000,
+    "pa_skip_prob": 0.0,
+    "sample_interval": 50,
+    "shock_fraction": 0.5,
+    "shock_inventory": 1000000,
+    "shock_step": null,
+    "steps": 100000,
+    "strategic_market_prob": 0.5,
+    "tick": 1,
+    "zi_limit_offset": 10,
+    "zi_market_prob": 0.1
+  },
+  "config_hash": "60f9925ff026881fe532193aa0d00baadc2152d4d51ed835fcb3d32b2882b235",
+  "counts": {
+    "activations": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 30272,
+      "ZI": 69728
+    },
+    "expired": 43865,
+    "fills": 44767,
+    "limit_orders": 77655,
+    "market_orders": 21554,
+    "market_unfilled_units": 0,
+    "no_order": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 791,
+      "ZI": 0
+    },
+    "rejected": 651,
+    "rejected_post_burn_in": 651,
+    "seed_orders_placed": 40,
+    "seed_orders_rejected": 0,
+    "self_fills": 185,
+    "submitted": 99209,
+    "submitted_post_burn_in": 89260
+  },
+  "error": null,
+  "exp_id": "PILOT-LIQ",
+  "flags": {
+    "degenerate": false,
+    "fewer_than_50_nonzero_returns": false,
+    "one_sided_over_5pct": false,
+    "vci_undefined": false
+  },
+  "invariants": {
+    "checked": 1,
+    "passed": true
+  },
+  "label": "exploratory",
+  "metrics": {
+    "excess_kurtosis": 3.1836515375260825,
+    "final_mid": 970.5,
+    "max_drawdown": 0.1325618095739085,
+    "mean_depth_at_best": 150.47315555555556,
+    "mean_spread": 1.1092,
+    "mean_wealth_change_MR": null,
+    "mean_wealth_change_PA": null,
+    "mean_wealth_change_TF": -30833.2,
+    "mean_wealth_change_ZI": -28928.628571428573,
+    "n_nonzero_returns": 455,
+    "n_returns": 1800,
+    "one_sided_fraction": 0.0,
+    "realised_volatility": 0.00041478082844262836,
+    "rejected_fraction": 0.007293300470535514,
+    "return_acf1": -0.017732308024450093,
+    "tf_skip_fraction": 0.026129756871035942,
+    "vci": -0.03869607733825361,
+    "vci_dt10": 0.046984822980795114,
+    "vci_dt200": -0.024285180199909027,
+    "volume_per_step": 0.8074666666666667
+  },
+  "run_id": "PILOT-LIQ-high-ZI+TF-s28",
+  "runtime_s": 1.7515386249997391,
+  "schema": "market.run_result",
+  "schema_version": "1.0.0",
+  "seed": 28,
+  "shock": null,
+  "status": "ok"
+}

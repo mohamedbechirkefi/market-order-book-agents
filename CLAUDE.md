@@ -61,4 +61,5 @@ Then `research/decision_log.md`, `research/experiment_registry.csv` and the rele
 /Users/bechir/research/labs/.tools/py/bin/uv sync --frozen    # install locked deps into .venv
 /Users/bechir/research/labs/.tools/py/bin/uv run pytest       # tests
 /Users/bechir/research/labs/.tools/py/bin/uv lock             # re-lock (respects exclude-newer)
+/Users/bechir/research/labs/.tools/py/bin/uv run python -m market.cli smoke|run|report|test
 ```

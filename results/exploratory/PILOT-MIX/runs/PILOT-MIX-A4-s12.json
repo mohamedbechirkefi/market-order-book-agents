@@ -1,0 +1,102 @@
+{
+  "arm": "A4",
+  "config": {
+    "burn_in": 10000,
+    "composition": {
+      "MR": 0,
+      "PA": 30,
+      "TF": 0,
+      "ZI": 70
+    },
+    "extra_vci_intervals": [
+      10,
+      200
+    ],
+    "initial_cash": 1000000,
+    "initial_inventory": 1000,
+    "initial_orders_per_side": 20,
+    "initial_price": 1000,
+    "lookback": 500,
+    "max_order_size": 5,
+    "order_lifetime": 2000,
+    "pa_skip_prob": 0.0,
+    "sample_interval": 50,
+    "shock_fraction": 0.5,
+    "shock_inventory": 1000000,
+    "shock_step": null,
+    "steps": 100000,
+    "strategic_market_prob": 0.5,
+    "tick": 1,
+    "zi_limit_offset": 10,
+    "zi_market_prob": 0.2
+  },
+  "config_hash": "8fd99e77580accb44592fd80eb1e5842ee812892adbbc449050763a6ba053719",
+  "counts": {
+    "activations": {
+      "MR": 0,
+      "PA": 29902,
+      "TF": 0,
+      "ZI": 70098
+    },
+    "expired": 32027,
+    "fills": 55887,
+    "limit_orders": 71040,
+    "market_orders": 28960,
+    "market_unfilled_units": 0,
+    "no_order": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 0,
+      "ZI": 0
+    },
+    "rejected": 0,
+    "rejected_post_burn_in": 0,
+    "seed_orders_placed": 40,
+    "seed_orders_rejected": 0,
+    "self_fills": 593,
+    "submitted": 100000,
+    "submitted_post_burn_in": 90000
+  },
+  "error": null,
+  "exp_id": "PILOT-MIX",
+  "flags": {
+    "degenerate": false,
+    "fewer_than_50_nonzero_returns": false,
+    "one_sided_over_5pct": false,
+    "vci_undefined": false
+  },
+  "invariants": {
+    "checked": 1,
+    "passed": true
+  },
+  "label": "exploratory",
+  "metrics": {
+    "excess_kurtosis": 0.5063363507669063,
+    "final_mid": 1007.0,
+    "max_drawdown": 0.009955201592832252,
+    "mean_depth_at_best": 68.35548888888889,
+    "mean_spread": 1.912711111111111,
+    "mean_wealth_change_MR": null,
+    "mean_wealth_change_PA": 6582.4,
+    "mean_wealth_change_TF": null,
+    "mean_wealth_change_ZI": 7178.971428571429,
+    "n_nonzero_returns": 1369,
+    "n_returns": 1800,
+    "one_sided_fraction": 0.0,
+    "realised_volatility": 0.001171097757010195,
+    "rejected_fraction": 0.0,
+    "return_acf1": -0.35506576854219574,
+    "tf_skip_fraction": null,
+    "vci": 0.05116868532312062,
+    "vci_dt10": 0.09024744572815119,
+    "vci_dt200": 0.013555302381288954,
+    "volume_per_step": 1.0107
+  },
+  "run_id": "PILOT-MIX-A4-s12",
+  "runtime_s": 2.091840790999413,
+  "schema": "market.run_result",
+  "schema_version": "1.0.0",
+  "seed": 12,
+  "shock": null,
+  "status": "ok"
+}

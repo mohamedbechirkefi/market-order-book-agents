@@ -1,0 +1,102 @@
+{
+  "arm": "A1",
+  "config": {
+    "burn_in": 1000,
+    "composition": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 30,
+      "ZI": 70
+    },
+    "extra_vci_intervals": [
+      10,
+      200
+    ],
+    "initial_cash": 1000000,
+    "initial_inventory": 1000,
+    "initial_orders_per_side": 20,
+    "initial_price": 1000,
+    "lookback": 500,
+    "max_order_size": 5,
+    "order_lifetime": 2000,
+    "pa_skip_prob": 0.0,
+    "sample_interval": 50,
+    "shock_fraction": 0.5,
+    "shock_inventory": 1000000,
+    "shock_step": null,
+    "steps": 10000,
+    "strategic_market_prob": 0.5,
+    "tick": 1,
+    "zi_limit_offset": 10,
+    "zi_market_prob": 0.2
+  },
+  "config_hash": "b8c59da92dfddc52c8515f058567d8208388cd9718eaad8923a6045c7bb2abf5",
+  "counts": {
+    "activations": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 3004,
+      "ZI": 6996
+    },
+    "expired": 2426,
+    "fills": 5561,
+    "limit_orders": 7078,
+    "market_orders": 2921,
+    "market_unfilled_units": 0,
+    "no_order": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 1,
+      "ZI": 0
+    },
+    "rejected": 0,
+    "rejected_post_burn_in": 0,
+    "seed_orders_placed": 40,
+    "seed_orders_rejected": 0,
+    "self_fills": 33,
+    "submitted": 9999,
+    "submitted_post_burn_in": 9000
+  },
+  "error": null,
+  "exp_id": "SMOKE",
+  "flags": {
+    "degenerate": false,
+    "fewer_than_50_nonzero_returns": false,
+    "one_sided_over_5pct": false,
+    "vci_undefined": false
+  },
+  "invariants": {
+    "checked": 1,
+    "passed": true
+  },
+  "label": "exploratory",
+  "metrics": {
+    "excess_kurtosis": 1.3272650240776116,
+    "final_mid": 889.5,
+    "max_drawdown": 0.06764551651809125,
+    "mean_depth_at_best": 78.5261111111111,
+    "mean_spread": 1.4196666666666666,
+    "mean_wealth_change_MR": null,
+    "mean_wealth_change_PA": null,
+    "mean_wealth_change_TF": -103590.48333333334,
+    "mean_wealth_change_ZI": -113461.22142857143,
+    "n_nonzero_returns": 107,
+    "n_returns": 180,
+    "one_sided_fraction": 0.0,
+    "realised_volatility": 0.0006157934530377516,
+    "rejected_fraction": 0.0,
+    "return_acf1": -0.36079095944960177,
+    "tf_skip_fraction": 0.00033288948069241014,
+    "vci": -0.011709305493832324,
+    "vci_dt10": 0.06520160520755756,
+    "vci_dt200": 0.14892474330867014,
+    "volume_per_step": 0.9891111111111112
+  },
+  "run_id": "SMOKE-A1-s2",
+  "runtime_s": 0.1539569169999595,
+  "schema": "market.run_result",
+  "schema_version": "1.0.0",
+  "seed": 2,
+  "shock": null,
+  "status": "ok"
+}

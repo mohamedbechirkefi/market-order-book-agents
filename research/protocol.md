@@ -135,7 +135,7 @@ the mean sample autocorrelation of absolute returns over lags 1 to 10 (dimension
 
 Market-order share; the number of active liquidity providers (replacing ZI agents also removes limit orders); order lifetime; burn-in length; initial book seeding; event-time versus clock-time sampling; integer price effects at low prices. The full list is in [`limitations.md`](limitations.md).
 
-## 11. Reproducibility commands (planned, not yet implemented)
+## 11. Reproducibility commands (implemented in M2; `run --exp` refuses until the freeze)
 
 ```
 uv sync --frozen
@@ -147,4 +147,6 @@ uv run python -m market.cli report --exp EXP-001
 
 ## 12. Amendments
 
-None. Any change after the freeze will be dated, justified and labelled exploratory.
+None applied. Any change after the freeze will be dated, justified and labelled exploratory.
+
+Pre-freeze proposals from the M2 exploratory pilot (journal J-0003) are listed in `decision_log.md` D-007 and await the owner's decision; implementation choices where this draft was silent are in D-006. Neither is applied to this text.
