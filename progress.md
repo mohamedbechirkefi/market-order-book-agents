@@ -105,3 +105,32 @@ Decisions: D-006 (implementation choices), D-007 (proposed amendments, not appli
 ### Owner decisions needed
 1. D-006 implementation choices and D-007 amendments (budget, seed count, the degenerate low-liquidity cell, placebo matching, folding D-006 into protocol section 3).
 2. Then freeze the protocol and record its hash in the registry; the runner will then accept `run --exp`.
+
+## 2026-11-24: Session 3, real data (FI-2010), round-2 amendments and freeze (M1 gate)
+
+**Milestone:** M1 (freeze). **Next bounded task:** M3 confirmatory runs when the coordinator schedules them (quiet machine); EXP-005 needs `scripts/download_fi2010.py` run locally first.
+
+### State found
+`git status`: clean on `main` at `c1369b2`. Authority: `labs/_shared/owner-approvals-2026-11-24b.md` sections 1 and 7 ("Approve all", "yes for all others") and the DATA-FREEZE and FREEZE briefs.
+
+### Licence check and download
+- Fairdata Metax record (opened 2026-11-24): CC BY 4.0, access "Open", one file `BenchmarkDatasets.zip`, 1,864,361,899 bytes, SHA-256 `cea93692...f664`. Licence matches the approvals file. The Etsin `/api/v3/download/authorize` endpoint gave an open download URL (no account).
+- `python3 -I scripts/download_fi2010.py` -> exit 0 after about 52 min; archive SHA-256 and size equal to the record; extracted `Train_Dst_NoAuction_DecPre_CF_9.txt` (863,961,898 bytes, `f46b3dd6...a02a`) and `Test_Dst_NoAuction_DecPre_CF_9.txt` (76,138,106 bytes, `c09785b0...aca0`); archive deleted; `data/raw/` git-ignored.
+
+### Structural inspection and reference fit (J-0004, exploratory)
+- Reference file: 362,400 columns, 0 missing, 0 non-positive, 0 crossed; four jumps above 0.2 and none between 0.035 and 0.26, so the files are ordered by stock and stock-days cannot be located. The R1 method was revised before fitting: 5 stock segments (J = 0.1), 9,000-column blocks (37 blocks; remainders 856, 8,807, 3,176, 8,784, 7,777 columns dropped). Held-out file: 31,937 columns, 5 segments (counts only).
+- `python -m market.cli realdata reference --write-config` -> exit 0. Reference medians (min..max over 37 blocks), h = 5: VCI 0.0481 (0.0004..0.1680); realised volatility 0.000500 (0.000235..0.001041); mean relative spread 0.001675 (0.001098..0.002340). Written to `experiments/realdata/EXP-005.json`.
+
+### Amendments and code
+A1 to A5, R1, R2 applied (protocol section 12; D-009, D-010). Code: `market.realdata`, `realdata` CLI, `report --exp`, `excluded_from_contrasts`, comparison metrics, freeze guard against `research/freeze.json`. The two M2 tests that called `run --exp EXP-001` expecting a refusal were rewritten: after the freeze they would have launched a confirmatory run.
+
+### Tests
+- `../.tools/py/bin/uv sync --frozen --all-groups --all-extras` -> `Audited 9 packages`.
+- `.venv/bin/python -m pytest` before the freeze record: 142 passed, 10 failed (the 10 tests that require `research/freeze.json`, as expected); after: **154 passed, 0 failed**.
+- Guard check by hand: `check_gate` accepts EXP-001..004 as committed; an EXP-001 copy with seeds to 1031 -> refused ("the loaded config differs from the frozen config"); `realdata reference --write-config` -> refused, exit 3. No `results/confirmatory/` folder exists.
+
+### Freeze
+`research/freeze.json`: owner quotes, C1 to C4 with C4 disclosure, amendments, SHA-256 of the main protocol (`a5e3663b...3754`), the five EXP protocols and five configs at revision `d467595`, data manifest hash. Registry statuses "frozen (owner-approved 2026-11-24), not yet run". D-011.
+
+### Not done
+No confirmatory run, no push, no paid service. The held-out day 10 statistics and every simulated-versus-real placement are left to M3.
