@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "market.run_result/1.0.0",
+  "title": "MARKET run result",
+  "description": "One simulation run (one arm, one seed). Covered by NOTICE.md (LicenseRef-MARKET-NC-Research-1.0).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "schema_version", "label", "exp_id", "arm", "run_id", "seed", "config", "config_hash", "metrics", "flags", "counts", "invariants", "status"],
+  "properties": {
+    "schema": {"type": "string", "enum": ["market.run_result"]},
+    "schema_version": {"type": "string", "enum": ["1.0.0"]},
+    "label": {"type": "string", "enum": ["exploratory", "confirmatory"]},
+    "exp_id": {"type": "string"},
+    "arm": {"type": "string"},
+    "run_id": {"type": "string"},
+    "seed": {"type": "integer", "minimum": 0},
+    "config": {"type": "object"},
+    "config_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "status": {"type": "string", "enum": ["ok", "failed"]},
+    "error": {"type": ["string", "null"]},
+    "metrics": {
+      "type": "object",
+      "required": ["vci", "realised_volatility", "excess_kurtosis", "return_acf1", "mean_spread", "mean_depth_at_best", "volume_per_step", "max_drawdown", "one_sided_fraction", "rejected_fraction", "n_returns", "n_nonzero_returns"],
+      "additionalProperties": {"type": ["number", "integer", "boolean", "null"]}
+    },
+    "flags": {
+      "type": "object",
+      "required": ["one_sided_over_5pct", "fewer_than_50_nonzero_returns", "vci_undefined", "degenerate"],
+      "additionalProperties": {"type": "boolean"}
+    },
+    "counts": {"type": "object"},
+    "invariants": {
+      "type": "object",
+      "required": ["checked", "passed"],
+      "additionalProperties": false,
+      "properties": {
+        "checked": {"type": "integer", "minimum": 0},
+        "passed": {"type": "boolean"}
+      }
+    },
+    "shock": {"type": ["object", "null"]},
+    "runtime_s": {"type": "number", "minimum": 0}
+  }
+}

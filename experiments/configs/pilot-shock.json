@@ -1,0 +1,33 @@
+{
+  "exp_id": "PILOT-SHOCK",
+  "label": "exploratory",
+  "note": "EXPLORATORY pilot of the EXP-003 arms on development seeds 31..40. Not evidence.",
+  "seeds": {
+    "from": 31,
+    "to": 40
+  },
+  "base": {
+    "shock_step": 50000,
+    "shock_fraction": 0.5
+  },
+  "arms": {
+    "S-ZI": {
+      "composition": {
+        "ZI": 100
+      }
+    },
+    "S-ZI+TF": {
+      "composition": {
+        "ZI": 70,
+        "TF": 30
+      }
+    },
+    "S-ZI+MR": {
+      "composition": {
+        "ZI": 70,
+        "MR": 30
+      }
+    }
+  },
+  "series_every": 100
+}

@@ -1,0 +1,52 @@
+{
+  "exp_id": "PILOT-LIQ",
+  "label": "exploratory",
+  "note": "EXPLORATORY pilot of the EXP-002 arms on development seeds 21..30. Not evidence.",
+  "seeds": {
+    "from": 21,
+    "to": 30
+  },
+  "base": {},
+  "arms": {
+    "low-ZI": {
+      "composition": {
+        "ZI": 100
+      },
+      "zi_market_prob": 0.35
+    },
+    "low-ZI+TF": {
+      "composition": {
+        "ZI": 70,
+        "TF": 30
+      },
+      "zi_market_prob": 0.35
+    },
+    "med-ZI": {
+      "composition": {
+        "ZI": 100
+      },
+      "zi_market_prob": 0.2
+    },
+    "med-ZI+TF": {
+      "composition": {
+        "ZI": 70,
+        "TF": 30
+      },
+      "zi_market_prob": 0.2
+    },
+    "high-ZI": {
+      "composition": {
+        "ZI": 100
+      },
+      "zi_market_prob": 0.1
+    },
+    "high-ZI+TF": {
+      "composition": {
+        "ZI": 70,
+        "TF": 30
+      },
+      "zi_market_prob": 0.1
+    }
+  },
+  "series_every": 100
+}

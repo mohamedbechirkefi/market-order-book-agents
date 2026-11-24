@@ -43,3 +43,11 @@ Run from the repository root with uv (dependencies are locked in `uv.lock`):
     uv sync --frozen      # install the locked environment into .venv
     uv run pytest         # run the test suite
     uv lock               # re-lock; resolution is limited by tool.uv.exclude-newer in pyproject.toml
+
+Research command line (M2):
+
+    uv run python -m market.cli smoke                         # exploratory smoke matrix -> results/exploratory/smoke
+    uv run python -m market.cli run --config experiments/configs/pilot-mixtures.json --workers 8
+    uv run python -m market.cli run --exp EXP-001             # refused until the owner freezes the protocol
+    uv run python -m market.cli report --results results/exploratory/smoke --pdf
+    uv run python -m market.cli test

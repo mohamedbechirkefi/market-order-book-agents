@@ -1,0 +1,38 @@
+{
+  "exp_id": "EXP-001",
+  "label": "confirmatory",
+  "protocol_path": "research/experiments/EXP-001/protocol.md",
+  "note": "Draft v0.1 parameters (planning values). Runs only after the owner freezes the protocol.",
+  "seeds": {
+    "from": 1001,
+    "to": 1030
+  },
+  "base": {},
+  "arms": {
+    "A0": {
+      "composition": {
+        "ZI": 100
+      }
+    },
+    "A1": {
+      "composition": {
+        "ZI": 70,
+        "TF": 30
+      }
+    },
+    "A2": {
+      "composition": {
+        "ZI": 70,
+        "MR": 30
+      }
+    },
+    "A3": {
+      "composition": {
+        "ZI": 70,
+        "TF": 15,
+        "MR": 15
+      }
+    }
+  },
+  "series_every": 100
+}

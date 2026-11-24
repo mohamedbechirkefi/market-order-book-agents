@@ -1,0 +1,56 @@
+{
+  "exp_id": "PILOT-MIX",
+  "label": "exploratory",
+  "note": "EXPLORATORY pilot on development seeds 1..20 at the full draft run length: EXP-001 arms, the EXP-004 placebo arm and the tick-2 arms. Measures runtime, seed spread and degenerate cases before the freeze. Not evidence.",
+  "seeds": {
+    "from": 1,
+    "to": 20
+  },
+  "base": {},
+  "arms": {
+    "A0": {
+      "composition": {
+        "ZI": 100
+      }
+    },
+    "A1": {
+      "composition": {
+        "ZI": 70,
+        "TF": 30
+      }
+    },
+    "A2": {
+      "composition": {
+        "ZI": 70,
+        "MR": 30
+      }
+    },
+    "A3": {
+      "composition": {
+        "ZI": 70,
+        "TF": 15,
+        "MR": 15
+      }
+    },
+    "A4": {
+      "composition": {
+        "ZI": 70,
+        "PA": 30
+      }
+    },
+    "A0-tick2": {
+      "composition": {
+        "ZI": 100
+      },
+      "tick": 2
+    },
+    "A1-tick2": {
+      "composition": {
+        "ZI": 70,
+        "TF": 30
+      },
+      "tick": 2
+    }
+  },
+  "series_every": 100
+}
