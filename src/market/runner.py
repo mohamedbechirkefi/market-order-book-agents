@@ -151,7 +151,7 @@ def git_info(root: Path | None = None) -> dict:
     root = root or repo_root()
     try:
         rev = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
-        dirty = bool(subprocess.run(["git", "-C", str(root), "status", "--porcelain"], capture_output=True, text=True, check=True).stdout.strip())
+        dirty = bool(subprocess.run(["git", "-C", str(root), "status", "--porcelain", "--untracked-files=no"], capture_output=True, text=True, check=True).stdout.strip())
         return {"revision": rev, "dirty": dirty}
     except (OSError, subprocess.CalledProcessError):
         return {"revision": None, "dirty": None}
