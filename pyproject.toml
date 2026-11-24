@@ -3,7 +3,7 @@
 # Dependency resolution is limited to releases published before 2026-11-10 (two weeks before
 # the first session, 2026-11-24) through tool.uv.exclude-newer.
 [project]
-name = "market-research"
+name = "market-order-book-agents"
 version = "0.0.0"
 description = "Agent-based limit-order-book market simulation (research project MARKET)."
 readme = "README.md"

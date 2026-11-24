@@ -14,9 +14,9 @@ and
 **Contributor:** The individual accepting this Agreement.
 
 The Agreement concerns contributions intentionally submitted
-for inclusion in MARKET (research repository), planned at:
+for inclusion in MARKET (research repository), at:
 
-https://github.com/mohamedbechirkefi/market-research
+https://github.com/mohamedbechirkefi/market-order-book-agents
 
 ## 1. Ownership of contributions
 
