@@ -8,7 +8,7 @@ Five focused development days (planning estimate, master prompt section 1). Effo
 | M0 | Bootstrap and feasibility | none | P0 | 4 h | done (2026-11-24), pending owner review of the gate | none |
 | M1 | Research and preregistration | M0 | P0 | 4 h | done (2026-11-24): gate passed, protocol v1.0 frozen on the owner's approval (`research/freeze.json`, D-011) with the round-2 amendments and FI-2010 (D-009, D-010) | none (a fuller literature search on aggressiveness-matched controls remains desirable for M4) |
 | M2 | Core implementation | M1 draft (not the freeze) | P0 | 10 h | done (2026-11-24), pending owner review | none |
-| M3 | Experiments | M1 freeze, M2 | P0 | 5 h | not started (smoke matrix done as exploratory J-0002) | scheduling by the coordinator (quiet machine); FI-2010 must be present locally for EXP-005 (`scripts/download_fi2010.py`) |
+| M3 | Experiments | M1 freeze, M2 | P0 | 5 h | done (2026-11-25): full frozen matrix, 480/480 runs, 0 failed; EXP-005 comparison; five reports (J-0005 to J-0010, D-013, D-014) | owner review of D-013 analysis choices and D-014 observations |
 | M4 | Interpretation | M3 | P0 | 6 h | not started | none |
 | M5 | Interactive experience | M2 (schema), M4 (published results) | P1 | 8 h | not started | none |
 | M6 | Release candidate | M4, M5 | P0 | 3 h | not started | owner approval for any publication (G-PUBLIC) |
@@ -37,6 +37,7 @@ Five focused development days (planning estimate, master prompt section 1). Effo
 - Smoke matrix (exploratory), then the frozen full matrix (480 runs planned; EXP-003 optional), then EXP-005 on the EXP-001 runs (no new runs).
 - 11.6 addition: each experiment's report generated as it finishes; failures and deviations recorded at once.
 - **Acceptance:** complete planned matrix or documented failure; no silently dropped runs.
+- **Status (2026-11-25):** done. Gate holds: complete planned matrix (EXP-001 120, EXP-002 180, EXP-003 90, EXP-004 90 runs, all `ok`, none dropped) plus EXP-005 on the EXP-001 runs. Reports in `research/experiments/EXP-00N/report.md`; raw results committed under `results/confirmatory/` with SHA256SUMS.
 
 ## M4: Interpretation
 - Confounders, sensitivity (EXP-004), expected versus observed, claims register, limitations; manuscript synthesis; adversarial second review pass.

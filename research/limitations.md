@@ -38,3 +38,11 @@ No confirmatory results exist yet. These limitations are known from the design a
 - No simulation parameter is calibrated on the real data, so the comparison tests the frozen model as specified, not a fitted one.
 - The low-liquidity ZI+TF cell of EXP-002 is excluded from contrasts by a pre-declared rule (amendment A1); its behaviour is reported but not compared.
 - FI-2010 files carry no timestamps and are ordered by stock, then by day; day boundaries inside a stock cannot be located. Reference blocks of 9,000 columns can therefore contain an overnight return at an unknown position, which can raise kurtosis and realised volatility in that block. Held-out units (one day per stock) are shorter than a block (1,888 to 13,378 columns), so their VCI estimates are noisier than the reference blocks'.
+
+## Confirmatory results (added at M3, 2026-11-25)
+- The EXP-001 primary contrast is inconclusive at `dt` = 50, but the same contrast is positive at `dt` = 10 and 200 (EXP-004). Any statement about trend followers and clustering is conditional on the sampling interval.
+- A1's VCI varies much more across seeds than A0's (SD about 0.065 against 0.008), which limits power; the observed |d_z| (about 0.12) is far below the planned 0.53.
+- The aggressiveness-matched placebo raised VCI at least as much as trend followers at `dt` = 50; the placebo does not reproduce the serial correlation of TF order direction, which is the feedback itself.
+- EXP-003 post-shock drawdowns overlap ordinary TF excursions (no unshocked control window); spread widening was not measured.
+- Holm intervals among contrasts with a bootstrap p-value of 0 depend on input order (D-014); decisions do not.
+- The EXP-002 liquidity manipulation changes aggressive flow and limit supply together; the spread result is largely mechanical.

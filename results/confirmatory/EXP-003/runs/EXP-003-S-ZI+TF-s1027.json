@@ -1,0 +1,115 @@
+{
+  "arm": "S-ZI+TF",
+  "config": {
+    "burn_in": 10000,
+    "composition": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 30,
+      "ZI": 70
+    },
+    "extra_vci_intervals": [
+      10,
+      200
+    ],
+    "initial_cash": 1000000,
+    "initial_inventory": 1000,
+    "initial_orders_per_side": 20,
+    "initial_price": 1000,
+    "lookback": 500,
+    "max_order_size": 5,
+    "order_lifetime": 2000,
+    "pa_skip_prob": 0.0,
+    "sample_interval": 50,
+    "shock_fraction": 0.5,
+    "shock_inventory": 1000000,
+    "shock_step": 50000,
+    "steps": 100000,
+    "strategic_market_prob": 0.5,
+    "tick": 1,
+    "zi_limit_offset": 10,
+    "zi_market_prob": 0.2
+  },
+  "config_hash": "8957c455fd2d57759920258a768d4408a7704509a855370548abba8b797150ff",
+  "counts": {
+    "activations": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 29995,
+      "ZI": 70005
+    },
+    "expired": 31347,
+    "fills": 55731,
+    "limit_orders": 71023,
+    "market_orders": 28876,
+    "market_unfilled_units": 0,
+    "no_order": {
+      "MR": 0,
+      "PA": 0,
+      "TF": 102,
+      "ZI": 0
+    },
+    "rejected": 812,
+    "rejected_post_burn_in": 812,
+    "seed_orders_placed": 40,
+    "seed_orders_rejected": 0,
+    "self_fills": 272,
+    "submitted": 99899,
+    "submitted_post_burn_in": 89909
+  },
+  "error": null,
+  "exp_id": "EXP-003",
+  "flags": {
+    "degenerate": false,
+    "fewer_than_50_nonzero_returns": false,
+    "one_sided_over_5pct": false,
+    "vci_undefined": false
+  },
+  "invariants": {
+    "checked": 1,
+    "passed": true
+  },
+  "label": "confirmatory",
+  "metrics": {
+    "excess_kurtosis": 8.790133043956683,
+    "final_mid": 894.5,
+    "max_drawdown": 0.20169971671388098,
+    "mean_depth_at_best": 110.37171111111111,
+    "mean_relative_spread": 0.0016441539368324514,
+    "mean_spread": 1.2933333333333332,
+    "mean_wealth_change_MR": null,
+    "mean_wealth_change_PA": null,
+    "mean_wealth_change_TF": -82654.63333333333,
+    "mean_wealth_change_ZI": -113229.55714285714,
+    "n_nonzero_returns": 780,
+    "n_returns": 1800,
+    "one_sided_fraction": 0.0,
+    "realised_volatility": 0.0006412402434518861,
+    "realised_volatility_dt10": 0.00034964000980092604,
+    "realised_volatility_dt200": 0.0013366507285594315,
+    "rejected_fraction": 0.009031353924523686,
+    "return_acf1": -0.000960091926589603,
+    "shock_drawdown": 0.04468517264725791,
+    "shock_recovery_censored": false,
+    "shock_recovery_steps": 10,
+    "shock_window_truncated": false,
+    "tf_skip_fraction": 0.0034005667611268545,
+    "vci": 0.010876921371368694,
+    "vci_dt10": 0.07947117651098057,
+    "vci_dt200": 0.042595735243154555,
+    "volume_per_step": 1.0079777777777779
+  },
+  "run_id": "EXP-003-S-ZI+TF-s1027",
+  "runtime_s": 1.5772833750015707,
+  "schema": "market.run_result",
+  "schema_version": "1.0.0",
+  "seed": 1027,
+  "shock": {
+    "bid_depth": 1781,
+    "filled": 890,
+    "pre_shock_mid": 738.5,
+    "qty": 890,
+    "step": 50000
+  },
+  "status": "ok"
+}

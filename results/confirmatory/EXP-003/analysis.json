@@ -1,0 +1,336 @@
+{
+  "label": "confirmatory",
+  "exp_id": "EXP-003",
+  "analysis": "market.frozen_analysis (D-013)",
+  "n_resamples": 10000,
+  "bootstrap_seed": 20261124,
+  "result": {
+    "primary": {
+      "role": "primary",
+      "treatment": "S-ZI+TF",
+      "control": "S-ZI",
+      "metric": "shock_drawdown",
+      "n_pairs": 30,
+      "mean_diff": 0.02545045472697423,
+      "sd_diff": 0.016742772638716277,
+      "d_z": 1.520086026141343,
+      "ci95_low": 0.019762294450308183,
+      "ci95_high": 0.031482655951252186,
+      "p_boot": 0.0,
+      "seeds_used": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        1009,
+        1010,
+        1011,
+        1012,
+        1013,
+        1014,
+        1015,
+        1016,
+        1017,
+        1018,
+        1019,
+        1020,
+        1021,
+        1022,
+        1023,
+        1024,
+        1025,
+        1026,
+        1027,
+        1028,
+        1029,
+        1030
+      ],
+      "verdict": "supported"
+    },
+    "sensitivity_exclusion": {
+      "role": "sensitivity: flagged runs and partners excluded",
+      "treatment": "S-ZI+TF",
+      "control": "S-ZI",
+      "metric": "shock_drawdown",
+      "n_pairs": 30,
+      "mean_diff": 0.02545045472697423,
+      "sd_diff": 0.016742772638716277,
+      "d_z": 1.520086026141343,
+      "ci95_low": 0.019762294450308183,
+      "ci95_high": 0.031482655951252186,
+      "p_boot": 0.0,
+      "seeds_used": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        1009,
+        1010,
+        1011,
+        1012,
+        1013,
+        1014,
+        1015,
+        1016,
+        1017,
+        1018,
+        1019,
+        1020,
+        1021,
+        1022,
+        1023,
+        1024,
+        1025,
+        1026,
+        1027,
+        1028,
+        1029,
+        1030
+      ],
+      "verdict": "supported"
+    },
+    "flagged_seeds": [],
+    "secondary_holm": [
+      {
+        "role": "secondary",
+        "treatment": "S-ZI+MR",
+        "control": "S-ZI",
+        "metric": "shock_drawdown",
+        "n_pairs": 30,
+        "mean_diff": -0.0007314493860289151,
+        "sd_diff": 0.0024799883103229546,
+        "d_z": -0.29494065878627573,
+        "ci95_low": -0.001589799596529856,
+        "ci95_high": 0.0001318534866492344,
+        "p_boot": 0.0932,
+        "seeds_used": [
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009,
+          1010,
+          1011,
+          1012,
+          1013,
+          1014,
+          1015,
+          1016,
+          1017,
+          1018,
+          1019,
+          1020,
+          1021,
+          1022,
+          1023,
+          1024,
+          1025,
+          1026,
+          1027,
+          1028,
+          1029,
+          1030
+        ],
+        "holm_rank": 1,
+        "holm_m": 1,
+        "p_holm": 0.0932,
+        "holm_level": 0.95,
+        "holm_ci_low": -0.001589799596529856,
+        "holm_ci_high": 0.0001318534866492344
+      }
+    ],
+    "recovery_kaplan_meier": {
+      "S-ZI": {
+        "n": 30,
+        "events": 30,
+        "censored": 0,
+        "median_steps": 0,
+        "curve": [
+          [
+            0,
+            0.09999999999999998
+          ],
+          [
+            3581,
+            0.06666666666666667
+          ],
+          [
+            9412,
+            0.03333333333333333
+          ],
+          [
+            10956,
+            0.0
+          ]
+        ]
+      },
+      "S-ZI+TF": {
+        "n": 30,
+        "events": 23,
+        "censored": 7,
+        "median_steps": 1537,
+        "curve": [
+          [
+            2,
+            0.9666666666666667
+          ],
+          [
+            9,
+            0.9333333333333333
+          ],
+          [
+            10,
+            0.8666666666666667
+          ],
+          [
+            60,
+            0.8333333333333334
+          ],
+          [
+            91,
+            0.8
+          ],
+          [
+            974,
+            0.7666666666666667
+          ],
+          [
+            990,
+            0.7333333333333334
+          ],
+          [
+            1302,
+            0.7000000000000001
+          ],
+          [
+            1396,
+            0.6666666666666667
+          ],
+          [
+            1414,
+            0.6333333333333334
+          ],
+          [
+            1427,
+            0.6000000000000001
+          ],
+          [
+            1457,
+            0.5666666666666668
+          ],
+          [
+            1486,
+            0.5333333333333334
+          ],
+          [
+            1526,
+            0.5000000000000001
+          ],
+          [
+            1537,
+            0.4666666666666668
+          ],
+          [
+            1544,
+            0.43333333333333346
+          ],
+          [
+            1600,
+            0.40000000000000013
+          ],
+          [
+            1689,
+            0.36666666666666675
+          ],
+          [
+            1702,
+            0.3333333333333334
+          ],
+          [
+            8967,
+            0.3000000000000001
+          ],
+          [
+            9761,
+            0.2666666666666667
+          ],
+          [
+            16788,
+            0.2333333333333334
+          ]
+        ]
+      },
+      "S-ZI+MR": {
+        "n": 30,
+        "events": 30,
+        "censored": 0,
+        "median_steps": 0,
+        "curve": [
+          [
+            0,
+            0.0
+          ]
+        ]
+      }
+    },
+    "shock_covariates": {
+      "S-ZI": {
+        "bid_depth_at_shock_mean": 1551.0333333333333,
+        "bid_depth_at_shock_sd": 94.86014508968866,
+        "window_truncated": 0
+      },
+      "S-ZI+TF": {
+        "bid_depth_at_shock_mean": 1285.2333333333333,
+        "bid_depth_at_shock_sd": 564.8776299178514,
+        "window_truncated": 0
+      },
+      "S-ZI+MR": {
+        "bid_depth_at_shock_mean": 1191.4666666666667,
+        "bid_depth_at_shock_sd": 123.20930700776356,
+        "window_truncated": 0
+      }
+    },
+    "arm_flags": {
+      "S-ZI": {
+        "runs": 30,
+        "failed": 0,
+        "degenerate": 0,
+        "one_sided_over_5pct": 0,
+        "fewer_than_50_nonzero_returns": 0,
+        "vci_undefined": 0,
+        "flag_rate": 0.0
+      },
+      "S-ZI+MR": {
+        "runs": 30,
+        "failed": 0,
+        "degenerate": 0,
+        "one_sided_over_5pct": 0,
+        "fewer_than_50_nonzero_returns": 0,
+        "vci_undefined": 0,
+        "flag_rate": 0.0
+      },
+      "S-ZI+TF": {
+        "runs": 30,
+        "failed": 0,
+        "degenerate": 0,
+        "one_sided_over_5pct": 0,
+        "fewer_than_50_nonzero_returns": 0,
+        "vci_undefined": 0,
+        "flag_rate": 0.0
+      }
+    },
+    "not_measured": "spread widening after the shock: no per-run metric exists and the protocol gives no formula (D-013)"
+  }
+}

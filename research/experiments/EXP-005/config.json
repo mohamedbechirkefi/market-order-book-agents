@@ -1,0 +1,132 @@
+{
+  "exp_id": "EXP-005",
+  "label": "confirmatory",
+  "protocol_path": "research/experiments/EXP-005/protocol.md",
+  "note": "Frozen v1.0 (owner-approved 2026-11-24). Real-market comparison (amendment R1). Reference values estimated on the reference split only (days 1..9), journal J-0004 (exploratory). No simulation parameter is calibrated on FI-2010.",
+  "dataset": "fi-2010",
+  "reference_file": "data/raw/fi2010/Train_Dst_NoAuction_DecPre_CF_9.txt",
+  "reference_sha256": "f46b3dd6f299dd1179f342b27ac81545747607e227fdd7510482f57d405ca02a",
+  "heldout_file": "data/raw/fi2010/Test_Dst_NoAuction_DecPre_CF_9.txt",
+  "heldout_sha256": "c09785b0aed0825ad566f8fe33a3b7d8c3fbb8993856d162976cb4e1c410aca0",
+  "jump_threshold": 0.1,
+  "expected_segments": {
+    "reference": 5,
+    "heldout": 5
+  },
+  "block_columns": {
+    "reference": 9000,
+    "heldout": null
+  },
+  "rows_per_return": {
+    "primary": 5,
+    "dt10": 1,
+    "dt200": 20
+  },
+  "events_per_row": 10,
+  "min_returns": 50,
+  "simulated_from": "EXP-001",
+  "arms": [
+    "A0",
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "bootstrap": {
+    "n_resamples": 10000,
+    "seed": 20261124
+  },
+  "reference": {
+    "primary": {
+      "units": 37,
+      "excluded_short_units": 0,
+      "vci": {
+        "n": 37,
+        "median": 0.04809500988229569,
+        "q25": 0.019024893432340602,
+        "q75": 0.07710589097335721,
+        "min": 0.00043527504490491214,
+        "max": 0.16804908753717254
+      },
+      "realised_volatility": {
+        "n": 37,
+        "median": 0.0004999005788191273,
+        "q25": 0.0003305619404036278,
+        "q75": 0.0007106160397929793,
+        "min": 0.00023540054638764222,
+        "max": 0.0010409480057874945
+      },
+      "mean_relative_spread": {
+        "n": 37,
+        "median": 0.0016745377054307102,
+        "q25": 0.0014472750413690048,
+        "q75": 0.00177962996544313,
+        "min": 0.0010976935793749502,
+        "max": 0.002340255042755534
+      },
+      "excess_kurtosis": {
+        "n": 37,
+        "median": 23.593886534955782,
+        "q25": 8.156228149282864,
+        "q75": 311.61844032374864,
+        "min": 2.01772843475689,
+        "max": 1247.0447589800287
+      },
+      "return_acf1": {
+        "n": 37,
+        "median": 0.011939617025615213,
+        "q25": -0.030949672000054437,
+        "q75": 0.057636358947136694,
+        "min": -0.11661336280838447,
+        "max": 0.13200540710483194
+      }
+    },
+    "dt10": {
+      "units": 37,
+      "excluded_short_units": 0,
+      "vci": {
+        "n": 37,
+        "median": 0.05523581018072138,
+        "q25": 0.026446324502309198,
+        "q75": 0.08307137346438333,
+        "min": 0.002766830952244506,
+        "max": 0.1696450739966723
+      },
+      "realised_volatility": {
+        "n": 37,
+        "median": 0.00024464208573505365,
+        "q25": 0.000164174307741835,
+        "q75": 0.000327786458341053,
+        "min": 0.0001231619029328061,
+        "max": 0.0004851297575167066
+      }
+    },
+    "dt200": {
+      "units": 37,
+      "excluded_short_units": 0,
+      "vci": {
+        "n": 37,
+        "median": 0.023595882519775076,
+        "q25": 0.010929800885278094,
+        "q75": 0.08203627167300624,
+        "min": -0.012779932393721789,
+        "max": 0.1860188656091732
+      },
+      "realised_volatility": {
+        "n": 37,
+        "median": 0.0010210192034144445,
+        "q25": 0.0007424121451426286,
+        "q75": 0.0014329494731874827,
+        "min": 0.0004513358639049206,
+        "max": 0.002166107023669515
+      }
+    }
+  },
+  "reference_counts": {
+    "columns": 362400,
+    "missing": 0,
+    "non_positive_price": 0,
+    "crossed_or_locked": 0,
+    "kept": 362400,
+    "segments": 5
+  }
+}

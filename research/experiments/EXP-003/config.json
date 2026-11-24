@@ -1,0 +1,34 @@
+{
+  "exp_id": "EXP-003",
+  "label": "confirmatory",
+  "protocol_path": "research/experiments/EXP-003/protocol.md",
+  "note": "Frozen v1.0 (owner-approved 2026-11-24). Optional (amendment A3). One market sell of 50% of resting bid depth at step 50,000.",
+  "seeds": {
+    "from": 1001,
+    "to": 1030
+  },
+  "base": {
+    "shock_step": 50000,
+    "shock_fraction": 0.5
+  },
+  "arms": {
+    "S-ZI": {
+      "composition": {
+        "ZI": 100
+      }
+    },
+    "S-ZI+TF": {
+      "composition": {
+        "ZI": 70,
+        "TF": 30
+      }
+    },
+    "S-ZI+MR": {
+      "composition": {
+        "ZI": 70,
+        "MR": 30
+      }
+    }
+  },
+  "series_every": 100
+}
