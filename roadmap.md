@@ -1,0 +1,55 @@
+<!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
+# Roadmap
+
+Five focused development days (planning estimate, master prompt section 1). Effort is in focused hours. Status values: `done`, `in progress`, `not started`, `blocked`. Section 11.6 additions are mandatory at every milestone.
+
+| ID | Milestone | Depends on | Priority | Effort | Status | Blockers |
+| --- | --- | --- | --- | --- | --- | --- |
+| M0 | Bootstrap and feasibility | none | P0 | 4 h | done (2026-11-24), pending owner review of the gate | none |
+| M1 | Research and preregistration | M0 | P0 | 4 h | in progress (drafts written in M0) | owner freeze (G-FREEZE); fuller literature search on aggressiveness-matched controls |
+| M2 | Core implementation | M1 draft (not the freeze) | P0 | 10 h | not started | none |
+| M3 | Experiments | M1 freeze, M2 | P0 | 5 h | not started | owner freeze |
+| M4 | Interpretation | M3 | P0 | 6 h | not started | none |
+| M5 | Interactive experience | M2 (schema), M4 (published results) | P1 | 8 h | not started | none |
+| M6 | Release candidate | M4, M5 | P0 | 3 h | not started | owner approval for any publication (G-PUBLIC) |
+
+## M0: Bootstrap and feasibility
+- Control files (section 2 and 11.1 tree), feasibility audit (`research/feasibility.md`), source and licence audit (`research/literature_review.md`, `data/manifest.json`), budget (zero cost), scope and fallback, lockfile.
+- 11.6 addition: registry initialised, manuscript skeleton, draft experiment protocols, zero-cost publication toolchain confirmed (D-003).
+- **Acceptance:** the owner can understand the question, the cost (zero) and the exclusions from `README.md` and `research/protocol.md`.
+
+## M1: Research and preregistration
+- Evidence review extended (aggressiveness-matched or placebo controls in agent-based LOB studies; random-order LOB volatility clustering results).
+- Formal model fixed with parameter values chosen on development seeds 1..999; throughput measured (needs M2 engine).
+- Protocol v1.0 for EXP-001..EXP-004; fixture manifest.
+- 11.6 addition: freeze confirmatory protocols before execution; record hash and owner approval in `research/decision_log.md` and the registry.
+- **Acceptance:** owner-approved frozen protocol with hash; exploratory results visibly separated.
+
+## M2: Core implementation
+- Order book with price-time priority, partial fills, expiry; cash and inventory accounting; ZI, TF, MR, PA agents; seeded streams; metrics; runner; CLI (`smoke`, `run`, `report`, `test`).
+- Tests: matching, partial fills, conservation, no negative balances, deterministic ordering, hand-computed examples, property tests (hypothesis), invalid inputs, extreme parameters.
+- 11.6 addition: versioned JSON result schema, run manifests (runtime, peak memory, OS, CPU, package versions, git revision, config), report generators built with the core.
+- **Acceptance:** all tests pass (counts recorded from actual runs); correctness before UI.
+
+## M3: Experiments
+- Smoke matrix (exploratory), then the frozen full matrix (480 runs planned).
+- 11.6 addition: each experiment's report generated as it finishes; failures and deviations recorded at once.
+- **Acceptance:** complete planned matrix or documented failure; no silently dropped runs.
+
+## M4: Interpretation
+- Confounders, sensitivity (EXP-004), expected versus observed, claims register, limitations; manuscript synthesis; adversarial second review pass.
+- **Acceptance:** every numerical claim maps to result id, config and figure; every external claim to a verified source.
+
+## M5: Interactive experience
+- Static page (TypeScript, Vite, Web Worker): interactive order book, price chart, agent composition control, seed and reset controls, published results with uncertainty clearly separated from visitor sandbox runs.
+- 11.6 addition: demo, paper, reports and articles show identical verified numbers.
+- **Acceptance:** offline after load, responsive, keyboard usable, reduced motion, no runtime service, no fabricated data.
+- Cut first if the schedule is threatened (section 9).
+
+## M6: Release candidate
+- Clean clone, locked install, tests, smoke reproduction, demo build, manifest and link checks, secret and licence scan; PDFs compiled and inspected via Typst; owner review checklist.
+- **Acceptance:** verified facts only; nothing pushed or published without the owner.
+
+## Fallbacks
+- Engine too slow: reduce `T`, then seeds (never below 10), by owner decision before freeze.
+- Schedule threatened: drop M5 extras, then EXP-003; never drop controls, EXP-004 or reports.

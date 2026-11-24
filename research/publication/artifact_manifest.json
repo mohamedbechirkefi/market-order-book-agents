@@ -1,0 +1,6 @@
+{
+  "schema_version": "0.1.0",
+  "created": "2026-11-24",
+  "note": "Maps every quantitative figure, table and claim to EXP id, run ids, metric, result path, generator script, config/protocol hash and code revision. Empty at M0: no artifacts exist.",
+  "artifacts": []
+}

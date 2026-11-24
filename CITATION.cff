@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0
+# Licence: MARKET Source-Available Non-Commercial Research License v1.0 (custom licence, see LICENSE).
+# The CFF "license" field is omitted on purpose: it accepts SPDX list identifiers only.
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below. Status: M0, no results yet."
+title: "MARKET: agent-based market dynamics in a simulated limit-order book"
+type: software
+authors:
+  - family-names: Kefi
+    given-names: Mohamed Bechir
+version: 0.0.0
+date-released: 2026-11-24
+keywords:
+  - agent-based model
+  - limit order book
+  - volatility clustering
+  - market microstructure
+  - simulation
