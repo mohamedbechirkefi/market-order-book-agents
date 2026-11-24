@@ -134,3 +134,21 @@ A1 to A5, R1, R2 applied (protocol section 12; D-009, D-010). Code: `market.real
 
 ### Not done
 No confirmatory run, no push, no paid service. The held-out day 10 statistics and every simulated-versus-real placement are left to M3.
+
+## 2026-11-24: Session 4, round-3 ratification (FI-2010 block method)
+
+**Milestone:** M1 (records only). **Next bounded task:** M3 confirmatory runs when the coordinator schedules them.
+
+### State found
+`git status`: clean on `main` at `09ddbd3`. Authority: `labs/_shared/owner-approvals-2026-11-24c.md` section 4 (MARKET row, "Approve all", round 3) and the ROUND3 and FREEZE briefs.
+
+### Done
+- D-012 in `research/decision_log.md`: the FI-2010 block method (5 stocks, 37 blocks of 9,000 columns, R1, J-0004) ratified, quoting the owner.
+- `research/freeze.json`: new `ratifications` list with the item, quote, source and date. The frozen files are unchanged (the frozen R1 text already holds this method), so every recorded hash still matches.
+
+### Tests
+- `../.tools/py/bin/uv sync --frozen --all-groups --all-extras` -> `Audited 9 packages`.
+- `.venv/bin/python -m pytest -q` -> **154 passed, 0 failed** (includes the guard tests: frozen configs accepted, edited config refused, freeze-record hashes match the files).
+
+### Not done
+No confirmatory run, no computation on FI-2010, no push.

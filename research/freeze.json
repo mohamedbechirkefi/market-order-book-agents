@@ -116,6 +116,18 @@
   "R2": "Metrics mean_relative_spread, realised_volatility_dt10, realised_volatility_dt200.",
   "not_applied": "D-007 item 1 (measured compute budget) was not in the approved list."
  },
+ "ratifications": [
+  {
+   "item": "R1 FI-2010 block method: 5 stock segments (J = 0.1), 37 blocks of 9,000 columns on days 1..9, remainders dropped and counted; decided before any reference value was computed (protocol section 12 R1, journal J-0004).",
+   "approved_by": "the owner",
+   "approval_date": "2026-11-24",
+   "round": 3,
+   "approval_source": "labs/_shared/owner-approvals-2026-11-24c.md (coordinator file outside this repository), section 4, MARKET row",
+   "approval_quote": "\"Approve all\"; MARKET: \"the FI-2010 block method (5 stocks, 37 blocks of 9,000 columns), decided before any reference value was computed (protocol R1, journal J-0004).\"",
+   "effect_on_frozen_files": "none: the frozen text of research/protocol.md section 12 R1 already contains this method, so no hash changes",
+   "decision_log": "D-012"
+  }
+ ],
  "real_data": {
   "dataset": "FI-2010",
   "license": "CC BY 4.0",

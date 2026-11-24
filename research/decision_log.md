@@ -94,3 +94,10 @@ Append-only. Each entry: id, date, decision, who decided, rationale, alternative
 - **Decided by:** the owner ("yes for all others" for the amendments, "Approve all" for the real data and the freeze; `labs/_shared/owner-approvals-2026-11-24b.md`). Recorded by the AI assistant.
 - **Decision:** `research/protocol.md` v1.0 and the protocols and configs of EXP-001 to EXP-005 are frozen. Their SHA-256 hashes, the git revision that holds them, the data manifest hash and the common decisions C1 to C4 (with the C4 disclosure of exploratory values already seen) are in `research/freeze.json`. Registry statuses: "frozen (owner-approved 2026-11-24), not yet run".
 - **Consequences:** `run` accepts a confirmatory config only if its bytes, its EXP protocol and the main protocol match the freeze record and the registry hash. Any change to a frozen file is a new study or a dated exploratory amendment. Confirmatory runs are scheduled by the coordinator (M3); none was run in this session.
+
+## D-012 (2026-11-24): FI-2010 block method ratified (owner-approved, round 3)
+
+- **Decided by:** the owner ("Approve all", 2026-11-24, round 3; `labs/_shared/owner-approvals-2026-11-24c.md` section 4, MARKET row: "the FI-2010 block method (5 stocks, 37 blocks of 9,000 columns), decided before any reference value was computed (protocol R1, journal J-0004)."). Recorded by the AI assistant.
+- **Decision:** the revision of protocol section 12 R1 recorded in D-010 and J-0004 (five stock segments found with the jump threshold J = 0.1, cut into non-overlapping blocks of 9,000 columns, 37 blocks on days 1 to 9, remainders dropped and counted) is ratified as the owner's choice.
+- **Effect on the freeze:** none on the frozen files. The frozen text of `research/protocol.md` and `research/experiments/EXP-005/protocol.md` and the config `experiments/realdata/EXP-005.json` already contain this method, so no hash changes. The ratification is listed under `ratifications` in `research/freeze.json`.
+- **Consequences:** EXP-005 proceeds at M3 under the frozen method; nothing was computed in this session.
