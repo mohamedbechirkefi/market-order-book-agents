@@ -1,6 +1,8 @@
 ---
 title: "Working title: Can a market emerge from simple rules?"
-status: "Skeleton (M0, 2026-11-24). Headings only. No results exist. Not peer-reviewed."
+author: "Mohamed Bechir Kefi"
+date: "Draft, 2026-11-24"
+status: "Skeleton. Protocol v1.0 frozen (owner-approved 2026-11-24, research/freeze.json). No confirmatory results exist. Not peer-reviewed."
 ---
 
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
@@ -37,6 +39,8 @@ status: "Skeleton (M0, 2026-11-24). Headings only. No results exist. Not peer-re
 
 ## 5.4 EXP-004: Sensitivity analyses
 
+## 5.5 EXP-005: Simulated and real-market statistics (FI-2010)
+
 # 6. Discussion
 
 # 7. Limitations and threats to validity
@@ -47,7 +51,11 @@ status: "Skeleton (M0, 2026-11-24). Headings only. No results exist. Not peer-re
 
 # 10. Data and code availability
 
+Real data: FI-2010 limit-order-book benchmark (Ntakaris, Magris, Kanniainen, Gabbouj and Iosifidis; CC BY 4.0), used only for the descriptive comparison EXP-005. It is not redistributed in this repository; `scripts/download_fi2010.py` fetches it and checks its SHA-256 (`data/manifest.json`).
+
 # 11. Funding, competing interests and AI assistance
+
+AI assistance: an AI system (Claude, Anthropic) was used as a research and development assistant for code, tests, protocol drafting and document preparation, under the author's direction and review. It is not an author. The author is responsible for the content. Funding and competing interests: to be completed before release.
 
 # References
 

@@ -2,7 +2,7 @@
 # Licence: MARKET Source-Available Non-Commercial Research License v1.0 (custom licence, see LICENSE).
 # The CFF "license" field is omitted on purpose: it accepts SPDX list identifiers only.
 cff-version: 1.2.0
-message: "If you use this work, please cite it as below. Status: M0, no results yet."
+message: "If you use this work, please cite it as below. Status: protocol v1.0 frozen (2026-11-24); no confirmatory results yet; not peer-reviewed. The AI assistant used for development is disclosed in the manuscript and is not an author."
 title: "MARKET: agent-based market dynamics in a simulated limit-order book"
 type: software
 authors:
@@ -16,3 +16,19 @@ keywords:
   - volatility clustering
   - market microstructure
   - simulation
+references:
+  - type: dataset
+    title: "Benchmark Dataset for Mid-Price Forecasting of Limit Order Book Data with Machine Learning Methods (FI-2010)"
+    authors:
+      - family-names: Ntakaris
+        given-names: Adamantios
+      - family-names: Magris
+        given-names: Martin
+      - family-names: Kanniainen
+        given-names: Juho
+      - family-names: Gabbouj
+        given-names: Moncef
+      - family-names: Iosifidis
+        given-names: Alexandros
+    url: "https://etsin.fairdata.fi/dataset/73eb48d7-4dbc-4a10-a52a-da745b47a649"
+    notes: "Licence CC BY 4.0. Used for the EXP-005 comparison only; not redistributed."

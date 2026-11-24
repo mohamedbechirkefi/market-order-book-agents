@@ -51,3 +51,10 @@ Research command line (M2):
     uv run python -m market.cli run --exp EXP-001             # refused until the owner freezes the protocol
     uv run python -m market.cli report --results results/exploratory/smoke --pdf
     uv run python -m market.cli test
+
+Real data and the freeze (added 2026-11-24):
+
+    python scripts/download_fi2010.py                          # FI-2010 into data/raw/ (git-ignored), SHA-256 checked
+    uv run python -m market.cli realdata reference             # exploratory reference values (days 1..9)
+    uv run python -m market.cli realdata compare --exp EXP-005 # gated on research/freeze.json
+    uv run python -m market.cli report --exp EXP-002           # applies the config's excluded_from_contrasts

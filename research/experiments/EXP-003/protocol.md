@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
 # EXP-003: Response to an exogenous sell shock (protocol)
 
-**Status: DRAFT v0.1, 2026-11-24. Planned (protocol draft, awaiting owner freeze). Not frozen; no protocol hash yet.** Optional under the five-day target: cut first among experiments if the schedule is threatened (roadmap fallbacks). Shared definitions are in `research/protocol.md`.
+**Status: v1.0, FROZEN (owner-approved 2026-11-24).** Draft v0.1 plus the amendments of 2026-11-24 (round 2) listed in section "Amendments before freeze" below and in `research/protocol.md` section 12. Freeze record: `research/freeze.json`. Optional under the five-day target: cut first among experiments if the schedule is threatened (roadmap fallbacks). Shared definitions are in `research/protocol.md`.
 
 ## 1. Question
 After a single large exogenous market sell order, how do agent mixtures differ in drawdown and recovery of the mid-price?
@@ -38,3 +38,8 @@ Shock size 25% of bid depth (exploratory, labelled).
 
 ## 11. Reproduction (planned)
 `uv run python -m market.cli run --exp EXP-003 && uv run python -m market.cli report --exp EXP-003`
+
+## Amendments before freeze (owner-approved 2026-11-24, round 2)
+
+- A3: EXP-003 stays optional. It is frozen with the other protocols. If the schedule is threatened it is the first experiment cut; it then receives an "abandoned" report stating why, and is never silently dropped.
+- A2: 30 seeds per arm, confirmed.

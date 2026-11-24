@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
 # EXP-001: Agent mixtures and volatility clustering (protocol)
 
-**Status: DRAFT v0.1, 2026-11-24. Planned (protocol draft, awaiting owner freeze). Not frozen; no protocol hash yet.** Shared definitions (mechanism, accounting, agents, metrics, rules) are in `research/protocol.md` sections 3, 5 and 7 and are part of this protocol by reference.
+**Status: v1.0, FROZEN (owner-approved 2026-11-24).** Draft v0.1 plus the amendments of 2026-11-24 (round 2) listed in section "Amendments before freeze" below and in `research/protocol.md` section 12. Freeze record: `research/freeze.json`. Shared definitions (mechanism, accounting, agents, metrics, rules) are in `research/protocol.md` sections 3, 5 and 7 and are part of this protocol by reference.
 
 ## 1. Question
 Does replacing 30% of random-order (ZI) agents by trend followers (TF) raise the volatility clustering index (VCI) of mid-price returns relative to an all-ZI market, with everything else held equal? Secondary: what do mean reverters (MR) and a TF+MR mix do to VCI, volatility, spread, volume and drawdown?
@@ -34,14 +34,14 @@ Independent variable: agent composition (100 agents in total in all arms).
 
 Dependent variables: VCI (primary); realised volatility, excess kurtosis, `acf(r,1)`, mean spread, depth at best, volume, maximum drawdown, one-sided fraction, rejected-order share (secondary).
 
-## 7. Fixed parameters (draft planning values; finalised from development seeds before freeze)
+## 7. Fixed parameters (frozen values; set in `experiments/configs/EXP-001.json`)
 `T = 100,000` steps, `B = 10,000`, `dt = 50`, tick 1, initial price 1,000 ticks, order size uniform on 1..5, ZI market-order probability `p_mkt = 0.2`, limit offset `delta = 10` ticks, order lifetime `tau = 2,000` steps, TF/MR lookback `L = 500` steps, TF/MR market-order probability `p_mkt_tf = 0.5`, initial endowment per agent 1,000,000 ticks of cash and 1,000 units. Initial book: 20 limit orders per side seeded from the ZI rule.
 
 ## 8. Seeds and sample size
 Seeds 1001..1030, common random numbers across arms (shared activation and ZI streams). 30 paired seeds detect `d_z` of about 0.53 at 80% power, two-sided alpha 0.05 (planning approximation, protocol section 6).
 
 ## 9. Compute budget
-120 runs. Planning target at most 10 s per run on one core (to be measured in M2); about 20 minutes total on 10 cores.
+120 runs. Planning target at most 10 s per run on one core; measured on development seeds at 0.64 to 0.68 s per run uncontended (journal J-0003).
 
 ## 10. Metric formulas
 As in `research/protocol.md` section 5. VCI = mean over lags 1..10 of the sample autocorrelation of `|r_k|`.
@@ -60,3 +60,9 @@ EXP-004 (placebo, `dt`, tick size) and exclusion of flagged runs.
 
 ## 15. Reproduction (planned)
 `uv sync --frozen && uv run python -m market.cli run --exp EXP-001 && uv run python -m market.cli report --exp EXP-001`
+
+## Amendments before freeze (owner-approved 2026-11-24, round 2)
+
+- A2: 30 seeds per arm (1001 to 1030), confirmed unchanged.
+- A5: the implementation rules of decision D-006 are now protocol section 3.6.
+- R1/R2: the EXP-001 runs also feed the descriptive real-market comparison EXP-005 (new metrics `mean_relative_spread`, `realised_volatility_dt10`, `realised_volatility_dt200`). EXP-005 does not change the analysis or the verdict of this experiment.

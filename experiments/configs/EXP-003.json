@@ -2,7 +2,7 @@
   "exp_id": "EXP-003",
   "label": "confirmatory",
   "protocol_path": "research/experiments/EXP-003/protocol.md",
-  "note": "Draft v0.1. One market sell of 50% of resting bid depth at step 50,000.",
+  "note": "Frozen v1.0 (owner-approved 2026-11-24). Optional (amendment A3). One market sell of 50% of resting bid depth at step 50,000.",
   "seeds": {
     "from": 1001,
     "to": 1030

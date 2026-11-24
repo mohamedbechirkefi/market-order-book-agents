@@ -51,15 +51,29 @@ def test_parallel_equals_serial(tmp_path):
     assert ma == mb and len(a["runs"]) == len(b["runs"])
 
 
-def test_confirmatory_config_refused_while_unfrozen():
-    spec = load_experiment(repo_root() / "experiments" / "configs" / "EXP-001.json")
+def test_confirmatory_config_refused_when_changed(tmp_path):
+    """A confirmatory config whose bytes differ from the frozen config is refused (never run)."""
+    doc = json.loads((repo_root() / "experiments" / "configs" / "EXP-001.json").read_text())
+    doc["seeds"] = {"from": 1001, "to": 1031}
+    p = tmp_path / "EXP-001.json"
+    p.write_text(json.dumps(doc, indent=2) + "\n")
+    spec = load_experiment(p)
     assert spec.label == "confirmatory" and spec.seeds[0] == 1001
     with pytest.raises(GateError):
         check_gate(spec)
 
 
-def test_cli_run_refuses_confirmatory(capsys):
-    assert cli.main(["run", "--exp", "EXP-001"]) == 3
+def test_cli_run_refuses_changed_confirmatory(tmp_path, capsys, monkeypatch):
+    """Never launches a run: run_experiment is replaced by a sentinel that fails the test if reached."""
+    def forbidden(*a, **k):
+        raise AssertionError("a confirmatory run was launched by a test")
+    monkeypatch.setattr(cli, "run_experiment", forbidden)
+    doc = json.loads((repo_root() / "experiments" / "configs" / "EXP-001.json").read_text())
+    doc["arms"]["A1"]["composition"]["TF"] = 31
+    doc["arms"]["A1"]["composition"]["ZI"] = 69
+    p = tmp_path / "EXP-001.json"
+    p.write_text(json.dumps(doc))
+    assert cli.main(["run", "--config", str(p)]) == 3
     assert "REFUSED" in capsys.readouterr().err
 
 
@@ -142,3 +156,46 @@ def test_invalid_experiment_configs(doc):
 
 def test_report_on_missing_results_fails(tmp_path, capsys):
     assert cli.main(["report", "--results", str(tmp_path)]) == 2
+
+
+def test_excluded_arm_is_reported_but_not_contrasted(tmp_path):
+    doc = dict(TINY, arms=dict(TINY["arms"], A2={"composition": {"ZI": 14, "MR": 6}}), excluded_from_contrasts=["A2"])
+    spec = parse_experiment(doc)
+    assert spec.excluded_from_contrasts == ("A2",)
+    run_experiment(spec, tmp_path)
+    rep = build_report(tmp_path, n_resamples=200, exclude=spec.excluded_from_contrasts)
+    assert "A2" in rep["arms"] and rep["excluded_from_contrasts"] == ["A2"]
+    contr = (tmp_path / "tables" / "paired_contrasts.csv").read_text()
+    summ = (tmp_path / "tables" / "arm_summary.csv").read_text()
+    assert "A2," not in contr and "A1," in contr and "A2," in summ
+    assert "excluded from every contrast" in (tmp_path / "summary.md").read_text()
+    with pytest.raises(ValueError):
+        build_report(tmp_path, control="A2", n_resamples=200, exclude=("A2",))
+
+
+@pytest.mark.parametrize("bad", [["A9"], "A1", ["A1", "A1"]])
+def test_excluded_from_contrasts_validated(bad):
+    with pytest.raises(ConfigError):
+        parse_experiment(dict(TINY, excluded_from_contrasts=bad))
+
+
+def test_shipped_exp002_excludes_the_degenerate_cell():
+    spec = load_experiment(repo_root() / "experiments" / "configs" / "EXP-002.json")
+    assert spec.excluded_from_contrasts == ("low-ZI+TF",)
+    assert spec.arms["low-ZI+TF"].zi_market_prob == 0.35 and len(spec.seeds) == 30
+
+
+def test_shipped_exp004_placebo_matching_fixed():
+    spec = load_experiment(repo_root() / "experiments" / "configs" / "EXP-004.json")
+    assert all(cfg.pa_skip_prob == 0.0 for cfg in spec.arms.values())
+    assert spec.arms["A4"].composition.PA == 30 and spec.arms["A4"].tick == 1
+
+
+def test_comparison_metrics_present_and_consistent():
+    doc, _ = execute_run("T", "exploratory", "A0", SimConfig(**TINY["base"]), 1)
+    m = doc["metrics"]
+    for k in ("mean_relative_spread", "realised_volatility_dt10", "realised_volatility_dt200"):
+        assert k in m
+    assert m["mean_relative_spread"] is not None and 0 < m["mean_relative_spread"] < 1
+    # spread relative to a mid near the initial price: same order as mean_spread / initial_price
+    assert m["mean_relative_spread"] == pytest.approx(m["mean_spread"] / 1000, rel=0.5)

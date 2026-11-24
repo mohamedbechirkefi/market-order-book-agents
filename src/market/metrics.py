@@ -98,12 +98,18 @@ def compute_metrics(out: SimOutput) -> tuple[dict, dict]:
     m: dict[str, float | int | None] = {}
     m["vci"] = vci(r)
     for extra in cfg.extra_vci_intervals:
-        m[f"vci_dt{extra}"] = vci(sampled_log_returns(out.mid, B, extra))
+        r_extra = sampled_log_returns(out.mid, B, extra)
+        m[f"vci_dt{extra}"] = vci(r_extra)
+        # EXP-005 real-data comparison at matched sampling intervals (protocol amendment R2)
+        m[f"realised_volatility_dt{extra}"] = _none_if_nan(float(np.std(r_extra, ddof=1))) if len(r_extra) >= 2 else None
     m["realised_volatility"] = _none_if_nan(float(np.std(r, ddof=1))) if len(r) >= 2 else None
     m["excess_kurtosis"] = excess_kurtosis(r)
     m["return_acf1"] = acf(r, 1)
     spread = (ask - bid)[two_sided]
     m["mean_spread"] = float(spread.mean()) if spread.size else None
+    # EXP-005: spread relative to the mid, (ask - bid) / ((ask + bid) / 2), mean over two-sided steps
+    mids = ((ask + bid) / 2.0)[two_sided]
+    m["mean_relative_spread"] = float((spread / mids).mean()) if spread.size else None
     m["mean_depth_at_best"] = float(out.depth_best[post][two_sided].mean()) if two_sided.any() else None
     m["volume_per_step"] = float(out.volume[post].sum() / n_post)
     m["max_drawdown"] = max_drawdown(out.mid[B:])

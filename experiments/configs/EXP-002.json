@@ -2,7 +2,7 @@
   "exp_id": "EXP-002",
   "label": "confirmatory",
   "protocol_path": "research/experiments/EXP-002/protocol.md",
-  "note": "Draft v0.1. Liquidity levels via ZI market-order probability 0.35/0.2/0.1.",
+  "note": "Frozen v1.0 (owner-approved 2026-11-24). Liquidity levels via ZI market-order probability 0.35/0.2/0.1. low-ZI+TF is run and reported but excluded from every contrast (amendment A1).",
   "seeds": {
     "from": 1001,
     "to": 1030
@@ -49,5 +49,8 @@
       "zi_market_prob": 0.1
     }
   },
-  "series_every": 100
+  "series_every": 100,
+  "excluded_from_contrasts": [
+    "low-ZI+TF"
+  ]
 }

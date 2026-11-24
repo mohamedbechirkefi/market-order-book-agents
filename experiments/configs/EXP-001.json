@@ -2,7 +2,7 @@
   "exp_id": "EXP-001",
   "label": "confirmatory",
   "protocol_path": "research/experiments/EXP-001/protocol.md",
-  "note": "Draft v0.1 parameters (planning values). Runs only after the owner freezes the protocol.",
+  "note": "Frozen v1.0 (owner-approved 2026-11-24). SimConfig defaults are the frozen parameter values of protocol EXP-001 section 7. 30 seeds (amendment A2).",
   "seeds": {
     "from": 1001,
     "to": 1030

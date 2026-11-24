@@ -1,7 +1,7 @@
 {
-  "schema_version": "0.1.0",
+  "schema_version": "0.2.0",
   "created": "2026-11-24",
-  "note": "Covered by NOTICE.md (LicenseRef-MARKET-NC-Research-1.0) for original content. No dataset bytes downloaded in M0.",
+  "note": "Covered by NOTICE.md (LicenseRef-MARKET-NC-Research-1.0) for original content. Third-party data keeps its own licence. FI-2010 adopted 2026-11-24 (owner approval, round 2; D-009) for EXP-005 only; raw files git-ignored under data/raw/.",
   "datasets": [
     {
       "id": "synthetic-lob",
@@ -21,16 +21,78 @@
     },
     {
       "id": "fi-2010",
-      "kind": "external candidate",
-      "description": "Benchmark Dataset for Mid-Price Forecasting of Limit Order Book Data (Ntakaris et al.), NASDAQ Nordic, 5 stocks, 10 days, normalised features.",
-      "source_url": "https://research.fi/en/results/dataset/73eb48d7-4dbc-4a10-a52a-da745b47a649",
-      "host": "https://etsin.fairdata.fi/dataset/73eb48d7-4dbc-4a10-a52a-da745b47a649 (page did not render on 2026-11-24)",
+      "kind": "external, real",
+      "description": "Benchmark Dataset for Mid-Price Forecasting of Limit Order Book Data with Machine Learning Methods (Ntakaris, Magris, Kanniainen, Gabbouj, Iosifidis). NASDAQ Nordic Helsinki, five stocks, ten trading days (1 to 14 June 2010), 10:30 to 18:00; one column per block of 10 order-book events; normalised features.",
+      "source_url": "https://etsin.fairdata.fi/dataset/73eb48d7-4dbc-4a10-a52a-da745b47a649",
+      "metadata_record": "https://metax.fairdata.fi/rest/v2/datasets/73eb48d7-4dbc-4a10-a52a-da745b47a649",
+      "paper": "arXiv:1705.03233; doi:10.1002/for.2543",
       "accessed": "2026-11-24",
-      "license": "CC BY 4.0 (per research.fi record; full terms on host not read)",
-      "redistributable": "yes with attribution under CC BY 4.0, unverified on host page",
+      "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), per the Metax record (access type Open, rights holder BigDataFinance); attribution required",
+      "redistributable": true,
       "bundled": false,
-      "sha256": null,
-      "status": "not used (derived normalised features do not fit any registered hypothesis)"
+      "bundled_reason": "archive 1.86 GB, above the 20 MB commit limit of the owner's rules; download script instead",
+      "download_script": "scripts/download_fi2010.py",
+      "archive": {
+        "path": "/published/BenchmarkDatasets/BenchmarkDatasets.zip",
+        "bytes": 1864361899,
+        "sha256": "cea93692a270724fa91e8f124da641db727d757e5e0f0bb85067709e9932f664",
+        "sha256_source": "Metax record checksum (checked 2018-06-26 by Fairdata) and recomputed locally 2026-11-24: identical",
+        "kept": false
+      },
+      "files_used": [
+        {
+          "member": "BenchmarkDatasets/NoAuction/3.NoAuction_DecPre/NoAuction_DecPre_Training/Train_Dst_NoAuction_DecPre_CF_9.txt",
+          "local_path": "data/raw/fi2010/Train_Dst_NoAuction_DecPre_CF_9.txt",
+          "bytes": 863961898,
+          "sha256": "f46b3dd6f299dd1179f342b27ac81545747607e227fdd7510482f57d405ca02a",
+          "split": "reference (days 1..9)"
+        },
+        {
+          "member": "BenchmarkDatasets/NoAuction/3.NoAuction_DecPre/NoAuction_DecPre_Testing/Test_Dst_NoAuction_DecPre_CF_9.txt",
+          "local_path": "data/raw/fi2010/Test_Dst_NoAuction_DecPre_CF_9.txt",
+          "bytes": 76138106,
+          "sha256": "c09785b0aed0825ad566f8fe33a3b7d8c3fbb8993856d162976cb4e1c410aca0",
+          "split": "held-out (day 10)"
+        }
+      ],
+      "schema": "149 rows x N columns of whitespace-separated floats; rows 1..4 = level-1 ask price, ask volume, bid price, bid volume (only rows used); decimal-precision prices (tick 0.0001 = one cent at a scale factor of 100)",
+      "transformations": "market.realdata.ingest: level-1 quotes, exclusions, segmentation into 5 stocks (jump threshold 0.1); reference units = blocks of 9,000 columns; statistics per unit (protocol section 12, R1)",
+      "missingness_and_exclusions": {
+        "reference": {
+          "columns": 362400,
+          "missing": 0,
+          "non_positive_price": 0,
+          "crossed_or_locked": 0,
+          "kept": 362400,
+          "segments": 5,
+          "blocks": 37,
+          "segment_columns": [
+            27856,
+            62807,
+            57176,
+            80784,
+            133777
+          ]
+        },
+        "heldout": {
+          "columns": 31937,
+          "missing": 0,
+          "non_positive_price": 0,
+          "crossed_or_locked": 0,
+          "kept": 31937,
+          "segments": 5,
+          "segment_columns": [
+            1888,
+            5128,
+            5722,
+            5821,
+            13378
+          ]
+        }
+      },
+      "personal_data": "none (order books of five listed companies)",
+      "derived_committed": "results/exploratory/REAL-REF/reference.json (per-block aggregate statistics; reference split only) and the reference values in experiments/realdata/EXP-005.json",
+      "status": "adopted for EXP-005 (descriptive comparison); not used for calibration"
     },
     {
       "id": "lobster",
@@ -44,5 +106,6 @@
       "sha256": null,
       "status": "excluded (unclear rights, institutional or paid access)"
     }
-  ]
+  ],
+  "updated": "2026-11-24"
 }

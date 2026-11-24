@@ -2,12 +2,14 @@
   "exp_id": "EXP-004",
   "label": "confirmatory",
   "protocol_path": "research/experiments/EXP-004/protocol.md",
-  "note": "Draft v0.1. New runs only; the dt reanalysis uses vci_dt10 and vci_dt200 of the EXP-001 runs. pa_skip_prob stays 0 unless the TF skip rate exceeds 5% (protocol).",
+  "note": "Frozen v1.0 (owner-approved 2026-11-24). New runs only; the dt reanalysis uses vci_dt10 and vci_dt200 of the EXP-001 runs. pa_skip_prob = 0: placebo matched to tick-1 A1, TF skip 0.45% on development seeds (amendment A4).",
   "seeds": {
     "from": 1001,
     "to": 1030
   },
-  "base": {},
+  "base": {
+    "pa_skip_prob": 0.0
+  },
   "arms": {
     "A4": {
       "composition": {

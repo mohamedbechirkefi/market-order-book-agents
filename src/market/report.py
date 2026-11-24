@@ -62,8 +62,10 @@ def arm_summary(docs: list[dict]) -> list[dict]:
     return rows
 
 
-def paired_contrasts(docs: list[dict], control: str, metrics=CONTRAST_METRICS, n_resamples: int = 10_000) -> list[dict]:
-    arms = _by_arm(docs)
+def paired_contrasts(docs: list[dict], control: str, metrics=CONTRAST_METRICS, n_resamples: int = 10_000,
+                     exclude: tuple[str, ...] = ()) -> list[dict]:
+    """Paired contrasts of every arm against ``control``; arms in ``exclude`` are left out (protocol amendment A1)."""
+    arms = {a: v for a, v in _by_arm(docs).items() if a not in exclude}
     if control not in arms:
         raise ValueError(f"control arm {control!r} not in results (arms: {sorted(arms)})")
     def per_seed(arm, m):
@@ -169,7 +171,8 @@ def line_plot(path: Path, series: dict[str, list[float]], title: str, ylab: str,
     path.write_text("\n".join(s) + "\n", encoding="utf-8")
 
 
-def build_report(results_dir: Path, control: str | None = None, pdf: bool = False, n_resamples: int = 10_000) -> dict:
+def build_report(results_dir: Path, control: str | None = None, pdf: bool = False, n_resamples: int = 10_000,
+                 exclude: tuple[str, ...] = ()) -> dict:
     results_dir = Path(results_dir)
     docs = load_results(results_dir)
     labels = {d["label"] for d in docs}
@@ -177,7 +180,9 @@ def build_report(results_dir: Path, control: str | None = None, pdf: bool = Fals
     arms = _by_arm(docs)
     control = control or ("A0" if "A0" in arms else next(iter(arms)))
     summ = arm_summary(docs)
-    contr = paired_contrasts(docs, control, n_resamples=n_resamples) if len(arms) > 1 else []
+    if control in exclude:
+        raise ValueError(f"control arm {control!r} is excluded from contrasts")
+    contr = paired_contrasts(docs, control, n_resamples=n_resamples, exclude=exclude) if len(arms) > 1 else []
     _write_csv(results_dir / "tables" / "arm_summary.csv", summ)
     if contr:
         _write_csv(results_dir / "tables" / "paired_contrasts.csv", contr)
@@ -192,7 +197,7 @@ def build_report(results_dir: Path, control: str | None = None, pdf: bool = Fals
     if contr:
         diffs = {}
         for arm in arms:
-            if arm == control:
+            if arm == control or arm in exclude:
                 continue
             per_t = {d["seed"]: d["metrics"]["vci"] for d in arms[arm] if d["status"] == "ok"}
             per_c = {d["seed"]: d["metrics"]["vci"] for d in arms[control] if d["status"] == "ok"}
@@ -223,6 +228,8 @@ def build_report(results_dir: Path, control: str | None = None, pdf: bool = Fals
             return f"{_fmt(r[m + '_mean'])} ({_fmt(r[m + '_sd'])})"
         md.append(f"| {r['arm']} | {r['runs']} | {r['failed']} | {r['degenerate']} | {r['runtime_mean_s']:.3f} | {ms('vci')} | "
                   f"{ms('realised_volatility')} | {ms('mean_spread')} | {ms('max_drawdown')} | {ms('one_sided_fraction')} | {ms('rejected_fraction')} |")
+    if exclude:
+        md += ["", f"Arms reported but excluded from every contrast (pre-declared, protocol amendment A1): {', '.join(exclude)}."]
     if contr:
         md += ["", f"## Paired contrasts against {control} (mean over seeds of treatment minus control)", "",
                "Percentile bootstrap 95% interval over seeds (10,000 resamples, seed 20261124); d_z = mean / SD of paired differences.", "",
@@ -238,7 +245,7 @@ def build_report(results_dir: Path, control: str | None = None, pdf: bool = Fals
         md += ["![Mid-price path of the first seed of each arm (price units against event time).](figures/mid_paths.svg)", ""]
     md += ["![Wall-clock runtime per run in seconds, one dot per seed.](figures/runtime_by_arm.svg)", ""]
     (results_dir / "summary.md").write_text("\n".join(md) + "\n", encoding="utf-8")
-    out = {"label": label, "runs": len(docs), "arms": list(arms), "control": control, "summary": str(results_dir / "summary.md"), "pdf": None}
+    out = {"label": label, "runs": len(docs), "arms": list(arms), "control": control, "excluded_from_contrasts": list(exclude), "summary": str(results_dir / "summary.md"), "pdf": None}
     if pdf:
         out["pdf"] = str(render_pdf(results_dir / "summary.md"))
     return out

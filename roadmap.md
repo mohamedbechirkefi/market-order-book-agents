@@ -6,9 +6,9 @@ Five focused development days (planning estimate, master prompt section 1). Effo
 | ID | Milestone | Depends on | Priority | Effort | Status | Blockers |
 | --- | --- | --- | --- | --- | --- | --- |
 | M0 | Bootstrap and feasibility | none | P0 | 4 h | done (2026-11-24), pending owner review of the gate | none |
-| M1 | Research and preregistration | M0 | P0 | 4 h | in progress (drafts written in M0; throughput and seed spread measured in M2, J-0003) | owner freeze (G-FREEZE) and decisions on D-007 proposals; fuller literature search on aggressiveness-matched controls |
+| M1 | Research and preregistration | M0 | P0 | 4 h | done (2026-11-24): gate passed, protocol v1.0 frozen on the owner's approval (`research/freeze.json`, D-011) with the round-2 amendments and FI-2010 (D-009, D-010) | none (a fuller literature search on aggressiveness-matched controls remains desirable for M4) |
 | M2 | Core implementation | M1 draft (not the freeze) | P0 | 10 h | done (2026-11-24), pending owner review | none |
-| M3 | Experiments | M1 freeze, M2 | P0 | 5 h | not started (smoke matrix done as exploratory J-0002) | owner freeze |
+| M3 | Experiments | M1 freeze, M2 | P0 | 5 h | not started (smoke matrix done as exploratory J-0002) | scheduling by the coordinator (quiet machine); FI-2010 must be present locally for EXP-005 (`scripts/download_fi2010.py`) |
 | M4 | Interpretation | M3 | P0 | 6 h | not started | none |
 | M5 | Interactive experience | M2 (schema), M4 (published results) | P1 | 8 h | not started | none |
 | M6 | Release candidate | M4, M5 | P0 | 3 h | not started | owner approval for any publication (G-PUBLIC) |
@@ -24,6 +24,7 @@ Five focused development days (planning estimate, master prompt section 1). Effo
 - Protocol v1.0 for EXP-001..EXP-004; fixture manifest.
 - 11.6 addition: freeze confirmatory protocols before execution; record hash and owner approval in `research/decision_log.md` and the registry.
 - **Acceptance:** owner-approved frozen protocol with hash; exploratory results visibly separated.
+- **Status (2026-11-24):** done. Amendments A1 to A5 and R1, R2 applied (protocol section 12); FI-2010 downloaded and its reference values fitted on days 1 to 9 (J-0004); EXP-005 registered; all five protocols and configs hashed in `research/freeze.json`; the runner accepts the frozen configs and refuses changed ones (tests).
 
 ## M2: Core implementation
 - Order book with price-time priority, partial fills, expiry; cash and inventory accounting; ZI, TF, MR, PA agents; seeded streams; metrics; runner; CLI (`smoke`, `run`, `report`, `test`).
@@ -33,7 +34,7 @@ Five focused development days (planning estimate, master prompt section 1). Effo
 - **Status (2026-11-24):** done, pending owner review. Engine, ledger, agents, metrics, analysis helpers, schemas (`run_result` and `run_manifest` 1.0.0), runner with freeze gate, report generator (CSV tables, SVG figures, Markdown and Typst PDF summaries) and CLI implemented. Tests: 110 passed, 0 failed. Exploratory smoke run (J-0002) and pre-freeze pilot (J-0003) on development seeds; amendment proposals in `research/decision_log.md` D-007. Not done in M2: per-experiment `report.md` files (they belong to M3, after confirmatory runs).
 
 ## M3: Experiments
-- Smoke matrix (exploratory), then the frozen full matrix (480 runs planned).
+- Smoke matrix (exploratory), then the frozen full matrix (480 runs planned; EXP-003 optional), then EXP-005 on the EXP-001 runs (no new runs).
 - 11.6 addition: each experiment's report generated as it finishes; failures and deviations recorded at once.
 - **Acceptance:** complete planned matrix or documented failure; no silently dropped runs.
 

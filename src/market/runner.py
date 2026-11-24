@@ -52,6 +52,7 @@ class ExperimentSpec:
     series_every: int  # 0 = no price series saved; else save mid every k steps for the first seed
     source_path: str | None = None
     source_sha256: str | None = None
+    excluded_from_contrasts: tuple[str, ...] = ()  # arms run and reported but kept out of every contrast
 
 
 def repo_root() -> Path:
@@ -78,7 +79,7 @@ def _seeds(spec: object) -> tuple[int, ...]:
 def parse_experiment(doc: dict, source_path: str | None = None, source_sha256: str | None = None) -> ExperimentSpec:
     if not isinstance(doc, dict):
         raise ConfigError("experiment config must be a JSON object")
-    allowed = {"exp_id", "label", "protocol_path", "seeds", "base", "arms", "series_every", "note"}
+    allowed = {"exp_id", "label", "protocol_path", "seeds", "base", "arms", "series_every", "note", "excluded_from_contrasts"}
     unknown = set(doc) - allowed
     if unknown:
         raise ConfigError(f"unknown experiment keys: {sorted(unknown)}")
@@ -106,7 +107,11 @@ def parse_experiment(doc: dict, source_path: str | None = None, source_sha256: s
     series_every = doc.get("series_every", 0)
     if isinstance(series_every, bool) or not isinstance(series_every, int) or series_every < 0:
         raise ConfigError("series_every must be a non-negative int")
-    return ExperimentSpec(doc["exp_id"], label, doc.get("protocol_path"), seeds, arms, series_every, source_path, source_sha256)
+    excl = doc.get("excluded_from_contrasts", [])
+    if not isinstance(excl, list) or not all(isinstance(a, str) and a in arms for a in excl) or len(set(excl)) != len(excl):
+        raise ConfigError("excluded_from_contrasts must be a list of distinct arm names")
+    return ExperimentSpec(doc["exp_id"], label, doc.get("protocol_path"), seeds, arms, series_every, source_path, source_sha256,
+                          tuple(excl))
 
 
 def load_experiment(path: Path) -> ExperimentSpec:
@@ -137,6 +142,41 @@ def protocol_status(exp_id: str, protocol_path: str | None, root: Path | None = 
     return {"path": protocol_path, "sha256": actual, "frozen": frozen}
 
 
+FREEZE_RECORD = Path("research") / "freeze.json"
+MAIN_PROTOCOL = "research/protocol.md"
+
+
+def freeze_check(exp_id: str, config_sha256: str | None, root: Path | None = None) -> list[str]:
+    """Problems that stop ``exp_id`` from counting as frozen under ``research/freeze.json``; empty if none.
+
+    The record must list the experiment, the main protocol hash and the experiment's protocol and
+    config hashes must match the files on disk, and ``config_sha256`` (the bytes actually loaded)
+    must equal the frozen config hash.
+    """
+    root = root or repo_root()
+    rec_path = root / FREEZE_RECORD
+    if not rec_path.exists():
+        return [f"no freeze record at {FREEZE_RECORD}"]
+    try:
+        rec = json.loads(rec_path.read_text(encoding="utf-8"))
+        files = rec["files"]
+        exp = rec["experiments"][exp_id]
+    except (ValueError, KeyError, TypeError):
+        return [f"freeze record does not list {exp_id}"]
+    problems = []
+    for rel in (MAIN_PROTOCOL, exp.get("protocol"), exp.get("config")):
+        if not rel or rel not in files:
+            problems.append(f"freeze record has no hash for {rel}")
+            continue
+        p = root / rel
+        if not p.exists() or sha256_file(p) != files[rel]:
+            problems.append(f"{rel} differs from its frozen hash")
+    cfg_rel = exp.get("config")
+    if cfg_rel in files and config_sha256 != files[cfg_rel]:
+        problems.append("the loaded config differs from the frozen config")
+    return problems
+
+
 def check_gate(spec: ExperimentSpec, root: Path | None = None) -> dict:
     status = protocol_status(spec.exp_id, spec.protocol_path, root)
     if spec.label == "confirmatory" and not status["frozen"]:
@@ -144,6 +184,12 @@ def check_gate(spec: ExperimentSpec, root: Path | None = None) -> dict:
             f"{spec.exp_id} is confirmatory but its protocol is not frozen (no matching hash in "
             "research/experiment_registry.csv). Freezing is the owner's decision (G-FREEZE); refusing to run."
         )
+    if spec.label == "confirmatory":
+        problems = freeze_check(spec.exp_id, spec.source_sha256, root)
+        if problems:
+            raise GateError(f"{spec.exp_id} does not match the freeze record: " + "; ".join(problems)
+                            + ". A changed frozen artifact is a new study (G-FREEZE); refusing to run.")
+        status = dict(status, freeze_record=str(FREEZE_RECORD))
     return status
 
 
@@ -311,5 +357,5 @@ def load_results(out_dir: Path) -> list[dict]:
     return docs
 
 
-__all__ = ["ExperimentSpec", "GateError", "check_gate", "execute_run", "load_experiment", "load_results",
+__all__ = ["ExperimentSpec", "GateError", "check_gate", "freeze_check", "execute_run", "load_experiment", "load_results",
            "parse_experiment", "protocol_status", "run_experiment", "canonical_json"]
