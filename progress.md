@@ -224,3 +224,17 @@ Holds: every numerical claim maps to a result id, config and table or figure (cl
 
 ### Not done
 No push. No PDF (M6). Protocol sensitivities never run: order lifetime halved (EXP-002), 25% shock (EXP-003). No systematic literature search on placebo controls.
+
+## 2026-11-25: Session 8, post-M4 owner decisions (items 2 and 4)
+
+**Milestone:** M4 (done); M5 not started. **Next bounded task:** M5, after the owner fills the placeholders below.
+
+- Authority: owner, 2026-11-25, "Approve all" (post-M4) (`labs/_shared/owner-approvals-2026-11-25c.md`, items 2 and 4) and the coordinator's post-M4 brief.
+- **Item 2 (statements):** manuscript section 11 wording recorded as owner-approved (D-017). No wording changed.
+- **Item 4 (D-016):** abstract and conclusion now lead with the frozen verdict "invalidated"; the reading against the H1 sign ("qualified") is given as secondary (D-018). No number changed. `scripts/m4_audit.py` on a scratch copy of the edited tree -> `"integrity_ok": true, "raw_ok": true, "manifest_entries": 6489, "unmatched": {}`.
+- `manuscript.tex` regenerated with pandoc 3.6.3 (`pandoc -s research/paper/manuscript.md -t latex`, header lines kept); the diff touches only the abstract and conclusion. Not compiled; no PDF (M6).
+
+### Owner placeholders for M5
+1. Manuscript section 10: "public URL: [placeholder, not yet published]" (the repository's public URL, known only once the owner publishes it).
+2. Manuscript section 11: funding and competing interests ("none are recorded in the project files. The owner confirms both statements before any release"): the owner confirms that there is no funding and no competing interest, or supplies them.
+3. Noted, not a placeholder: `README.md` and `CITATION.cff` still describe the pre-M3 state ("no confirmatory results yet", version 0.0.0); they need an update in M5 or M6.

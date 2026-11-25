@@ -102,22 +102,26 @@ agents by trend followers raises volatility clustering, measured by the
 mean autocorrelation of absolute mid-price returns over lags 1 to 10
 (VCI). The protocol, including an aggressiveness-matched placebo arm and
 sensitivity analyses, was frozen before any confirmatory run; 480 runs
-on 30 paired seeds were executed with no failure. At the primary
-sampling interval of 50 steps the paired VCI difference was -0.007825
-(95\% bootstrap interval {[}-0.0268, 0.01785{]}): inconclusive. The same
-contrast was positive at intervals of 10 and 200 steps, so the frozen
-robustness rule, with its sign reference taken from the near-zero
-primary estimate, declares the primary interpretation invalidated by a
-sign reversal. At 50 steps, price-independent aggressive agents raised
-VCI (placebo minus baseline 0.01751, {[}0.0135, 0.02148{]}), and trend
-followers added nothing beyond them (A1 minus placebo -0.02534,
-{[}-0.04414, -0.0002837{]}). Secondary results: more limit-order supply
-narrowed the spread, and trend followers deepened the drawdown after a
-sell shock (both supported). Exploratory checks on separate seeds
-indicate why a single interval can mislead here: short-horizon VCI is
-shaped by bid-ask bounce and long-horizon VCI by trend runs. The
-findings hold only within this model and make no statement about real
-markets.
+on 30 paired seeds were executed with no failure. The frozen verdict is
+that the primary interpretation is invalidated: the frozen robustness
+rule found a sign reversal, because the trend-follower contrast was
+positive, with intervals excluding 0, at sampling intervals of 10 and
+200 steps, while at the primary interval of 50 steps the paired VCI
+difference was -0.007825 (95\% bootstrap interval {[}-0.0268,
+0.01785{]}), inconclusive on its own. The rule takes its sign reference
+from that near-zero primary estimate. As a secondary reading only,
+taking the sign of H1 as the reference would make the same rule return
+``qualified'' rather than ``invalidated''; both readings agree that the
+answer depends on the sampling interval. At 50 steps, price-independent
+aggressive agents raised VCI (placebo minus baseline 0.01751, {[}0.0135,
+0.02148{]}), and trend followers added nothing beyond them (A1 minus
+placebo -0.02534, {[}-0.04414, -0.0002837{]}). Secondary results: more
+limit-order supply narrowed the spread, and trend followers deepened the
+drawdown after a sell shock (both supported). Exploratory checks on
+separate seeds indicate why a single interval can mislead here:
+short-horizon VCI is shaped by bid-ask bounce and long-horizon VCI by
+trend runs. The findings hold only within this model and make no
+statement about real markets.
 
 \section{Keywords}\label{keywords}
 
@@ -1316,18 +1320,22 @@ real markets.
 \section{9. Conclusion and future
 work}\label{conclusion-and-future-work}
 
-In a small, preregistered, paired-seed simulation, trend followers did
-not detectably change volatility clustering at the preregistered
-horizon, the effect's sign depended on the sampling interval, and
-price-independent aggressive order flow raised VCI at that horizon, with
-no evidence that trend following added to it. Liquidity supply narrowed
-the spread, and trend followers deepened post-shock drawdowns. The
-feasible next study is a new preregistered experiment, frozen by the
-owner, that sweeps the sampling interval (and the trend lookback) with a
-placebo arm at each point, with a clustering measure that is robust to
-signed-return dependence, so that the exploratory pattern of section 5.6
-can be tested on fresh seeds. A second extension would vary liquidity
-without changing aggressive flow, for example through order lifetime.
+Under the frozen protocol, the primary interpretation of this small,
+preregistered, paired-seed simulation is invalidated: trend followers
+did not detectably change volatility clustering at the preregistered
+horizon, and the frozen robustness rule found a sign reversal at other
+sampling intervals. As a secondary reading, the same rule taken against
+the sign of H1 would return ``qualified''; under either reading the
+effect's sign depends on the sampling interval. Price-independent
+aggressive order flow raised VCI at that horizon, with no evidence that
+trend following added to it. Liquidity supply narrowed the spread, and
+trend followers deepened post-shock drawdowns. The feasible next study
+is a new preregistered experiment, frozen by the owner, that sweeps the
+sampling interval (and the trend lookback) with a placebo arm at each
+point, with a clustering measure that is robust to signed-return
+dependence, so that the exploratory pattern of section 5.6 can be tested
+on fresh seeds. A second extension would vary liquidity without changing
+aggressive flow, for example through order lifetime.
 
 \section{10. Data and code
 availability}\label{data-and-code-availability}

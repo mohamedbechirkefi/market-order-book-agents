@@ -9,7 +9,7 @@ Five focused development days (planning estimate, master prompt section 1). Effo
 | M1 | Research and preregistration | M0 | P0 | 4 h | done (2026-11-24): gate passed, protocol v1.0 frozen on the owner's approval (`research/freeze.json`, D-011) with the round-2 amendments and FI-2010 (D-009, D-010) | none (a fuller literature search on aggressiveness-matched controls remains desirable for M4) |
 | M2 | Core implementation | M1 draft (not the freeze) | P0 | 10 h | done (2026-11-24), pending owner review | none |
 | M3 | Experiments | M1 freeze, M2 | P0 | 5 h | done (2026-11-25): full frozen matrix, 480/480 runs, 0 failed; EXP-005 comparison; five reports (J-0005 to J-0010, D-013, D-014) | owner review of D-013 analysis choices and D-014 observations |
-| M4 | Interpretation | M3 | P0 | 6 h | done (2026-11-25): confounders and exploratory sensitivity (J-0011), expected versus observed, claims register, evidence audit (J-0012), manuscript and supplement, second review pass (D-016) | owner review of D-016 (EXP-004 sign-reference reading) |
+| M4 | Interpretation | M3 | P0 | 6 h | done (2026-11-25): confounders and exploratory sensitivity (J-0011), expected versus observed, claims register, evidence audit (J-0012), manuscript and supplement, second review pass (D-016) | none (owner ruled on D-016: release text leads with "invalidated", D-018; statements approved, D-017) |
 | M5 | Interactive experience | M2 (schema), M4 (published results) | P1 | 8 h | not started | none |
 | M6 | Release candidate | M4, M5 | P0 | 3 h | not started | owner approval for any publication (G-PUBLIC) |
 

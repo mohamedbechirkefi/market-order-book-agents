@@ -146,3 +146,16 @@ Append-only. Each entry: id, date, decision, who decided, rationale, alternative
 - **6. Evidence pipeline.** `scripts/m4_tables.py` fills the manuscript and supplement tables from committed outputs; `scripts/m4_audit.py` writes `research/publication/artifact_manifest.json` and `audit_result.json` (checksums, raw checks, recomputation, number trace). Findings in `research/publication/evidence_audit.md`.
 - **7. Claims register** extended with result id, config hash, figure or table and manuscript section columns; C-013 to C-021 and external rows X-001 to X-008 added; C-005 qualified.
 - **Consequences:** M4 gate holds (every numerical claim maps to a result id, config and table or figure; every external claim to an opened source, abstract-only sources marked). Not done: PDFs (M6), the protocol sensitivities never run (order lifetime halved, 25% shock), a systematic literature search on placebo controls.
+
+## D-017 (2026-11-25): funding, competing-interest and AI-use statements approved (owner)
+
+- **Decided by:** the owner, 2026-11-25, "Approve all" (post-M4) (`labs/_shared/owner-approvals-2026-11-25c.md`, item 2: "The wording drafted in each manuscript is approved. Where a draft still has a placeholder that needs a fact only the owner knows, it stays a placeholder. M5 lists any such placeholder for the owner."). Recorded by the AI assistant.
+- **Decision:** the wording of manuscript section 11 (funding and competing interests; AI assistance) is owner-approved as drafted. No wording was changed.
+- **Placeholders kept:** the funding and competing-interest sentence still defers to the owner ("none are recorded in the project files. The owner confirms both statements before any release"), and section 10 still carries "public URL: [placeholder, not yet published]". Both need facts only the owner knows; they are listed in `progress.md` under "Owner placeholders for M5".
+
+## D-018 (2026-11-25): release text leads with the frozen EXP-004 verdict (owner ruling on D-016 item 3)
+
+- **Decided by:** the owner, 2026-11-25, "Approve all" (post-M4) (`labs/_shared/owner-approvals-2026-11-25c.md`, item 4: "Release text leads with the frozen verdict, \"invalidated\". The reading against the H1 sign is given as secondary."). Recorded by the AI assistant.
+- **Decision:** the manuscript abstract and conclusion (section 9) now open the EXP-001 result with the frozen verdict, "invalidated" (a sign reversal under the frozen robustness rule), and give the reading against the sign of H1 ("qualified") as an explicitly secondary reading. Sections 5.4, 6.1 and 6.4, the supplement (S4.2, DEV-2), the claims register (C-004, C-016) and `research/limitations.md` already state the frozen verdict first and the H1-sign reading as exploratory; they were left unchanged.
+- **Numbers:** none changed, added or removed. The number trace of `scripts/m4_audit.py`, run on a scratch copy of the edited repository, reports 0 unmatched tokens and integrity and raw checks true; the committed `audit_result.json` was not regenerated.
+- **Not changed:** `README.md`, `CITATION.cff`, `articles/` and `demo/` carry no result summary (the README status text still predates M3 and is an M5 task); no frozen protocol, config, seed, result or hash was touched.
