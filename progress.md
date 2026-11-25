@@ -325,3 +325,6 @@ No push, no publication. No PDF (M6). The sandbox metrics are one-seed values wi
 
 ### Not done
 No push, tag or release. No `author_review.md` box ticked. Owner-only facts (URL, funding, competing interests, author line) remain placeholders or owner confirmations.
+
+### Addendum (same session): fresh-clone re-check of the M6 commit 7597df1
+`pytest -q` -> **176 passed**; `check_links.py` -> `LINK-CHECK PASS: 118 relative links in 55 Markdown files resolve`; `build_pdfs.py` then `git status --short` -> clean (PDFs and `manuscript.tex` byte-identical); demo `added 53 packages`, `Tests 27 passed (27)`, build ok, `A11Y-CHECK PASS`; export then `git status --short` -> clean. Clone deleted. Recorded in `research/publication/reproducibility_report.md` section 6.
