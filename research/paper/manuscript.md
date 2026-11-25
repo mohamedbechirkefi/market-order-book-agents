@@ -36,7 +36,7 @@ A causal reading of the second tradition faces a confound. A trend follower diff
 
 # 2. Related work
 
-This section synthesises only sources that were opened; for every source except the FI-2010 paper and the full text of @RatliffCrain2023, only the abstract or bibliographic record was read (`research/literature_review.md`). It is not a systematic review.
+This section synthesises only sources that were opened; the full texts of @RatliffCrain2023 and the FI-2010 paper were read, the free arXiv full texts of @Smith2003, @Farmer2005, @Chiarella2009, @Chakraborti2011 and @Byrd2019 were opened on 2026-11-25 and each cited statement was checked against them, and for @GodeSunder1993, @LuxMarchesi1999 and @Cont2001 only the abstract or bibliographic record was read (`research/literature_review.md`). It is not a systematic review.
 
 **Random-order baselines.** @GodeSunder1993 showed that budget-constrained random bids and offers reach near-full allocative efficiency in a double auction, which established the zero-intelligence trader as a baseline. @Smith2003 developed a statistical theory of the continuous double auction under independent random order flow, with predictions for volatility, spread and price impact. @Farmer2005 tested a random order-placement model on London Stock Exchange data for eleven stocks and report that, with one free parameter, it explains 96% of the variance of the bid-ask spread and 76% of the variance of the price diffusion rate across stocks. These results motivate the all-random-order market (A0) as the null model of this study.
 
@@ -46,7 +46,7 @@ This section synthesises only sources that were opened; for every source except 
 
 **Real order-book data.** FI-2010 [@Ntakaris2018] is a public benchmark of NASDAQ Nordic limit-order-book data (five Helsinki stocks, ten trading days in June 2010, one representation per 10 events, CC BY 4.0), built for mid-price forecasting. Here it is used only as a descriptive comparison target, never for calibration.
 
-**Relation to this study.** The study replicates, at small scale, the qualitative question of @Chiarella2009 (do chartists produce clustering?) and extends it with two controls that the opened abstracts do not mention: a placebo arm that matches the trend followers' order types and sizes but draws direction from a fair coin, and preregistered sampling-interval and tick-size rules. Whether such placebo controls exist in the wider literature was not searched systematically; no priority is claimed.
+**Relation to this study.** The study replicates, at small scale, the qualitative question of @Chiarella2009 (do chartists produce clustering?) and extends it with two controls that the opened sources do not mention: a placebo arm that matches the trend followers' order types and sizes but draws direction from a fair coin, and preregistered sampling-interval and tick-size rules. Whether such placebo controls exist in the wider literature was not searched systematically; no priority is claimed.
 
 # 3. Background and formal model
 
@@ -326,7 +326,7 @@ The EXP-001 protocol names three competing explanations; Table 10 states which r
 
 ## 6.3 Relation to prior work
 
-The result does not reproduce, at the primary interval, the attribution of clustering to chartists reported by @Chiarella2009, but the two models differ (their agents include fundamentalists, their trading and sampling differ, and only their abstract was read), so this is not a contradiction of that work. The placebo result and the exploratory sweep give the more general lesson: in an order-driven market, changing the share of aggressive orders changes the autocorrelation of absolute returns, and trend rules create runs that the same statistic reads as clustering. A chartist-versus-noise comparison at one sampling interval, without an aggressiveness-matched control and without a check of signed-return dependence, can therefore confound three mechanisms. The FI-2010 placement shows only that the simulated statistics are of the same order of magnitude as one real market under a crude clock match; it is not a test of the model.
+The result does not reproduce, at the primary interval, the attribution of clustering to chartists reported by @Chiarella2009, but the two models differ (their agents include fundamentalists and maximise utility, and their trading and sampling differ), so this is not a contradiction of that work. The placebo result and the exploratory sweep give the more general lesson: in an order-driven market, changing the share of aggressive orders changes the autocorrelation of absolute returns, and trend rules create runs that the same statistic reads as clustering. A chartist-versus-noise comparison at one sampling interval, without an aggressiveness-matched control and without a check of signed-return dependence, can therefore confound three mechanisms. The FI-2010 placement shows only that the simulated statistics are of the same order of magnitude as one real market under a crude clock match; it is not a test of the model.
 
 ## 6.4 Review of the D-013 analysis choices
 
@@ -343,7 +343,7 @@ None for real markets. The study's use is methodological: a small, reproducible 
 - **Statistical.** A1's VCI varies widely across seeds, so the primary test had low power for the effect that occurred (observed `|d_z|` about 0.12 against a planned 0.53). A null result is not evidence of no effect. Holm intervals among contrasts tied at p = 0 depend on input order (D-014); decisions do not. The exploratory M4 checks were run after the confirmatory outputs were seen, on different seeds, and are hypothesis-generating only.
 - **Analysis choices.** The EXP-004 verdict depends on the sign reference chosen in D-013 (section 6.4).
 - **External.** One parameter set, 100 agents, one asset, fixed-rule agents that neither learn nor optimise, self-trades allowed, a one-tick price floor. The model is not calibrated to any market. FI-2010 covers five Helsinki stocks over ten days in 2010; its reference blocks may contain overnight returns at unknown positions, and the clock and tick matches are crude.
-- **Literature.** Except FI-2010 and @RatliffCrain2023, only abstracts or bibliographic records were read; no systematic search for placebo controls in agent-based order-book studies was made.
+- **Literature.** For @GodeSunder1993, @LuxMarchesi1999 and @Cont2001 only abstracts or bibliographic records were read (no free full text was found or reachable); the arXiv full texts of five further sources were checked only for the statements cited; no systematic search for placebo controls in agent-based order-book studies was made.
 - **Simulation scope.** Nothing here is a statement about real markets, a prediction, trading advice or a claim of profitability. Wealth by agent type was recorded descriptively and is not analysed.
 
 The full list is in `research/limitations.md`.
@@ -361,7 +361,7 @@ Under the frozen protocol, the primary interpretation of this small, preregister
 Repository: `market-order-book-agents` (public URL: [placeholder, not yet published]). Code in `src/market/`; frozen protocols and configs in `research/` and `experiments/` with their hashes in `research/freeze.json`; raw per-run results, analysis outputs and SHA256SUMS in `results/confirmatory/`; exploratory outputs in `results/exploratory/`; experiment reports in `research/experiments/EXP-00N/report.md`; the artifact manifest and evidence audit in `research/publication/`. Reproduction (deterministic given seed and revision):
 
 ```
-/Users/bechir/research/labs/.tools/py/bin/uv sync --frozen --all-groups --all-extras
+uv sync --frozen --all-groups --all-extras
 .venv/bin/python -m pytest
 .venv/bin/python -m market.cli run --exp EXP-001 --workers 2     # likewise EXP-002 to EXP-004
 .venv/bin/python -m market.frozen_analysis --exp EXP-001         # likewise EXP-002 to EXP-004
@@ -384,14 +384,14 @@ AI assistance: an AI system (Claude, Anthropic) was used as a research and devel
 The bibliography is `references.bib`; every entry was checked against the page listed in `research/literature_review.md`.
 
 - [@GodeSunder1993] Gode, D. K., and Sunder, S. (1993). Allocative efficiency of markets with zero-intelligence traders. *Journal of Political Economy* 101(1), 119-137. doi:10.1086/261868. Abstract record read.
-- [@Smith2003] Smith, E., Farmer, J. D., Gillemot, L., and Krishnamurthy, S. (2003). Statistical theory of the continuous double auction. *Quantitative Finance* 3(6), 481-514. doi:10.1088/1469-7688/3/6/307. arXiv cond-mat/0210475, abstract read.
-- [@Farmer2005] Farmer, J. D., Patelli, P., and Zovko, I. I. (2005). The predictive power of zero intelligence in financial markets. *PNAS* 102(11), 2254-2259. doi:10.1073/pnas.0409157102. arXiv cond-mat/0309233, abstract read; journal metadata from a search result.
-- [@Chiarella2009] Chiarella, C., Iori, G., and Perello, J. (2009). The impact of heterogeneous trading rules on the limit order book and order flows. *Journal of Economic Dynamics and Control* 33(3), 525-537. doi:10.1016/j.jedc.2008.08.001. arXiv 0711.3581, abstract read.
+- [@Smith2003] Smith, E., Farmer, J. D., Gillemot, L., and Krishnamurthy, S. (2003). Statistical theory of the continuous double auction. *Quantitative Finance* 3(6), 481-514. doi:10.1088/1469-7688/3/6/307. arXiv cond-mat/0210475 v1, full text opened 2026-11-25; cited statements checked against the abstract and sections II.B and II.C.
+- [@Farmer2005] Farmer, J. D., Patelli, P., and Zovko, I. I. (2005). The predictive power of zero intelligence in financial markets. *PNAS* 102(11), 2254-2259. doi:10.1073/pnas.0409157102. arXiv cond-mat/0309233 v2, full text opened 2026-11-25; cited statements checked against the abstract, section II.A and supplementary section A.2 (eleven LSE stocks); journal metadata from a search result.
+- [@Chiarella2009] Chiarella, C., Iori, G., and Perello, J. (2009). The impact of heterogeneous trading rules on the limit order book and order flows. *Journal of Economic Dynamics and Control* 33(3), 525-537. doi:10.1016/j.jedc.2008.08.001. arXiv 0711.3581, full text opened 2026-11-25; cited statement checked against the abstract, the introduction and section IV (conclusion), which name volatility clustering.
 - [@LuxMarchesi1999] Lux, T., and Marchesi, M. (1999). Scaling and criticality in a stochastic multi-agent model of a financial market. *Nature* 397, 498-500. doi:10.1038/17290. Abstract record read.
 - [@Cont2001] Cont, R. (2001). Empirical properties of asset returns: stylized facts and statistical issues. *Quantitative Finance* 1(2), 223-236. doi:10.1080/713665670. Abstract record read; full text not read.
 - [@RatliffCrain2023] Ratliff-Crain, E., Van Oort, C. M., Bagrow, J., Koehler, M. T. K., and Tivnan, B. F. (2023). Revisiting Cont's stylized facts for modern stock markets. arXiv 2311.07738. Full text (HTML, v2) read 2026-11-25.
-- [@Chakraborti2011] Chakraborti, A., Muni Toke, I., Patriarca, M., and Abergel, F. (2011). Econophysics: empirical facts and agent-based models. *Quantitative Finance* 11, 991-1012 and 1013-1041. arXiv 0909.1974, abstract read.
-- [@Byrd2019] Byrd, D., Hybinette, M., and Hybinette Balch, T. (2019). ABIDES: towards high-fidelity market simulation for AI research. arXiv 1904.12066. Abstract read.
+- [@Chakraborti2011] Chakraborti, A., Muni Toke, I., Patriarca, M., and Abergel, F. (2011). Econophysics: empirical facts and agent-based models. *Quantitative Finance* 11, 991-1012 and 1013-1041. arXiv 0909.1974 v2, full text opened 2026-11-25; cited description checked against the abstract and the structure of Parts I and II.
+- [@Byrd2019] Byrd, D., Hybinette, M., and Hybinette Balch, T. (2019). ABIDES: towards high-fidelity market simulation for AI research. arXiv 1904.12066, full text opened 2026-11-25; cited description checked against the abstract.
 - [@Ntakaris2018] Ntakaris, A., Magris, M., Kanniainen, J., Gabbouj, M., and Iosifidis, A. (2018). Benchmark dataset for mid-price forecasting of limit order book data with machine learning methods. *Journal of Forecasting* 37(8), 852-866. doi:10.1002/for.2543. arXiv 1705.03233 v5, full PDF opened 2026-11-24. Dataset CC BY 4.0.
 
 # Supplementary appendix

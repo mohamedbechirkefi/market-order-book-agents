@@ -207,7 +207,7 @@ def verification(exp: str) -> list[str]:
 
 
 def repro(exp: str, cmds: list[str]) -> list[str]:
-    return ["```", "/Users/bechir/research/labs/.tools/py/bin/uv sync --frozen --all-groups --all-extras", ".venv/bin/python -m pytest", *cmds,
+    return ["```", "uv sync --frozen --all-groups --all-extras", ".venv/bin/python -m pytest", *cmds,
             ".venv/bin/python scripts/write_m3_reports.py", "```", "",
             f"Raw results: [`results/confirmatory/{exp}/`](../../../results/confirmatory/{exp}/) (schema `market.run_result` 1.0.0 per run, `run_manifest.json`, `metrics.csv`, `analysis.json`, tables, figures); checksums in `SHA256SUMS` there. "
             "The simulation is deterministic given the seed and the code revision: a rerun at the recorded revision reproduces each run's metrics exactly (the smoke check in J-0005 reproduced J-0002 bit for bit).",

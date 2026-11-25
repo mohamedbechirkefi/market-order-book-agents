@@ -12,6 +12,7 @@ from __future__ import annotations
 import csv
 import json
 import os
+import re
 import subprocess
 from html import escape
 from pathlib import Path
@@ -27,6 +28,22 @@ CONTRAST_METRICS = ("vci", "vci_dt10", "vci_dt200", "realised_volatility", "mean
 
 DEFAULT_PANDOC = "/Users/bechir/research/labs/.tools/pandoc"
 DEFAULT_TYPST_PY = "/Users/bechir/research/labs/.tools/py/bin/python"
+
+# Typst rules added before the pandoc template (M6 visual inspection): no creation date, so that
+# a rebuild of unchanged sources gives identical PDF bytes; tables in a smaller size, left
+# aligned and not justified, so that wide tables stay readable; figures and tables may break across
+# pages, so that a caption is not separated from its table; centred blocks (the title, figures) are
+# not justified; code-formatted formulas wrap; long metric names in tables may break after an underscore.
+TYPST_PREAMBLE = "\n".join([
+    "#set document(date: none)",
+    "#show table: set text(size: 8pt)",
+    "#show table: set align(left)",
+    "#show table: set par(justify: false)",
+    r'#show table: it => { show "_": "_\u{200B}"; it }',
+    "#show figure: set block(breakable: true)",
+    "#show align: set par(justify: false)",
+    "#show raw: set text(size: 0.9em)",
+])
 
 
 def _by_arm(docs: list[dict]) -> dict[str, list[dict]]:
@@ -251,20 +268,51 @@ def build_report(results_dir: Path, control: str | None = None, pdf: bool = Fals
     return out
 
 
-def render_pdf(md_path: Path) -> Path:
+def _first_heading(text: str) -> tuple[str | None, str]:
+    """Return the first level-1 Markdown heading and the text without it (None if absent)."""
+    lines = text.splitlines(keepends=True)
+    for i, line in enumerate(lines):
+        if line.startswith("# "):
+            return line[2:].strip(), "".join(lines[:i] + lines[i + 1:])
+    return None, text
+
+
+def render_pdf(md_path: Path, bibliography: Path | None = None, keep_typ: bool = False) -> Path:
     """Markdown to PDF through pandoc (Typst writer) and the typst Python package.
 
     SVG figures are embedded by Typst. Tool paths are overridable by MARKET_PANDOC and
     MARKET_TYPST_PYTHON. Raises RuntimeError when the toolchain is unavailable.
+
+    When the Markdown has no YAML ``title``, its first level-1 heading becomes the document
+    title (PDF metadata and title block) and is removed from the body, so it is not printed
+    twice. With ``bibliography``, pandoc resolves ``[@key]`` citations (author-date) and the
+    generated list is suppressed, because the documents carry their own annotated reference
+    list. Pages are numbered; ``TYPST_PREAMBLE`` sets the table and figure rules, and figure
+    numbering is turned off when the captions already carry "Figure N.". With ``keep_typ`` the
+    intermediate ``.typ`` file is kept for inspection (for example rendering pages to PNG);
+    otherwise it is deleted.
     """
     md_path = Path(md_path).resolve()
     pandoc = os.environ.get("MARKET_PANDOC", DEFAULT_PANDOC)
     typst_py = os.environ.get("MARKET_TYPST_PYTHON", DEFAULT_TYPST_PY)
     typ = md_path.with_suffix(".typ")
     pdf = md_path.with_suffix(".pdf")
+    text = md_path.read_text(encoding="utf-8")
+    args = [pandoc, "-f", "markdown", "-s", "-t", "typst-citations", "-V", "mainfont=Libertinus Serif", "-V", "page-numbering=1",
+            "-V", "papersize=a4", "--columns=1000", "-o", str(typ)]
+    if not text.startswith("---"):
+        title, text = _first_heading(text)
+        if title:
+            args += ["-M", f"title={title}"]
+    preamble = TYPST_PREAMBLE
+    if re.search(r"!\[Figure \d", text):
+        # the captions carry their own "Figure N." label; Typst's automatic number would repeat it
+        preamble += "\n#set figure(numbering: none)"
+    args += ["-V", f"header-includes={preamble}"]
+    if bibliography is not None:
+        args += ["--citeproc", "--bibliography", str(Path(bibliography).resolve()), "-M", "suppress-bibliography=true"]
     try:
-        subprocess.run([pandoc, str(md_path), "-s", "-t", "typst", "-V", "mainfont=Libertinus Serif", "-o", str(typ)],
-                       check=True, capture_output=True, text=True, cwd=md_path.parent)
+        subprocess.run(args, input=text, check=True, capture_output=True, text=True, cwd=md_path.parent)
         code = "import sys, typst; typst.compile(sys.argv[1], output=sys.argv[2], root=sys.argv[3])"
         subprocess.run([typst_py, "-I", "-c", code, str(typ), str(pdf), str(md_path.parent)],
                        check=True, capture_output=True, text=True, cwd=md_path.parent)
@@ -273,6 +321,6 @@ def render_pdf(md_path: Path) -> Path:
     except subprocess.CalledProcessError as e:
         raise RuntimeError(f"PDF build failed: {e.stderr.strip()[:500]}") from e
     finally:
-        if typ.exists():
+        if typ.exists() and not keep_typ:
             typ.unlink()
     return pdf

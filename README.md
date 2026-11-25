@@ -34,7 +34,7 @@ Random order flow alone already reproduces much of the behaviour of real order b
 
 ## Research navigation
 
-- Manuscript: `research/paper/manuscript.md` (supplement `supplementary.md`, LaTeX `manuscript.tex`; no PDF yet, M6).
+- Manuscript: `research/paper/manuscript.md` (supplement `supplementary.md`, LaTeX `manuscript.tex`; release-candidate PDFs `manuscript.pdf`, `supplementary.pdf` and `research/experiments/EXP-00N/report.pdf`, built by `scripts/build_pdfs.py`).
 - Protocols: `research/protocol.md` and `research/experiments/EXP-00N/protocol.md`; freeze record `research/freeze.json`.
 - Claims register `research/claims_register.csv`; artifact manifest and evidence audit `research/publication/`; limitations `research/limitations.md`; decisions `research/decision_log.md`.
 - Raw per-run results, analysis outputs and SHA256SUMS: `results/confirmatory/`; exploratory outputs: `results/exploratory/`.
@@ -48,7 +48,7 @@ Random order flow alone already reproduces much of the behaviour of real order b
 ## Quick start
 
 ```
-/Users/bechir/research/labs/.tools/py/bin/uv sync --frozen --all-groups --all-extras
+uv sync --frozen --all-groups --all-extras
 .venv/bin/python -m pytest
 .venv/bin/python -m market.cli smoke
 ```
@@ -70,6 +70,8 @@ cd demo && npm ci && npm run build && npm run preview
 .venv/bin/python scripts/m4_audit.py                             # artifact manifest and audit
 .venv/bin/python scripts/export_demo_data.py                     # demo/public/data/results.json
 .venv/bin/python scripts/make_demo_fixture.py                    # engine fixture for the demo's port test
+.venv/bin/python scripts/build_pdfs.py                           # manuscript, supplement and report PDFs (pandoc, Typst)
+.venv/bin/python scripts/check_links.py                          # every relative Markdown link resolves
 ```
 
 Runs are deterministic given seed and code revision. FI-2010 is fetched by `scripts/download_fi2010.py` with SHA-256 checks.

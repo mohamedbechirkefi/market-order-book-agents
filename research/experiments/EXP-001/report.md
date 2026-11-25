@@ -143,7 +143,7 @@ Within this model and parameter set, trend followers did not produce a detectabl
 ## 11. Reproduction appendix
 
 ```
-/Users/bechir/research/labs/.tools/py/bin/uv sync --frozen --all-groups --all-extras
+uv sync --frozen --all-groups --all-extras
 .venv/bin/python -m pytest
 .venv/bin/python -m market.cli run --exp EXP-001 --workers 2
 .venv/bin/python -m market.cli report --exp EXP-001

@@ -1,14 +1,16 @@
 # SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0
 # Licence: MARKET Source-Available Non-Commercial Research License v1.0 (custom licence, see LICENSE).
 # The CFF "license" field is omitted on purpose: it accepts SPDX list identifiers only.
+# "date-released" is omitted until a release exists (owner-approvals-2026-11-25e, coordinator default);
+# version 0.1.0-rc1 is a release candidate prepared in M6, not a release.
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below. Status: preregistered simulation study, protocol v1.0 frozen (2026-11-24); all 480 confirmatory runs complete; frozen verdict for the primary hypothesis: invalidated (EXP-001, sign reversal under the EXP-004 robustness rule). Independent preprint draft, not peer-reviewed. Simulated markets only; no claim about real markets. The AI assistant used for development is disclosed in the manuscript and is not an author. Repository URL: [placeholder, not yet published]."
-title: "MARKET: trend followers, aggressive order flow and volatility clustering in a small simulated limit-order book"
+title: "Trend followers, aggressive order flow and volatility clustering in a small simulated limit-order book: a preregistered paired-seed study"
 type: software
 authors:
   - family-names: Kefi
     given-names: Mohamed Bechir
-version: "0.5.0-unreleased (M5 draft; nothing released or published)"
+version: "0.1.0-rc1"
 keywords:
   - agent-based model
   - limit order book

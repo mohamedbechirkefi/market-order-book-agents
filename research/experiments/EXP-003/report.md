@@ -106,7 +106,7 @@ Within this model, markets with 30% trend followers show larger post-shock drawd
 ## 11. Reproduction appendix
 
 ```
-/Users/bechir/research/labs/.tools/py/bin/uv sync --frozen --all-groups --all-extras
+uv sync --frozen --all-groups --all-extras
 .venv/bin/python -m pytest
 .venv/bin/python -m market.cli run --exp EXP-003 --workers 2
 .venv/bin/python -m market.cli report --exp EXP-003 --control S-ZI

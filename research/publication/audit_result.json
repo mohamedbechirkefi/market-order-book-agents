@@ -1,6 +1,6 @@
 {
  "label": "M4 evidence audit",
- "revision": "49010ed307814fc48de2f5062c3d928be11e9880",
+ "revision": "704a568416d29a6243adb82f56edcb7c6e740191",
  "integrity": {
   "EXP-001": {
    "files": 137,
@@ -237,10 +237,10 @@
   },
   "crn_check_med_equals_EXP001": true
  },
- "manifest_entries": 6489,
+ "manifest_entries": 6495,
  "number_trace": {
   "research/paper/manuscript.md": {
-   "tokens": 922,
+   "tokens": 923,
    "decimal_tokens": 542,
    "unmatched": []
   },

@@ -11,7 +11,7 @@ Data: `public/data/results.json` is written by `scripts/export_demo_data.py` fro
 
 ## Commands
 
-Node 22 (here from `/Users/bechir/research/helix/.tools/node/bin`):
+Node 22 (a local Node 22 installation on the PATH):
 
     cd demo && npm ci && npm run build && npm run preview
     npm test                                         # vitest: results validator and engine port

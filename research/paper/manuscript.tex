@@ -197,9 +197,12 @@ scale, not a novelty claim. Its actual contributions are:
 
 \section{2. Related work}\label{related-work}
 
-This section synthesises only sources that were opened; for every source
-except the FI-2010 paper and the full text of @RatliffCrain2023, only
-the abstract or bibliographic record was read
+This section synthesises only sources that were opened; the full texts
+of @RatliffCrain2023 and the FI-2010 paper were read, the free arXiv
+full texts of @Smith2003, @Farmer2005, @Chiarella2009, @Chakraborti2011
+and @Byrd2019 were opened on 2026-11-25 and each cited statement was
+checked against them, and for @GodeSunder1993, @LuxMarchesi1999 and
+@Cont2001 only the abstract or bibliographic record was read
 (\texttt{research/literature\_review.md}). It is not a systematic
 review.
 
@@ -243,9 +246,9 @@ descriptive comparison target, never for calibration.
 
 \textbf{Relation to this study.} The study replicates, at small scale,
 the qualitative question of @Chiarella2009 (do chartists produce
-clustering?) and extends it with two controls that the opened abstracts
-do not mention: a placebo arm that matches the trend followers' order
-types and sizes but draws direction from a fair coin, and preregistered
+clustering?) and extends it with two controls that the opened sources do
+not mention: a placebo arm that matches the trend followers' order types
+and sizes but draws direction from a fair coin, and preregistered
 sampling-interval and tick-size rules. Whether such placebo controls
 exist in the wider literature was not searched systematically; no
 priority is claimed.
@@ -1209,8 +1212,8 @@ The spread result remains largely mechanical. \\
 
 The result does not reproduce, at the primary interval, the attribution
 of clustering to chartists reported by @Chiarella2009, but the two
-models differ (their agents include fundamentalists, their trading and
-sampling differ, and only their abstract was read), so this is not a
+models differ (their agents include fundamentalists and maximise
+utility, and their trading and sampling differ), so this is not a
 contradiction of that work. The placebo result and the exploratory sweep
 give the more general lesson: in an order-driven market, changing the
 share of aggressive orders changes the autocorrelation of absolute
@@ -1294,9 +1297,12 @@ validity}\label{limitations-and-threats-to-validity}
   reference blocks may contain overnight returns at unknown positions,
   and the clock and tick matches are crude.
 \item
-  \textbf{Literature.} Except FI-2010 and @RatliffCrain2023, only
-  abstracts or bibliographic records were read; no systematic search for
-  placebo controls in agent-based order-book studies was made.
+  \textbf{Literature.} For @GodeSunder1993, @LuxMarchesi1999 and
+  @Cont2001 only abstracts or bibliographic records were read (no free
+  full text was found or reachable); the arXiv full texts of five
+  further sources were checked only for the statements cited; no
+  systematic search for placebo controls in agent-based order-book
+  studies was made.
 \item
   \textbf{Simulation scope.} Nothing here is a statement about real
   markets, a prediction, trading advice or a claim of profitability.
@@ -1352,7 +1358,7 @@ and evidence audit in \texttt{research/publication/}. Reproduction
 (deterministic given seed and revision):
 
 \begin{verbatim}
-/Users/bechir/research/labs/.tools/py/bin/uv sync --frozen --all-groups --all-extras
+uv sync --frozen --all-groups --all-extras
 .venv/bin/python -m pytest
 .venv/bin/python -m market.cli run --exp EXP-001 --workers 2     # likewise EXP-002 to EXP-004
 .venv/bin/python -m market.frozen_analysis --exp EXP-001         # likewise EXP-002 to EXP-004
@@ -1399,19 +1405,24 @@ against the page listed in \texttt{research/literature\_review.md}.
   {[}@Smith2003{]} Smith, E., Farmer, J. D., Gillemot, L., and
   Krishnamurthy, S. (2003). Statistical theory of the continuous double
   auction. \emph{Quantitative Finance} 3(6), 481-514.
-  doi:10.1088/1469-7688/3/6/307. arXiv cond-mat/0210475, abstract read.
+  doi:10.1088/1469-7688/3/6/307. arXiv cond-mat/0210475 v1, full text
+  opened 2026-11-25; cited statements checked against the abstract and
+  sections II.B and II.C.
 \item
   {[}@Farmer2005{]} Farmer, J. D., Patelli, P., and Zovko, I. I. (2005).
   The predictive power of zero intelligence in financial markets.
   \emph{PNAS} 102(11), 2254-2259. doi:10.1073/pnas.0409157102. arXiv
-  cond-mat/0309233, abstract read; journal metadata from a search
-  result.
+  cond-mat/0309233 v2, full text opened 2026-11-25; cited statements
+  checked against the abstract, section II.A and supplementary section
+  A.2 (eleven LSE stocks); journal metadata from a search result.
 \item
   {[}@Chiarella2009{]} Chiarella, C., Iori, G., and Perello, J. (2009).
   The impact of heterogeneous trading rules on the limit order book and
   order flows. \emph{Journal of Economic Dynamics and Control} 33(3),
-  525-537. doi:10.1016/j.jedc.2008.08.001. arXiv 0711.3581, abstract
-  read.
+  525-537. doi:10.1016/j.jedc.2008.08.001. arXiv 0711.3581, full text
+  opened 2026-11-25; cited statement checked against the abstract, the
+  introduction and section IV (conclusion), which name volatility
+  clustering.
 \item
   {[}@LuxMarchesi1999{]} Lux, T., and Marchesi, M. (1999). Scaling and
   criticality in a stochastic multi-agent model of a financial market.
@@ -1430,11 +1441,13 @@ against the page listed in \texttt{research/literature\_review.md}.
   {[}@Chakraborti2011{]} Chakraborti, A., Muni Toke, I., Patriarca, M.,
   and Abergel, F. (2011). Econophysics: empirical facts and agent-based
   models. \emph{Quantitative Finance} 11, 991-1012 and 1013-1041. arXiv
-  0909.1974, abstract read.
+  0909.1974 v2, full text opened 2026-11-25; cited description checked
+  against the abstract and the structure of Parts I and II.
 \item
   {[}@Byrd2019{]} Byrd, D., Hybinette, M., and Hybinette Balch, T.
   (2019). ABIDES: towards high-fidelity market simulation for AI
-  research. arXiv 1904.12066. Abstract read.
+  research. arXiv 1904.12066, full text opened 2026-11-25; cited
+  description checked against the abstract.
 \item
   {[}@Ntakaris2018{]} Ntakaris, A., Magris, M., Kanniainen, J., Gabbouj,
   M., and Iosifidis, A. (2018). Benchmark dataset for mid-price

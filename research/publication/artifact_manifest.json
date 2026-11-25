@@ -2,7 +2,7 @@
  "schema_version": "1.0.0",
  "created": "2026-11-25",
  "generator": "scripts/m4_audit.py",
- "audited_at_revision": "49010ed307814fc48de2f5062c3d928be11e9880",
+ "audited_at_revision": "704a568416d29a6243adb82f56edcb7c6e740191",
  "note": "Maps every numeric value in the committed analysis outputs to experiment id, run ids, metric, result path (with JSON path), generator, config and protocol SHA-256 and code revision. Documents cite these values at the printed precision; the number trace in audit_result.json checks every decimal number of the manuscript, the supplement and the experiment reports against this manifest.",
  "figures": [
   {
@@ -90999,6 +90999,90 @@
    "protocol_sha256": null,
    "code_revision": null,
    "id": "N-06489"
+  },
+  {
+   "exp_id": "none (M5 demo engine port)",
+   "label": "journal J-0013 (exploratory (tooling check, not a result))",
+   "value": 0.32,
+   "result_path": "research/experiment_journal.jsonl",
+   "json_path": "J-0013/duration_s",
+   "metric": "/duration_s",
+   "run_ids": "development seeds 11 to 16 (stream check seed 7); no confirmatory seed",
+   "generator": "journal record (commands and outputs as logged)",
+   "config_sha256": null,
+   "protocol_sha256": null,
+   "code_revision": "2cb04ad plus uncommitted M5 files (committed in the M5 commit)",
+   "id": "N-06490"
+  },
+  {
+   "exp_id": "none (M5 demo engine port)",
+   "label": "journal J-0013 (exploratory (tooling check, not a result))",
+   "value": 0,
+   "result_path": "research/experiment_journal.jsonl",
+   "json_path": "J-0013/cost",
+   "metric": "/cost",
+   "run_ids": "development seeds 11 to 16 (stream check seed 7); no confirmatory seed",
+   "generator": "journal record (commands and outputs as logged)",
+   "config_sha256": null,
+   "protocol_sha256": null,
+   "code_revision": "2cb04ad plus uncommitted M5 files (committed in the M5 commit)",
+   "id": "N-06491"
+  },
+  {
+   "exp_id": "none (M6 clean-clone reproduction)",
+   "label": "journal J-0014 (exploratory (release-candidate check, not a result))",
+   "value": 0.62,
+   "result_path": "research/experiment_journal.jsonl",
+   "json_path": "J-0014/duration_s",
+   "metric": "/duration_s",
+   "run_ids": "development seeds 1 to 5; no confirmatory seed",
+   "generator": "journal record (commands and outputs as logged)",
+   "config_sha256": null,
+   "protocol_sha256": null,
+   "code_revision": "704a568416d29a6243adb82f56edcb7c6e740191 (clone of HEAD before the M6 commit)",
+   "id": "N-06492"
+  },
+  {
+   "exp_id": "none (M6 clean-clone reproduction)",
+   "label": "journal J-0014 (exploratory (release-candidate check, not a result))",
+   "value": 10,
+   "result_path": "research/experiment_journal.jsonl",
+   "json_path": "J-0014/outputs/smoke_runs",
+   "metric": "/outputs/smoke_runs",
+   "run_ids": "development seeds 1 to 5; no confirmatory seed",
+   "generator": "journal record (commands and outputs as logged)",
+   "config_sha256": null,
+   "protocol_sha256": null,
+   "code_revision": "704a568416d29a6243adb82f56edcb7c6e740191 (clone of HEAD before the M6 commit)",
+   "id": "N-06493"
+  },
+  {
+   "exp_id": "none (M6 clean-clone reproduction)",
+   "label": "journal J-0014 (exploratory (release-candidate check, not a result))",
+   "value": 0,
+   "result_path": "research/experiment_journal.jsonl",
+   "json_path": "J-0014/outputs/smoke_failed",
+   "metric": "/outputs/smoke_failed",
+   "run_ids": "development seeds 1 to 5; no confirmatory seed",
+   "generator": "journal record (commands and outputs as logged)",
+   "config_sha256": null,
+   "protocol_sha256": null,
+   "code_revision": "704a568416d29a6243adb82f56edcb7c6e740191 (clone of HEAD before the M6 commit)",
+   "id": "N-06494"
+  },
+  {
+   "exp_id": "none (M6 clean-clone reproduction)",
+   "label": "journal J-0014 (exploratory (release-candidate check, not a result))",
+   "value": 0,
+   "result_path": "research/experiment_journal.jsonl",
+   "json_path": "J-0014/cost",
+   "metric": "/cost",
+   "run_ids": "development seeds 1 to 5; no confirmatory seed",
+   "generator": "journal record (commands and outputs as logged)",
+   "config_sha256": null,
+   "protocol_sha256": null,
+   "code_revision": "704a568416d29a6243adb82f56edcb7c6e740191 (clone of HEAD before the M6 commit)",
+   "id": "N-06495"
   }
  ]
 }

@@ -12,7 +12,7 @@
   },
   {
    "path": "research/claims_register.csv",
-   "sha256": "f18697bb4d912b639403d9d9350818ce46f21e6a1d27d9943551cc1efbafbee5"
+   "sha256": "a0565380b26963ae50b1bfe533e17445f91f2c101589265c83ec9d1d88922143"
   },
   {
    "path": "research/experiment_registry.csv",
@@ -20,7 +20,7 @@
   },
   {
    "path": "research/publication/artifact_manifest.json",
-   "sha256": "f3284b1f7c3e932aa5bd2eb373aad6bb9a1bef9f0a0f820423d66dd19dc6c71e"
+   "sha256": "58c4db0984d013dc1af8281e967df21e5cebe7062c2b4ef9ef7085c69cf58eb7"
   },
   {
    "path": "results/confirmatory/EXP-001/analysis.json",

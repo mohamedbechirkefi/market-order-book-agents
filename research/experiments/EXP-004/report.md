@@ -105,7 +105,7 @@ Under the frozen rules the EXP-001 result is not robust to the sampling interval
 ## 11. Reproduction appendix
 
 ```
-/Users/bechir/research/labs/.tools/py/bin/uv sync --frozen --all-groups --all-extras
+uv sync --frozen --all-groups --all-extras
 .venv/bin/python -m pytest
 .venv/bin/python -m market.cli run --exp EXP-004 --workers 2
 .venv/bin/python -m market.cli report --exp EXP-004 --control A0-tick2

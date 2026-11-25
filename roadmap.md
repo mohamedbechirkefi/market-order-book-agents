@@ -11,7 +11,7 @@ Five focused development days (planning estimate, master prompt section 1). Effo
 | M3 | Experiments | M1 freeze, M2 | P0 | 5 h | done (2026-11-25): full frozen matrix, 480/480 runs, 0 failed; EXP-005 comparison; five reports (J-0005 to J-0010, D-013, D-014) | owner review of D-013 analysis choices and D-014 observations |
 | M4 | Interpretation | M3 | P0 | 6 h | done (2026-11-25): confounders and exploratory sensitivity (J-0011), expected versus observed, claims register, evidence audit (J-0012), manuscript and supplement, second review pass (D-016) | none (owner ruled on D-016: release text leads with "invalidated", D-018; statements approved, D-017) |
 | M5 | Interactive experience | M2 (schema), M4 (published results) | P1 | 8 h | done (2026-11-25): static page and faithful engine-port sandbox (D-019, J-0013); checker PASS; demo, paper, reports and articles print identical numbers (test) | none (owner placeholders: repository and demo URL; confirmation of funding and competing-interest statements) |
-| M6 | Release candidate | M4, M5 | P0 | 3 h | not started | owner approval for any publication (G-PUBLIC) |
+| M6 | Release candidate | M4, M5 | P0 | 3 h | release candidate prepared, awaiting owner review and G-PUBLIC (2026-11-25; D-020, J-0014) | owner approval for any publication (G-PUBLIC) |
 
 ## M0: Bootstrap and feasibility
 - Control files (section 2 and 11.1 tree), feasibility audit (`research/feasibility.md`), source and licence audit (`research/literature_review.md`, `data/manifest.json`), budget (zero cost), scope and fallback, lockfile.
@@ -54,6 +54,7 @@ Five focused development days (planning estimate, master prompt section 1). Effo
 ## M6: Release candidate
 - Clean clone, locked install, tests, smoke reproduction, demo build, manifest and link checks, secret and licence scan; PDFs compiled and inspected via Typst; owner review checklist.
 - **Acceptance:** verified facts only; nothing pushed or published without the owner.
+- **Status (2026-11-25):** release candidate prepared, awaiting owner review and G-PUBLIC. Clean clone of 704a568: 170 tests passed, smoke reproduced (metrics identical), demo 27 tests and A11Y-CHECK PASS, export deterministic. Seven PDFs built and inspected (`scripts/build_pdfs.py`); links, manifests, checksums, secret and licence scans done (`research/publication/reproducibility_report.md`, `release_checklist.md`, `dependency_licences.md`). Not done until the owner signs `research/publication/author_review.md` off.
 
 ## Fallbacks
 - Engine too slow: reduce `T`, then seeds (never below 10), by owner decision before freeze.

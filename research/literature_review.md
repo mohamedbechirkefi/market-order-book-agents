@@ -54,3 +54,20 @@ Pages re-opened with WebFetch on 2026-11-25 to check the external claims of the 
 | Ntakaris2018 | https://api.crossref.org/works/10.1002/for.2543 | Journal of Forecasting 37(8), 852-866, 2018; authors and title as in `references.bib`. | metadata |
 
 No systematic search for aggressiveness-matched or placebo controls in agent-based order-book studies was made in M4; the manuscript claims no priority.
+
+## 6. M6 full-text checks (2026-11-25)
+
+For every source that a claim depends on and that had not been read in full, a free, legal full text was looked for (arXiv, author page, free library record). No paid access, login or shadow library was used. The arXiv PDFs were fetched with WebFetch on 2026-11-25 and their text extracted locally; each cited statement was checked against the text. "Full text opened" means the cited statements were checked, not that the whole paper was studied.
+
+| Key | Source opened | Check of the cited statement | Status |
+| --- | --- | --- | --- |
+| Smith2003 | https://arxiv.org/pdf/cond-mat/0210475 (v1, 36 pages) | Abstract (p. 1): IID random order flow; "testable predictions for basic properties of markets, such as price volatility, ... the bid-ask spread, the price impact function"; "the order size, which can be cast as a nondimensional granularity parameter, is in most cases a more significant determinant of market behavior than tick size" (sections II.B and II.C). This resolves evidence-audit finding F-6: the order-size statement is in the source. | full text opened; claim X-003 confirmed |
+| Farmer2005 | https://arxiv.org/pdf/cond-mat/0309233 (v2, 18 pages) | Abstract (p. 1): London Stock Exchange, "eleven stocks", "96% of the variance of the bid-ask spread, and 76% of the variance of the price diffusion rate, with only one free parameter"; data in section II.A and supplementary section A.2. | full text opened; claim X-002 confirmed |
+| Chiarella2009 | https://arxiv.org/pdf/0711.3581 (15 pages) | Abstract (p. 1): the chartist strategy is "mainly responsible of the fat tails and clustering"; introduction (p. 2) and section IV, conclusion (p. 11): the chartist component "needs to be activated in order that the generated returns exhibit ... volatility clustering, fat tails and long memory". The full text names volatility clustering, which F-3 had left open. | full text opened; claim X-004 confirmed |
+| Chakraborti2011 | https://arxiv.org/pdf/0909.1974 (v2, 51 pages) | Abstract and structure: Part I reviews empirical facts (stylized facts including volatility clustering, order-book statistics), Part II agent-based models. | full text opened; claim X-008 (first half) confirmed |
+| Byrd2019 | https://arxiv.org/pdf/1904.12066 (13 pages) | Abstract (p. 1): ABIDES, an agent-based interactive discrete event simulation environment for AI research in market applications. | full text opened; claim X-008 (second half) confirmed |
+| Cont2001 | https://www.lpsm.paris/pageperso/ramacont/papers/empirical.pdf (author page) | Not reachable: the page returned a bot-protection "Access Denied" response; not circumvented. | abstract record only; claim X-005 keeps its qualification (volatility clustering supported through Ratliff-Crain et al.) |
+| GodeSunder1993 | web search 2026-11-25 | No free full text found (publisher and JSTOR only). | abstract record only; claim X-001 labelled as such |
+| LuxMarchesi1999 | web search 2026-11-25 | No free full text found (Nature; the 1998 Bonn discussion paper is listed as not available online). | abstract record only; claim X-006 labelled as such |
+
+Totals after M6: read in full 2 (RatliffCrain2023, Ntakaris2018); full text opened and cited statements checked 5; abstract or bibliographic record only 3; unverified 0.
