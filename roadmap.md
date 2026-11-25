@@ -10,7 +10,7 @@ Five focused development days (planning estimate, master prompt section 1). Effo
 | M2 | Core implementation | M1 draft (not the freeze) | P0 | 10 h | done (2026-11-24), pending owner review | none |
 | M3 | Experiments | M1 freeze, M2 | P0 | 5 h | done (2026-11-25): full frozen matrix, 480/480 runs, 0 failed; EXP-005 comparison; five reports (J-0005 to J-0010, D-013, D-014) | owner review of D-013 analysis choices and D-014 observations |
 | M4 | Interpretation | M3 | P0 | 6 h | done (2026-11-25): confounders and exploratory sensitivity (J-0011), expected versus observed, claims register, evidence audit (J-0012), manuscript and supplement, second review pass (D-016) | none (owner ruled on D-016: release text leads with "invalidated", D-018; statements approved, D-017) |
-| M5 | Interactive experience | M2 (schema), M4 (published results) | P1 | 8 h | not started | none |
+| M5 | Interactive experience | M2 (schema), M4 (published results) | P1 | 8 h | done (2026-11-25): static page and faithful engine-port sandbox (D-019, J-0013); checker PASS; demo, paper, reports and articles print identical numbers (test) | none (owner placeholders: repository and demo URL; confirmation of funding and competing-interest statements) |
 | M6 | Release candidate | M4, M5 | P0 | 3 h | not started | owner approval for any publication (G-PUBLIC) |
 
 ## M0: Bootstrap and feasibility
@@ -49,6 +49,7 @@ Five focused development days (planning estimate, master prompt section 1). Effo
 - 11.6 addition: demo, paper, reports and articles show identical verified numbers.
 - **Acceptance:** offline after load, responsive, keyboard usable, reduced motion, no runtime service, no fabricated data.
 - Cut first if the schedule is threatened (section 9).
+- **Status (2026-11-25):** done. Gate holds: offline after the first load, responsive at 360 px, every control reachable by keyboard with a visible focus, reduced motion respected, no request leaves the local origin (`demo/tools/a11y_check.mjs`: A11Y-CHECK PASS); no fabricated data (export from committed results only, every display string printed in the manuscript, `tests/test_demo_export.py`); no runtime service (static build). The sandbox is a port of the engine, identical to the Python engine on a fixture (D-019).
 
 ## M6: Release candidate
 - Clean clone, locked install, tests, smoke reproduction, demo build, manifest and link checks, secret and licence scan; PDFs compiled and inspected via Typst; owner review checklist.

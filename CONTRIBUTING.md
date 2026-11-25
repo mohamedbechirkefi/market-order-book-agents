@@ -48,7 +48,7 @@ Research command line (M2):
 
     uv run python -m market.cli smoke                         # exploratory smoke matrix -> results/exploratory/smoke
     uv run python -m market.cli run --config experiments/configs/pilot-mixtures.json --workers 8
-    uv run python -m market.cli run --exp EXP-001             # refused until the owner freezes the protocol
+    uv run python -m market.cli run --exp EXP-001             # accepted only while the config matches research/freeze.json
     uv run python -m market.cli report --results results/exploratory/smoke --pdf
     uv run python -m market.cli test
 
@@ -58,3 +58,10 @@ Real data and the freeze (added 2026-11-24):
     uv run python -m market.cli realdata reference             # exploratory reference values (days 1..9)
     uv run python -m market.cli realdata compare --exp EXP-005 # gated on research/freeze.json
     uv run python -m market.cli report --exp EXP-002           # applies the config's excluded_from_contrasts
+
+Demo (M5; Node 22, no runtime service):
+
+    uv run python scripts/export_demo_data.py                  # demo/public/data/results.json from committed results
+    uv run python scripts/make_demo_fixture.py                 # engine fixture for the sandbox port test
+    cd demo && npm ci && npm test && npm run build && npm run preview
+    node tools/a11y_check.mjs dist                             # offline and accessibility check (headless Chrome)

@@ -7,7 +7,7 @@ Runnable experiment configurations (code side). The research-side records (proto
 
 | File | Label | Seeds | Runs |
 | --- | --- | --- | --- |
-| `EXP-001.json` .. `EXP-004.json` | confirmatory (draft v0.1 parameters) | 1001..1030 | refused by `market.cli run` until the owner freezes the protocol (G-FREEZE) |
+| `EXP-001.json` .. `EXP-004.json` | confirmatory (frozen v1.0, owner-approved 2026-11-24) | 1001..1030 | accepted by `market.cli run` only while their bytes match `research/freeze.json`; run in full at M3 |
 | `pilot-mixtures.json` | exploratory | 1..20 | EXP-001 arms, the EXP-004 placebo arm and the tick-2 arms at full draft length |
 | `pilot-liquidity.json` | exploratory | 21..30 | EXP-002 arms |
 | `pilot-shock.json` | exploratory | 31..40 | EXP-003 arms |

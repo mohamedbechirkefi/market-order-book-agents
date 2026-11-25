@@ -2,20 +2,20 @@
 # Licence: MARKET Source-Available Non-Commercial Research License v1.0 (custom licence, see LICENSE).
 # The CFF "license" field is omitted on purpose: it accepts SPDX list identifiers only.
 cff-version: 1.2.0
-message: "If you use this work, please cite it as below. Status: protocol v1.0 frozen (2026-11-24); no confirmatory results yet; not peer-reviewed. The AI assistant used for development is disclosed in the manuscript and is not an author."
-title: "MARKET: agent-based market dynamics in a simulated limit-order book"
+message: "If you use this work, please cite it as below. Status: preregistered simulation study, protocol v1.0 frozen (2026-11-24); all 480 confirmatory runs complete; frozen verdict for the primary hypothesis: invalidated (EXP-001, sign reversal under the EXP-004 robustness rule). Independent preprint draft, not peer-reviewed. Simulated markets only; no claim about real markets. The AI assistant used for development is disclosed in the manuscript and is not an author. Repository URL: [placeholder, not yet published]."
+title: "MARKET: trend followers, aggressive order flow and volatility clustering in a small simulated limit-order book"
 type: software
 authors:
   - family-names: Kefi
     given-names: Mohamed Bechir
-version: 0.0.0
-date-released: 2026-11-24
+version: "0.5.0-unreleased (M5 draft; nothing released or published)"
 keywords:
   - agent-based model
   - limit order book
   - volatility clustering
   - market microstructure
   - simulation
+  - preregistration
 references:
   - type: dataset
     title: "Benchmark Dataset for Mid-Price Forecasting of Limit Order Book Data with Machine Learning Methods (FI-2010)"

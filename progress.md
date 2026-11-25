@@ -238,3 +238,50 @@ No push. No PDF (M6). Protocol sensitivities never run: order lifetime halved (E
 1. Manuscript section 10: "public URL: [placeholder, not yet published]" (the repository's public URL, known only once the owner publishes it).
 2. Manuscript section 11: funding and competing interests ("none are recorded in the project files. The owner confirms both statements before any release"): the owner confirms that there is no funding and no competing interest, or supplies them.
 3. Noted, not a placeholder: `README.md` and `CITATION.cff` still describe the pre-M3 state ("no confirmatory results yet", version 0.0.0); they need an update in M5 or M6.
+
+## 2026-11-25: Session 9, M5 interactive experience
+
+**Milestone:** M5 (done). **Next bounded task:** M6 release candidate (clean clone, PDFs, owner review checklist), after the owner fills the placeholders below.
+
+### State found
+`git status`: clean on `main` at `2cb04ad`. Authority: owner, 2026-11-25, "Next" (`labs/_shared/owner-approvals-2026-11-25d.md`) and the coordinator's M5 brief. Stack: the template's TypeScript, React and Vite, versions unchanged (D-019).
+
+### Done
+- `demo/` from `labs/_shared/demo-template/` (no `node_modules`, `.npmrc` kept); `npm ci --prefer-offline` -> `added 53 packages`. No dependency added or changed.
+- `scripts/export_demo_data.py` -> `demo/public/data/results.json` (all five registered experiments, verdicts under the frozen rule, claim ids, manuscript display strings, source SHA-256, code revision `26266f2b...`, no timestamps; extensions `headline`, `not_measured`, `exploratory_dt_grid`, `mid_paths`). `--check` -> `export check: identical`.
+- Engine port `demo/src/engine/` (random streams, book, ledger, agents, simulation, metrics) and fixture `scripts/make_demo_fixture.py` -> `wrote demo/src/engine/fixture.json: 6 cases` (0.32 s; J-0013).
+- Page (`demo/src/App.tsx`, `charts.tsx`, `Sandbox.tsx`): frozen verdict "invalidated" first, H1-sign reading "qualified" as secondary and exploratory; interval charts of the EXP-001 primary and EXP-004 components and of the placebo contrasts; a card per experiment plus "not measured" and "not run" cards; EXP-001 seed-1001 price paths; exploratory sampling-interval grid; assumptions; method and limitations; sandbox with order-book ladder, price chart, composition, liquidity, run length, shock, seed (1 to 999), run, cancel, reset.
+- `tests/test_demo_export.py` (4 tests): fresh export identical to the committed file; every display string printed in the manuscript (no exceptions); every registered experiment and the frozen verdict present; every number in README, articles and demo README is a published one.
+- Text: `README.md`, `CITATION.cff` (were pre-M3), `articles/medium.md`, `articles/linkedin.md` (new drafts), `demo/README.md`, stale lines in `results/README.md`, `experiments/README.md`, `articles/README.md`, `CONTRIBUTING.md`. Screenshot `docs/demo.png` (261,315 bytes) with alt text in the README. No agent-ticked review box found; no "owner has not reviewed" sentence found.
+- Records: D-019, J-0013, roadmap.
+
+### Commands and outputs
+- `cd demo && npm test` -> `Test Files 2 passed (2)`, `Tests 27 passed (27)` (16 results-validator tests, 11 engine-port tests).
+- `npm run build` -> `tsc --noEmit && vite build`, `built in 75ms` (`dist/assets/index-*.js` 251.33 kB, worker 16.58 kB).
+- `node tools/a11y_check.mjs dist --screenshots <scratch>/market/shots`:
+```
+PASS results render (no fail-closed panel): 8 experiment panels
+PASS text contrast, light scheme (WCAG AA)
+PASS text contrast, dark scheme (WCAG AA)
+PASS keyboard reaches every focusable element: 28 reached of 28
+PASS visible focus indicator
+PASS no horizontal page scroll at 360 px: overflow 0px
+PASS reduced motion: no running animations: 0 running
+PASS no request leaves the local origin
+PASS offline after first load: results stay, sandbox runs: Sandbox output (your run, seed 1, 100,000 steps): VCI at dt 50 = 0.01234; mean s
+A11Y-CHECK PASS
+```
+  ("8 experiment panels" counts the five experiment cards and the three not-measured or not-run cards.) Fail-closed check on a scratch copy of `dist` with the headline verdict changed to "qualified" -> `A11Y-CHECK FAIL (2)` (no results rendered).
+- Screenshots inspected by the AI assistant (desktop light, desktop dark, mobile 360 px, including the sandbox after a run); fixes made: card alignment, unwrapped intervals, order-book ladder layout, axis text size.
+- `../.tools/py/bin/uv sync --frozen --all-groups --all-extras` -> `Audited 9 packages`; `.venv/bin/python -m pytest -q` -> **170 passed** (166 plus 4 in `tests/test_demo_export.py`).
+
+### M5 gate
+Holds: offline after the first load, responsive, keyboard usable, reduced motion, no fabricated data, no runtime service (see above).
+
+### Not done
+No push, no publication. No PDF (M6). The sandbox metrics are one-seed values without interval, labelled as such.
+
+### Owner placeholders (M6)
+1. Repository and demo public URL ("[placeholder, not yet published]" in the manuscript, README, CITATION, articles, demo README and page footer).
+2. Funding and competing interests: the owner confirms "none are recorded in the project files" before any release.
+3. Full-text owner review of the manuscript and the `author_review.md` checklist (M6).
