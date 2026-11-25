@@ -39,7 +39,8 @@ Random-order double-auction models reproduce much of the spread and diffusion of
 ## 6. Execution record and deviations
 
 - Command, revision and times: section 4. Run ids `EXP-001-<arm>-s<seed>` for arms A0..A3 and seeds 1001..1030; all 120 runs completed with status `ok`.
-- Deviations from the frozen protocol: none in execution. One analysis observation recorded after the output existed (D-014): when several secondary contrasts have a bootstrap p-value of 0, `market.frozen_analysis` orders the ties by input order, so their Holm interval levels depend on that order. Holm-adjusted p-values and every reject or not-reject decision are unaffected; only the widths of some Holm intervals among the tied contrasts are affected. Not fixed (no analysis change after confirmatory output).
+- Deviations from the frozen protocol: none in execution. One analysis observation recorded after the output existed (D-014): when several secondary contrasts have a bootstrap p-value of 0, `market.frozen_analysis` orders the ties by input order, so their Holm interval levels depend on that order. Holm-adjusted p-values and every reject or not-reject decision are unaffected; only the widths of some Holm intervals among the tied contrasts are affected. Not fixed (no analysis change after confirmatory output). Owner decision (2026-11-25, "approve all recommendations, RIGGED A", D-015): "The tie-ordering at p=0 is disclosed and not changed, since no decision depends on it." The D-013 analysis choices are reviewed in M4.
+- EXP-004 outcome for this experiment (owner decision, D-015): under the frozen robustness rule EXP-001 is invalidated by a sign reversal (positive contrasts with intervals excluding 0 at `dt` = 10 and 200 against a negative primary estimate); the primary estimate is near zero, so its sign is weakly determined.
 
 ## 7. Results
 

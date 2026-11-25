@@ -189,5 +189,39 @@
   "confirmatory": "1001-1030",
   "development": "1-999"
  },
- "guard": "market.runner.check_gate: a confirmatory config runs only if its registry hash equals the protocol file hash and freeze_check finds the main protocol, the EXP protocol and the exact config bytes equal to this record. market.cli realdata compare applies the same check to EXP-005."
+ "guard": "market.runner.check_gate: a confirmatory config runs only if its registry hash equals the protocol file hash and freeze_check finds the main protocol, the EXP protocol and the exact config bytes equal to this record. market.cli realdata compare applies the same check to EXP-005.",
+ "deviations": [
+  {
+   "id": "DEV-1",
+   "experiments": "EXP-001, EXP-002 (secondary Holm families)",
+   "item": "Holm interval levels among contrasts tied at bootstrap p = 0 follow input order; Holm-adjusted p-values and all decisions are unaffected (D-014 item 1).",
+   "owner_decision": "The tie-ordering at p=0 is disclosed and not changed, since no decision depends on it.",
+   "decision_source": "labs/_shared/owner-approvals-2026-11-25.md section 8 (owner, 2026-11-25, \"approve all recommendations, RIGGED A\")",
+   "decision_log": "D-015"
+  },
+  {
+   "id": "DEV-2",
+   "experiments": "EXP-004",
+   "item": "The frozen robustness rule returns 'invalidated (a sign reversal with an interval excluding 0)' against a near-zero EXP-001 primary estimate (D-014 item 2).",
+   "owner_decision": "It is reported exactly as the frozen rule gives it: EXP-001 is invalidated by a sign reversal. The report also notes that the primary estimate is near zero.",
+   "decision_source": "labs/_shared/owner-approvals-2026-11-25.md section 8",
+   "decision_log": "D-015"
+  },
+  {
+   "id": "DEV-3",
+   "experiments": "EXP-003",
+   "item": "The secondary outcome 'spread widening' was not measured: no per-run metric and no formula in the protocol (D-013 item 4, D-014 item 3).",
+   "owner_decision": "It is reported as not measured, because the protocol gives no formula. No metric is defined after the data.",
+   "decision_source": "labs/_shared/owner-approvals-2026-11-25.md section 8",
+   "decision_log": "D-015"
+  },
+  {
+   "id": "DEV-4",
+   "experiments": "EXP-005",
+   "item": "realdata compare overlapped the end of the EXP-004 batch (three processes for about one second); its start and end times were copied into the log afterwards. No result affected (D-014 item 4).",
+   "owner_decision": "none required (recorded)",
+   "decision_source": null,
+   "decision_log": "D-014"
+  }
+ ]
 }

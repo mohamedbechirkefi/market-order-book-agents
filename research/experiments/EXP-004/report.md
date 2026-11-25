@@ -38,7 +38,7 @@ Trend followers differ from ZI agents both in conditioning on prices and in thei
 ## 6. Execution record and deviations
 
 - All 90 new runs `ok`; none dropped. No flagged runs in EXP-001 A0 or A1, so the exclusion component equals the primary analysis.
-- Deviations: none.
+- Deviations: none in execution. The robustness rule's sign reference (the EXP-001 primary mean) is a D-013 choice, reviewed in M4. Owner decision (2026-11-25, "approve all recommendations, RIGGED A", D-015): the result "is reported exactly as the frozen rule gives it: EXP-001 is invalidated by a sign reversal. The report also notes that the primary estimate is near zero." The EXP-001 primary estimate is -0.007825 with interval [-0.0268, 0.01785], close to zero, so its sign is weakly determined.
 
 ## 7. Results
 

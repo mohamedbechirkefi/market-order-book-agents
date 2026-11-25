@@ -38,7 +38,7 @@ In random-order double-auction theory more resting limit orders fill the book an
 ## 6. Execution record and deviations
 
 - All 180 runs completed with status `ok`; none dropped. low-ZI+TF run in full and excluded from contrasts as pre-declared.
-- Deviations: none in execution. Holm tie-ordering observation D-014 applies (decisions unaffected).
+- Deviations: none in execution. Holm tie-ordering observation D-014 applies (decisions unaffected). Owner decision (2026-11-25, "approve all recommendations, RIGGED A", D-015): "The tie-ordering at p=0 is disclosed and not changed, since no decision depends on it." The D-013 choices, including this experiment's 16-contrast family, are reviewed in M4.
 
 ## 7. Results
 

@@ -38,7 +38,7 @@ Trend followers may extend a shock-induced fall (positive feedback) and mean rev
 ## 6. Execution record and deviations
 
 - All 90 runs `ok`; none dropped; no shock window truncated.
-- **Gap (D-013):** the protocol's secondary outcome "spread widening" has no per-run metric and no formula; it was not measured. Defining it now would be a post-hoc choice, so it is left for the owner.
+- **Gap (D-013):** the protocol's secondary outcome "spread widening" has no per-run metric and no formula; it was not measured. Defining it now would be a post-hoc choice. Owner decision (2026-11-25, "approve all recommendations, RIGGED A", D-015): "It is reported as not measured, because the protocol gives no formula. No metric is defined after the data."
 
 ## 7. Results
 

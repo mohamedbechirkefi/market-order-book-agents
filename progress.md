@@ -187,3 +187,13 @@ Reports `research/experiments/EXP-00N/report.md` (with `config.json`, `run_manif
 
 ### Not done
 No push. No manuscript synthesis (M4). EXP-003 spread widening not measured (no defined metric). Exploratory sensitivities named in the protocols (tau halved, 25% shock) not run.
+
+## 2026-11-25: Session 6, M3 close (owner decisions)
+
+**Milestone:** M3 (closed). **Next bounded task:** M4 interpretation, starting with the owner's review of the D-013 analysis choices.
+
+- Authority: owner, 2026-11-25, "approve all recommendations, RIGGED A" (`labs/_shared/owner-approvals-2026-11-25.md`, sections 4 and 8) and the M3-close brief.
+- Recorded: D-015 (Holm ties disclosed and not changed; EXP-004 reported exactly as the frozen rule gives it, with the near-zero primary noted; EXP-003 spread widening reported as not measured; D-013 reviewed in M4). `research/freeze.json` gains a `deviations` list (DEV-1 to DEV-4; no frozen file or hash changed). Limitations and claims C-003, C-004, C-007 and C-009 updated.
+- Reports: all five `report.md` and `reproduction.md` already existed; the EXP-001 to EXP-004 reports were amended to cite the owner's decisions. No number changed and nothing was recomputed. `scripts/write_m3_reports.py` carries the same text: regenerating it in a scratch copy of the repository gives byte-identical reports and results.
+- **M3 status: done.** The gate holds: complete planned matrix (480/480 runs, 0 failed, none dropped), EXP-005 comparison, and a report for every registered experiment.
+- Tests: `.venv/bin/python -m pytest -q` -> **163 passed, 0 failed**.

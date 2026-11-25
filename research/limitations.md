@@ -43,6 +43,7 @@ No confirmatory results exist yet. These limitations are known from the design a
 - The EXP-001 primary contrast is inconclusive at `dt` = 50, but the same contrast is positive at `dt` = 10 and 200 (EXP-004). Any statement about trend followers and clustering is conditional on the sampling interval.
 - A1's VCI varies much more across seeds than A0's (SD about 0.065 against 0.008), which limits power; the observed |d_z| (about 0.12) is far below the planned 0.53.
 - The aggressiveness-matched placebo raised VCI at least as much as trend followers at `dt` = 50; the placebo does not reproduce the serial correlation of TF order direction, which is the feedback itself.
-- EXP-003 post-shock drawdowns overlap ordinary TF excursions (no unshocked control window); spread widening was not measured.
-- Holm intervals among contrasts with a bootstrap p-value of 0 depend on input order (D-014); decisions do not.
+- EXP-003 post-shock drawdowns overlap ordinary TF excursions (no unshocked control window); spread widening was not measured, because the protocol gives no formula, and no metric is defined after the data (owner decision, D-015).
+- Holm intervals among contrasts with a bootstrap p-value of 0 depend on input order (D-014); decisions do not. Disclosed and not changed (owner decision, D-015).
 - The EXP-002 liquidity manipulation changes aggressive flow and limit supply together; the spread result is largely mechanical.
+- The D-013 analysis choices (Holm interval construction, EXP-002 family, sign reference of the EXP-004 robustness rule) were made by the AI assistant before the data and are reviewed by the owner in M4 (D-015).
