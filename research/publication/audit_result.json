@@ -1,0 +1,288 @@
+{
+ "label": "M4 evidence audit",
+ "revision": "49010ed307814fc48de2f5062c3d928be11e9880",
+ "integrity": {
+  "EXP-001": {
+   "files": 137,
+   "mismatch": []
+  },
+  "EXP-002": {
+   "files": 199,
+   "mismatch": []
+  },
+  "EXP-003": {
+   "files": 106,
+   "mismatch": []
+  },
+  "EXP-004": {
+   "files": 106,
+   "mismatch": []
+  },
+  "EXP-005": {
+   "files": 2,
+   "mismatch": []
+  }
+ },
+ "raw_checks": {
+  "EXP-001": {
+   "runs": 120,
+   "metrics_csv_rows": 120,
+   "metric_mismatches": [],
+   "n_metric_mismatches": 0,
+   "arms": {
+    "A0": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    },
+    "A1": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    },
+    "A2": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    },
+    "A3": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    }
+   },
+   "arm_summary_mismatches": []
+  },
+  "EXP-002": {
+   "runs": 180,
+   "metrics_csv_rows": 180,
+   "metric_mismatches": [],
+   "n_metric_mismatches": 0,
+   "arms": {
+    "high-ZI": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    },
+    "high-ZI+TF": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    },
+    "low-ZI": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    },
+    "low-ZI+TF": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    },
+    "med-ZI": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    },
+    "med-ZI+TF": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    }
+   },
+   "arm_summary_mismatches": []
+  },
+  "EXP-003": {
+   "runs": 90,
+   "metrics_csv_rows": 90,
+   "metric_mismatches": [],
+   "n_metric_mismatches": 0,
+   "arms": {
+    "S-ZI": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    },
+    "S-ZI+MR": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    },
+    "S-ZI+TF": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    }
+   },
+   "arm_summary_mismatches": []
+  },
+  "EXP-004": {
+   "runs": 90,
+   "metrics_csv_rows": 90,
+   "metric_mismatches": [],
+   "n_metric_mismatches": 0,
+   "arms": {
+    "A0-tick2": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    },
+    "A1-tick2": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    },
+    "A4": {
+     "runs": 30,
+     "ok": 30,
+     "seeds": "1001..1030 (30)",
+     "n_returns": [
+      1800
+     ]
+    }
+   },
+   "arm_summary_mismatches": []
+  },
+  "primary_recomputation": {
+   "EXP-001 primary A1-A0 vci": {
+    "n_pairs": 30,
+    "mean": -0.00782508215307235,
+    "ci": [
+     -0.026796195717025968,
+     0.01785009129983189
+    ],
+    "matches_analysis_json": true
+   },
+   "EXP-002 primary low-ZI - high-ZI mean_spread": {
+    "n_pairs": 30,
+    "mean": 1.6324925925925924,
+    "ci": [
+     1.6240501481481482,
+     1.6405363055555557
+    ],
+    "matches_analysis_json": true
+   },
+   "EXP-003 primary S-ZI+TF - S-ZI shock_drawdown": {
+    "n_pairs": 30,
+    "mean": 0.02545045472697423,
+    "ci": [
+     0.01976229445030818,
+     0.031482655951252186
+    ],
+    "matches_analysis_json": true
+   },
+   "EXP-004 placebo A1 - A4 vci": {
+    "n_pairs": 30,
+    "mean": -0.025336324693329425,
+    "ci": [
+     -0.044135694379340486,
+     -0.00028373585815433
+    ],
+    "matches_analysis_json": true
+   },
+   "EXP-004 tick2": {
+    "n_pairs": 30,
+    "mean": -0.005426785772026459,
+    "ci": [
+     -0.03143693749400376,
+     0.025721620300588666
+    ],
+    "matches_analysis_json": true
+   }
+  },
+  "crn_check_med_equals_EXP001": true
+ },
+ "manifest_entries": 6489,
+ "number_trace": {
+  "research/paper/manuscript.md": {
+   "tokens": 922,
+   "decimal_tokens": 542,
+   "unmatched": []
+  },
+  "research/paper/supplementary.md": {
+   "tokens": 98,
+   "decimal_tokens": 16,
+   "unmatched": []
+  },
+  "research/publication/review_pass_2.md": {
+   "tokens": 116,
+   "decimal_tokens": 27,
+   "unmatched": []
+  },
+  "research/publication/evidence_audit.md": {
+   "tokens": 43,
+   "decimal_tokens": 8,
+   "unmatched": []
+  },
+  "research/experiments/EXP-001/report.md": {
+   "tokens": 561,
+   "decimal_tokens": 293,
+   "unmatched": []
+  },
+  "research/experiments/EXP-002/report.md": {
+   "tokens": 380,
+   "decimal_tokens": 211,
+   "unmatched": []
+  },
+  "research/experiments/EXP-003/report.md": {
+   "tokens": 185,
+   "decimal_tokens": 72,
+   "unmatched": []
+  },
+  "research/experiments/EXP-004/report.md": {
+   "tokens": 210,
+   "decimal_tokens": 104,
+   "unmatched": []
+  },
+  "research/experiments/EXP-005/report.md": {
+   "tokens": 229,
+   "decimal_tokens": 136,
+   "unmatched": []
+  }
+ }
+}

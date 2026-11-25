@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
-# Limitations (living document, M0 draft, M2 additions)
+# Limitations (living document: M0 draft, M2, M3 and M4 additions)
 
-No confirmatory results exist yet. These limitations are known from the design and will be revisited at M4.
+The first sections list limitations known from the design (M0 to M2). The M3 and M4 sections add what the confirmatory results and the M4 interpretation showed.
 
 ## Construct validity
 - "Volatility clustering" is measured by one statistic (mean ACF of absolute returns, lags 1 to 10) at one sampling interval; other measures (GARCH fits, long-memory exponents) are not used.
@@ -47,3 +47,13 @@ No confirmatory results exist yet. These limitations are known from the design a
 - Holm intervals among contrasts with a bootstrap p-value of 0 depend on input order (D-014); decisions do not. Disclosed and not changed (owner decision, D-015).
 - The EXP-002 liquidity manipulation changes aggressive flow and limit supply together; the spread result is largely mechanical.
 - The D-013 analysis choices (Holm interval construction, EXP-002 family, sign reference of the EXP-004 robustness rule) were made by the AI assistant before the data and are reviewed by the owner in M4 (D-015).
+
+## Interpretation (added at M4, 2026-11-25)
+- **VCI is not a clean clustering measure in this model.** At short sampling intervals it is shaped by the strongly negative autocorrelation of signed returns (bid-ask bounce; confirmatory A0 acf(r, 1) at `dt` = 50 is -0.3786, A1 -0.00584). At long intervals in trend-follower markets it is shaped by trend runs (exploratory: A1 signed-return autocorrelation 0.653 at `dt` = 200 and 0.8921 at 500). A VCI difference between arms therefore mixes changes in microstructure noise, in trending and in clustering (review pass R2-1, R2-2).
+- **The EXP-004 verdict depends on an analysis choice.** With the sign of H1 as the reference instead of the sign of the near-zero EXP-001 estimate (D-013 item 6), the robustness rule returns "qualified" instead of "invalidated". The frozen verdict stands (D-015).
+- **The placebo contrast is fragile.** A1 minus A4 at `dt` = 50 has an upper interval end of -0.0002837 and EXP-004 carries no multiplicity adjustment across its six components.
+- **The EXP-002 interaction may be a discreteness effect** (high-ZI+TF has a negative mean VCI at a spread of 1.132 ticks).
+- **EXP-003 decomposition is exploratory and approximate.** The unshocked control window (development seeds) attributes part of the shock contrast to ordinary trend excursions; drawdowns are window minima, so effects need not add, and the seeds differ from EXP-003.
+- **The M4 checks are post hoc.** They were designed after the confirmatory results were seen; they are hypothesis-generating only and never change a frozen verdict. The interval dependence itself was visible in the pre-freeze pilot (J-0003, D-007 item 6).
+- **Literature.** Except FI-2010 and Ratliff-Crain et al. (2023), only abstracts or bibliographic records were read; Cont (2001) is cited only for what its abstract supports.
+- **Not run.** The protocol sensitivities "order lifetime halved" (EXP-002) and "25% shock" (EXP-003) were never run; the alternative EXP-002 Holm family (all ten pairs) was not computed.

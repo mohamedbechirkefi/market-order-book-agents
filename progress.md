@@ -197,3 +197,30 @@ No push. No manuscript synthesis (M4). EXP-003 spread widening not measured (no 
 - Reports: all five `report.md` and `reproduction.md` already existed; the EXP-001 to EXP-004 reports were amended to cite the owner's decisions. No number changed and nothing was recomputed. `scripts/write_m3_reports.py` carries the same text: regenerating it in a scratch copy of the repository gives byte-identical reports and results.
 - **M3 status: done.** The gate holds: complete planned matrix (480/480 runs, 0 failed, none dropped), EXP-005 comparison, and a report for every registered experiment.
 - Tests: `.venv/bin/python -m pytest -q` -> **163 passed, 0 failed**.
+
+## 2026-11-25: Session 7, M4 interpretation
+
+**Milestone:** M4 (done). **Next bounded task:** owner review of D-016 (in particular the EXP-004 sign-reference reading), then M5.
+
+### State found
+`git status`: clean on `main` at `49010ed`. Authority: owner, 2026-11-25, "Approve all recommendations, push then next" (`labs/_shared/owner-approvals-2026-11-25b.md`, section 5) and the coordinator's M4 brief. No MARKET-specific follow-up in that file.
+
+### Done
+- **Confounders and sensitivity.** Competing explanations of every protocol mapped to the results that address them (manuscript Table 10). Exploratory checks `scripts/m4_exploratory.py` (J-0011): 180 runs on development seeds 101..130, two workers, `nice -n 10`; final execution 01:30:58Z to 01:31:57Z, wall 58.4 s, 0 failed (executed three times; the second added E6, the third the signed-return autocorrelation per `dt` after review pass R2-1). Output `results/exploratory/M4-SENS/`. Main results: VCI A1 - A0 over `dt` 5..500 reproduces the confirmatory sign pattern; A1 signed-return lag-1 autocorrelation 0.653 at `dt` 200 and 0.8921 at 500 (trend runs); EXP-003 difference-in-differences 0.01616 [0.009609, 0.02483]; conservative Holm ties change no interval's relation to 0; EXP-004 rule with the H1 sign reads "qualified". No frozen verdict changed.
+- **Expected versus observed:** manuscript Table 1 (generated).
+- **Claims register:** columns result id, config SHA-256, figure or table, manuscript section added; C-013 to C-021 and X-001 to X-008 added; C-005 qualified (29 rows).
+- **Evidence audit** (`scripts/m4_audit.py`, J-0012): `research/publication/artifact_manifest.json` (6,489 entries), `audit_result.json`, `evidence_audit.md` (findings F-1 to F-7), `claims_audit.md`. 550 checksummed files, 0 mismatches; per-run JSON against `metrics.csv` 0 mismatches; primaries recomputed independently and identical; number trace 0 unmatched.
+- **Reports:** role column in non-Holm contrast tables (F-1) and labelled exploratory M4 notes in EXP-001, EXP-003, EXP-004, via `scripts/write_m3_reports.py`; no number changed.
+- **Manuscript and supplement:** `research/paper/manuscript.md` (section 11.4 structure; tables by `scripts/m4_tables.py`; figures in `research/paper/figures/`), `supplementary.md`, `references.bib` (Ntakaris2018 added), `manuscript.tex` regenerated with pandoc 3.6.3 (not compiled; no PDF made in M4).
+- **Second review pass:** `research/publication/review_pass_2.md` (R2-1 to R2-8; seven of eight challenges held in full or in part) and the resulting manuscript revisions listed there.
+- **Records:** limitations (M4 section), D-016, J-0011, J-0012, literature review section 5 (sources re-opened 2026-11-25), roadmap.
+
+### Tests
+- `/Users/bechir/research/labs/.tools/py/bin/uv sync --frozen --all-groups --all-extras` -> `Audited 9 packages`.
+- `.venv/bin/python -m pytest -q` -> **166 passed** (163 plus 3 in `tests/test_m4_scripts.py`).
+
+### M4 gate
+Holds: every numerical claim maps to a result id, config and table or figure (claims register, artifact manifest, number trace 0 unmatched); every external claim maps to an opened source, abstract-only sources marked.
+
+### Not done
+No push. No PDF (M6). Protocol sensitivities never run: order lifetime halved (EXP-002), 25% shock (EXP-003). No systematic literature search on placebo controls.

@@ -26,6 +26,42 @@ TODAY = "2026-11-25"
 AUTHOR = "Mohamed Bechir Kefi (approved authorship, C3); AI research and development assistant disclosed, not an author"
 
 
+M4 = ROOT / "results" / "exploratory" / "M4-SENS" / "m4_exploratory.json"
+
+
+def m4_notes(exp: str) -> list[str]:
+    """M4 addendum (D-016): exploratory checks, labelled as such; they never change a frozen verdict."""
+    if not M4.exists():
+        return []
+    e = json.loads(M4.read_text())
+    p1, p2 = e["part1"], e["part2"]
+    grid = {(r["contrast"], r["dt"]): r for r in p1["E1_vci_dt_grid"]}
+    am = p1["E1_arm_means"]
+    did = p1["E2_unshocked_control_window"]
+    lead = "- **M4 note (exploratory, journal J-0011, D-016; not confirmatory):** "
+    if exp in ("EXP-001", "EXP-004"):
+        r200, r500 = grid[("A1 - A4", 200)], grid[("A1 - A4", 500)]
+        out = [lead + f"on development seeds 101 to 130 the placebo effect A4 - A0 is confined to short intervals, while A1 - A4 is positive at `dt` = 200 "
+               f"({g(r200['mean'])} [{g(r200['ci95_low'])}, {g(r200['ci95_high'])}]) and 500 ({g(r500['mean'])} [{g(r500['ci95_low'])}, {g(r500['ci95_high'])}]). "
+               f"At those intervals the lag-1 autocorrelation of signed returns in A1 averages {g(am['A1']['acf1_dt200'])} and {g(am['A1']['acf1_dt500'])} "
+               f"(A0: {g(am['A0']['acf1_dt200'])} and {g(am['A0']['acf1_dt500'])}), so the long-horizon VCI increase reflects trend runs at least as much as "
+               "volatility clustering. Short-horizon VCI in every arm is also shaped by the negative autocorrelation of signed returns (bid-ask bounce). "
+               "See the manuscript, sections 5.6 and 6.2."]
+        if exp == "EXP-004":
+            out.append(lead + f"read with the sign of H1 as reference, the robustness rule would return \"{p2['E4_robustness_rule_H1_reference']['reading']}\" "
+                       "instead of the frozen \"invalidated\"; the frozen verdict stands (D-015). The placebo interval's upper end is close to 0 and the "
+                       "EXP-004 components carry no multiplicity adjustment.")
+        return out
+    if exp == "EXP-003":
+        d, u = did["difference-in-differences: [S-ZI+TF - A1] - [S-ZI - A0]"], did["unshocked window: A1 - A0 (ordinary TF excursion, no shock)"]
+        e6 = p2["E6_EXP003_shock_covariates"]["S-ZI+TF"]
+        return [lead + f"on development seeds 101 to 130, the same window drawdown without a shock gives A1 - A0 = {g(u['mean'])} "
+                f"[{g(u['ci95_low'])}, {g(u['ci95_high'])}], and the difference-in-differences [S-ZI+TF - A1] - [S-ZI - A0] is {g(d['mean'])} "
+                f"[{g(d['ci95_low'])}, {g(d['ci95_high'])}]: ordinary TF excursions account for part, not all, of the shocked contrast. In the committed runs the "
+                f"shock was fully filled in every run, and within S-ZI+TF the drawdown is nearly unrelated to bid depth at the shock (Spearman {g(e6['spearman_drawdown_vs_bid_depth'])})."]
+    return []
+
+
 def sha(p: Path) -> str:
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
@@ -102,6 +138,14 @@ def bundle(exp: str, cfg_rel: str, extra: list[Path]) -> Path:
 
 
 def contrast_table(rows: list[dict], holm: bool = False) -> list[str]:
+    # M4 audit (D-016): non-Holm tables carry the analysis role, so that a primary row and its
+    # degenerate-run sensitivity row (identical when no run is flagged) are distinguishable.
+    if not holm:
+        out = ["| Role | Contrast (treatment minus control) | Metric | Pairs | Mean diff. | d_z | 95% interval |",
+               "| --- | --- | --- | --- | --- | --- | --- |"]
+        for r in rows:
+            out.append(f"| {r.get('role', 'n/a')} | {r['treatment']} - {r['control']} | {r['metric']} | {r['n_pairs']} | {g(r['mean_diff'])} | {g(r['d_z'], 3)} | {ci(r)} |")
+        return out
     head = "| Contrast (treatment minus control) | Metric | Pairs | Mean diff. | d_z | 95% interval |"
     sep = "| --- | --- | --- | --- | --- | --- |"
     if holm:
@@ -231,6 +275,7 @@ def report_exp001() -> None:
         f"- **Placebo:** A4 (aggressiveness-matched coin-flip agents) minus A0 is {g(a4['a4_minus_a0']['mean_diff'])} {ci(a4['a4_minus_a0'])}, and A1 - A4 is {g(a4['placebo']['mean_diff'])} {ci(a4['placebo'])}. At `dt` = 50, adding aggressive order flow without price feedback raised VCI at least as much as trend following did.",
         "- **Secondary (descriptive of mechanism):** TF strongly change levels: lower realised volatility and spread, much larger drawdowns and a large positive return autocorrelation relative to MR (A1 - A2). Mean reverters (A2) and the TF+MR mix (A3) raise VCI relative to A0 with Holm intervals excluding 0. These are secondary and were not the registered question.",
         "- Model-dependent inference only; nothing here is a statement about real markets.", "",
+        *m4_notes("EXP-001"), *([""] if m4_notes("EXP-001") else []),
         "## 9. Threats to validity", "",
         "- **Construct:** VCI is one statistic at one sampling interval; the result changes with `dt`. Event time is not clock time.",
         "- **Internal:** replacing ZI by TF also removes liquidity providers (spread and depth change); the placebo controls aggressiveness but not every difference. The trend rule produces long excursions (drawdowns about 0.2), which mix trend with clustering in absolute returns.",
@@ -352,6 +397,7 @@ def report_exp003() -> None:
         "## 8. Interpretation", "",
         f"- **Measured:** with TF the shock is followed by a deeper fall and, in {km['S-ZI+TF']['censored']} of 30 runs, no return within 1% inside 20,000 steps; in the ZI-only and MR markets the shock is mostly absorbed within the band.",
         "- **Alternative explanations:** TF markets have lower and more variable bid depth at the shock (table), and large drawdowns occur in TF markets without any shock (EXP-001 A1 maximum drawdown about 0.2 over the run). Part of the post-shock difference may be ordinary TF excursions overlapping the window rather than a response to the shock. The design has no unshocked TF control in the same window.", "",
+        *m4_notes("EXP-003"), *([""] if m4_notes("EXP-003") else []),
         "## 9. Threats to validity", "",
         "- One shock size and time; the 25% shock sensitivity in the protocol is exploratory and was not run. Spread widening not measured.",
         "- Recovery depends on the 1% band and the 20,000-step cap; censoring is reported.", "",
@@ -414,6 +460,7 @@ def report_exp004() -> None:
         f"- **Sampling interval:** the A1 - A0 contrast is positive with intervals excluding 0 at `dt` = 10 and 200 but has a negative point estimate with an interval including 0 at `dt` = 50. Because the primary estimate is close to 0, its \"sign\" is weakly determined; the frozen rule nonetheless returns \"{a['robustness_rule']}\", and the report states it as such: the EXP-001 conclusion depends on the sampling interval.",
         f"- **Tick:** at tick 2 the contrast is {g(tick['mean_diff'])} with an interval including 0, consistent with the tick-1 primary result.",
         "- **Expected versus observed:** EXP-004 was designed to test a positive EXP-001 effect. With an inconclusive primary result, its main contribution is that the TF effect on clustering is horizon-dependent and that aggressiveness alone raises VCI at `dt` = 50.", "",
+        *m4_notes("EXP-004"), *([""] if m4_notes("EXP-004") else []),
         "## 9. Threats to validity", "",
         "- PA agents match TF order-type probability and size, but not TF timing (TF skip on a zero signal: " + f"{skip:.2%}" + " of activations on average in confirmatory A1, below the 5% threshold) or the serial correlation of TF direction, which is the feedback itself.",
         "- Three sampling intervals only; the pattern across `dt` is not a curve.", "",

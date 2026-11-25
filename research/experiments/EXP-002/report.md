@@ -68,10 +68,10 @@ Arms with a flag rate above 20% (reported as a model failure for that arm, proto
 
 ### Primary contrast and sensitivity
 
-| Contrast (treatment minus control) | Metric | Pairs | Mean diff. | d_z | 95% interval |
-| --- | --- | --- | --- | --- | --- |
-| low-ZI - high-ZI | mean_spread | 30 | 1.632 | 69.3 | [1.624, 1.641] |
-| low-ZI - high-ZI | mean_spread | 30 | 1.632 | 69.3 | [1.624, 1.641] |
+| Role | Contrast (treatment minus control) | Metric | Pairs | Mean diff. | d_z | 95% interval |
+| --- | --- | --- | --- | --- | --- | --- |
+| primary | low-ZI - high-ZI | mean_spread | 30 | 1.632 | 69.3 | [1.624, 1.641] |
+| sensitivity: flagged runs and partners excluded | low-ZI - high-ZI | mean_spread | 30 | 1.632 | 69.3 | [1.624, 1.641] |
 
 Flagged runs in low-ZI or high-ZI: 0.
 

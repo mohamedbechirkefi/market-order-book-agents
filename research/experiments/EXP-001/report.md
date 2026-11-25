@@ -55,10 +55,10 @@ Random-order double-auction models reproduce much of the spread and diffusion of
 
 ### Primary contrast and degenerate-run sensitivity
 
-| Contrast (treatment minus control) | Metric | Pairs | Mean diff. | d_z | 95% interval |
-| --- | --- | --- | --- | --- | --- |
-| A1 - A0 | vci | 30 | -0.007825 | -0.121 | [-0.0268, 0.01785] |
-| A1 - A0 | vci | 30 | -0.007825 | -0.121 | [-0.0268, 0.01785] |
+| Role | Contrast (treatment minus control) | Metric | Pairs | Mean diff. | d_z | 95% interval |
+| --- | --- | --- | --- | --- | --- | --- |
+| primary | A1 - A0 | vci | 30 | -0.007825 | -0.121 | [-0.0268, 0.01785] |
+| sensitivity: flagged runs and partners excluded | A1 - A0 | vci | 30 | -0.007825 | -0.121 | [-0.0268, 0.01785] |
 
 Flagged (degenerate) runs in A0 or A1: 0; the sensitivity analysis therefore equals the primary analysis.
 
@@ -126,6 +126,8 @@ Holm p-values of `< 0.0001` mean that none of the 10,000 bootstrap means crossed
 - **Placebo:** A4 (aggressiveness-matched coin-flip agents) minus A0 is 0.01751 [0.0135, 0.02148], and A1 - A4 is -0.02534 [-0.04414, -0.0002837]. At `dt` = 50, adding aggressive order flow without price feedback raised VCI at least as much as trend following did.
 - **Secondary (descriptive of mechanism):** TF strongly change levels: lower realised volatility and spread, much larger drawdowns and a large positive return autocorrelation relative to MR (A1 - A2). Mean reverters (A2) and the TF+MR mix (A3) raise VCI relative to A0 with Holm intervals excluding 0. These are secondary and were not the registered question.
 - Model-dependent inference only; nothing here is a statement about real markets.
+
+- **M4 note (exploratory, journal J-0011, D-016; not confirmatory):** on development seeds 101 to 130 the placebo effect A4 - A0 is confined to short intervals, while A1 - A4 is positive at `dt` = 200 (0.09572 [0.04667, 0.1486]) and 500 (0.2363 [0.1737, 0.3021]). At those intervals the lag-1 autocorrelation of signed returns in A1 averages 0.653 and 0.8921 (A0: -0.4315 and -0.4306), so the long-horizon VCI increase reflects trend runs at least as much as volatility clustering. Short-horizon VCI in every arm is also shaped by the negative autocorrelation of signed returns (bid-ask bounce). See the manuscript, sections 5.6 and 6.2.
 
 ## 9. Threats to validity
 

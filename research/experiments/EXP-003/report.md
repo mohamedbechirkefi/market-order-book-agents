@@ -52,10 +52,10 @@ Trend followers may extend a shock-induced fall (positive feedback) and mean rev
 
 ### Primary contrast and sensitivity
 
-| Contrast (treatment minus control) | Metric | Pairs | Mean diff. | d_z | 95% interval |
-| --- | --- | --- | --- | --- | --- |
-| S-ZI+TF - S-ZI | shock_drawdown | 30 | 0.02545 | 1.52 | [0.01976, 0.03148] |
-| S-ZI+TF - S-ZI | shock_drawdown | 30 | 0.02545 | 1.52 | [0.01976, 0.03148] |
+| Role | Contrast (treatment minus control) | Metric | Pairs | Mean diff. | d_z | 95% interval |
+| --- | --- | --- | --- | --- | --- | --- |
+| primary | S-ZI+TF - S-ZI | shock_drawdown | 30 | 0.02545 | 1.52 | [0.01976, 0.03148] |
+| sensitivity: flagged runs and partners excluded | S-ZI+TF - S-ZI | shock_drawdown | 30 | 0.02545 | 1.52 | [0.01976, 0.03148] |
 
 ### Secondary contrast
 
@@ -91,6 +91,8 @@ A Kaplan-Meier median of 0 means that in at least half of the runs the mid never
 
 - **Measured:** with TF the shock is followed by a deeper fall and, in 7 of 30 runs, no return within 1% inside 20,000 steps; in the ZI-only and MR markets the shock is mostly absorbed within the band.
 - **Alternative explanations:** TF markets have lower and more variable bid depth at the shock (table), and large drawdowns occur in TF markets without any shock (EXP-001 A1 maximum drawdown about 0.2 over the run). Part of the post-shock difference may be ordinary TF excursions overlapping the window rather than a response to the shock. The design has no unshocked TF control in the same window.
+
+- **M4 note (exploratory, journal J-0011, D-016; not confirmatory):** on development seeds 101 to 130, the same window drawdown without a shock gives A1 - A0 = 0.007912 [0.004752, 0.01107], and the difference-in-differences [S-ZI+TF - A1] - [S-ZI - A0] is 0.01616 [0.009609, 0.02483]: ordinary TF excursions account for part, not all, of the shocked contrast. In the committed runs the shock was fully filled in every run, and within S-ZI+TF the drawdown is nearly unrelated to bid depth at the shock (Spearman 0.07141).
 
 ## 9. Threats to validity
 

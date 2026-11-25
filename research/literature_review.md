@@ -39,3 +39,18 @@ No dataset bytes were downloaded in this session.
 ## 4. Gap and contribution (draft)
 
 Random-order order books and chartist/fundamentalist order books are both well studied. The planned contribution is narrow: a small, tested, reproducible engine plus a paired, preregistered comparison that separates the trend-feedback effect on volatility clustering from the change in order aggressiveness (placebo arm). No novelty is claimed before a fuller literature search on placebo or aggressiveness-matched controls; this search was not done in M0 and is an M1 task.
+
+## 5. M4 re-verification (2026-11-25)
+
+Pages re-opened with WebFetch on 2026-11-25 to check the external claims of the manuscript (claims register X-001 to X-008):
+
+| Key | Page opened | What was verified | Depth |
+| --- | --- | --- | --- |
+| Chiarella2009 | https://arxiv.org/abs/0711.3581 | Abstract: "it is the chartist strategy that is mainly responsible of the fat tails and clustering" in the model's artificial data; journal reference JEDC 33, 525 (2009). The abstract says "clustering", not "volatility clustering". | abstract |
+| Smith2003 | https://arxiv.org/abs/cond-mat/0210475 | Abstract: continuous double auction model with predictions for volatility, bid-ask spread and price impact, "no free parameters"; DOI link 10.1088/1469-7688/3/6/307. The statement "order size matters more than tick size" in section 1 was not seen in the excerpt read and is not used in the manuscript. | abstract |
+| Farmer2005 | https://arxiv.org/abs/cond-mat/0309233 | Abstract: London Stock Exchange, eleven stocks, "explains 96% of the variance of the bid-ask spread, and 76% of the variance of the price diffusion rate, with only one free parameter". | abstract |
+| Cont2001 | https://ideas.repec.org/a/taf/quantf/v1y2001i2p223-236.html | Abstract mentions "linear and nonlinear dependence of returns in time and across stocks"; it does not name volatility clustering. Full text not available without subscription; not read. | abstract |
+| RatliffCrain2023 | https://arxiv.org/html/2311.07738v2 | Full text (first 100,000 characters of the HTML): Cont's eleven facts as restated from Cont (2001), including fact 6 "Different measures of volatility display a positive autocorrelation over several days" and fact 8, slow decay of the autocorrelation of absolute returns; fact 6 supported in clock time and event time in their data. | full text (HTML) |
+| Ntakaris2018 | https://api.crossref.org/works/10.1002/for.2543 | Journal of Forecasting 37(8), 852-866, 2018; authors and title as in `references.bib`. | metadata |
+
+No systematic search for aggressiveness-matched or placebo controls in agent-based order-book studies was made in M4; the manuscript claims no priority.

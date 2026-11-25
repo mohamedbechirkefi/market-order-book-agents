@@ -52,14 +52,14 @@ Trend followers differ from ZI agents both in conditioning on prices and in thei
 
 ### Components
 
-| Contrast (treatment minus control) | Metric | Pairs | Mean diff. | d_z | 95% interval |
-| --- | --- | --- | --- | --- | --- |
-| A1 - A4 | vci | 30 | -0.02534 | -0.402 | [-0.04414, -0.0002837] |
-| A4 - A0 | vci | 30 | 0.01751 | 1.54 | [0.0135, 0.02148] |
-| A1-tick2 - A0-tick2 | vci | 30 | -0.005427 | -0.0656 | [-0.03144, 0.02572] |
-| A1 - A0 | vci_dt10 | 30 | 0.02481 | 0.728 | [0.0153, 0.03842] |
-| A1 - A0 | vci_dt200 | 30 | 0.0915 | 0.608 | [0.04287, 0.1489] |
-| A1 - A0 | vci | 30 | -0.007825 | -0.121 | [-0.0268, 0.01785] |
+| Role | Contrast (treatment minus control) | Metric | Pairs | Mean diff. | d_z | 95% interval |
+| --- | --- | --- | --- | --- | --- | --- |
+| placebo: EXP-001 A1 minus EXP-004 A4 | A1 - A4 | vci | 30 | -0.02534 | -0.402 | [-0.04414, -0.0002837] |
+| descriptive: A4 minus EXP-001 A0 | A4 - A0 | vci | 30 | 0.01751 | 1.54 | [0.0135, 0.02148] |
+| tick 2: A1-tick2 minus A0-tick2 | A1-tick2 - A0-tick2 | vci | 30 | -0.005427 | -0.0656 | [-0.03144, 0.02572] |
+| sampling interval vci_dt10 | A1 - A0 | vci_dt10 | 30 | 0.02481 | 0.728 | [0.0153, 0.03842] |
+| sampling interval vci_dt200 | A1 - A0 | vci_dt200 | 30 | 0.0915 | 0.608 | [0.04287, 0.1489] |
+| exclusion of flagged runs and partners | A1 - A0 | vci | 30 | -0.007825 | -0.121 | [-0.0268, 0.01785] |
 
 ### Robustness rule
 
@@ -89,6 +89,9 @@ Trend followers differ from ZI agents both in conditioning on prices and in thei
 - **Sampling interval:** the A1 - A0 contrast is positive with intervals excluding 0 at `dt` = 10 and 200 but has a negative point estimate with an interval including 0 at `dt` = 50. Because the primary estimate is close to 0, its "sign" is weakly determined; the frozen rule nonetheless returns "invalidated (a sign reversal with an interval excluding 0)", and the report states it as such: the EXP-001 conclusion depends on the sampling interval.
 - **Tick:** at tick 2 the contrast is -0.005427 with an interval including 0, consistent with the tick-1 primary result.
 - **Expected versus observed:** EXP-004 was designed to test a positive EXP-001 effect. With an inconclusive primary result, its main contribution is that the TF effect on clustering is horizon-dependent and that aggressiveness alone raises VCI at `dt` = 50.
+
+- **M4 note (exploratory, journal J-0011, D-016; not confirmatory):** on development seeds 101 to 130 the placebo effect A4 - A0 is confined to short intervals, while A1 - A4 is positive at `dt` = 200 (0.09572 [0.04667, 0.1486]) and 500 (0.2363 [0.1737, 0.3021]). At those intervals the lag-1 autocorrelation of signed returns in A1 averages 0.653 and 0.8921 (A0: -0.4315 and -0.4306), so the long-horizon VCI increase reflects trend runs at least as much as volatility clustering. Short-horizon VCI in every arm is also shaped by the negative autocorrelation of signed returns (bid-ask bounce). See the manuscript, sections 5.6 and 6.2.
+- **M4 note (exploratory, journal J-0011, D-016; not confirmatory):** read with the sign of H1 as reference, the robustness rule would return "qualified (at least one dt or tick-2 contrast has a different sign or an interval including 0)" instead of the frozen "invalidated"; the frozen verdict stands (D-015). The placebo interval's upper end is close to 0 and the EXP-004 components carry no multiplicity adjustment.
 
 ## 9. Threats to validity
 
