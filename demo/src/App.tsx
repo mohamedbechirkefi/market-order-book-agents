@@ -55,7 +55,7 @@ export function App() {
             only: nothing on this page is investment advice, a prediction or a claim about real markets.
           </p>
           <p>
-            Repository and demo URL: [placeholder, not yet published]. Licence: MARKET Source-Available Non-Commercial Research
+            Mohamed Bechir Kefi, independent researcher. Repository: https://github.com/mohamedbechirkefi/market-order-book-agents. Demo: https://market-order-book-agents.kefimohamedbechir.workers.dev. Licence: MARKET Source-Available Non-Commercial Research
             License v1.0.
           </p>
         </div>

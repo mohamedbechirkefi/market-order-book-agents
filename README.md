@@ -91,7 +91,7 @@ VCI is one statistic and, in this model, it is shaped by bid-ask bounce at short
 
 ## Cost and scope
 
-Zero cost: local laptop only; no paid API, data, compute or hosting. Repository and demo URL: [placeholder, not yet published].
+Zero cost: local laptop only; no paid API, data, compute or hosting. Repository: https://github.com/mohamedbechirkefi/market-order-book-agents (public since 2026-11-25). Demo: https://market-order-book-agents.kefimohamedbechir.workers.dev (Cloudflare Workers static assets, free plan).
 
 ## Licence
 
@@ -99,4 +99,4 @@ MARKET Source-Available Non-Commercial Research License v1.0 (`LicenseRef-MARKET
 
 ## Citation
 
-See `CITATION.cff`. Author metadata as approved by the owner (authorship decision C3); no institutional affiliation is claimed. Funding and competing interests: none are recorded in the project files; the owner confirms both statements before any release. AI assistance (Claude, Anthropic) is disclosed in manuscript section 11; the AI system is not an author.
+See `CITATION.cff`. Author: Mohamed Bechir Kefi, independent researcher (authorship decision C3; owner, 2026-11-26, decision sheet B3); no institutional affiliation is claimed. No funding was received. The author declares no competing interests. AI assistance (Claude, Anthropic) is disclosed in manuscript section 11; the AI system is not an author.

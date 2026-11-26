@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
 # Supplementary material
 
-Supplement to `manuscript.md` (independent research manuscript / preprint draft, not peer-reviewed). Tables marked "generated" are written by `scripts/m4_tables.py` from committed results; every number is traced by `scripts/m4_audit.py` (`research/publication/audit_result.json`).
+Supplement to `manuscript.md` (independent research manuscript / preprint draft, not peer-reviewed). Author: Mohamed Bechir Kefi, independent researcher. Tables marked "generated" are written by `scripts/m4_tables.py` from committed results; every number is traced by `scripts/m4_audit.py` (`research/publication/audit_result.json`).
 
 ## S1. Complete experimental matrix
 

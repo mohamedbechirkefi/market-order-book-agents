@@ -1,7 +1,9 @@
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
 # Release checklist (M6). Nothing is checked at M0.
 
-**Status (2026-11-25):** release candidate prepared in M6 and awaiting the owner's review and G-PUBLIC decision. Each ticked item was verified by the AI assistant in this session; the evidence is next to it. The two owner items stay unticked.
+**Status (2026-11-25):** release candidate prepared in M6. Each ticked item was verified by the AI assistant in that session; the evidence is next to it. The two owner items stay unticked.
+
+**Update (2026-11-26):** the repository was pushed by the coordinator on the owner's word and has been public at https://github.com/mohamedbechirkefi/market-order-book-agents since 2026-11-25; the demo is to be hosted at https://market-order-book-agents.kefimohamedbechir.workers.dev (Cloudflare Workers static assets, free plan, deployed by the coordinator; owner, 2026-11-26, decision sheet B2). No release, tag or DOI exists yet (B18, after the owner's full-text review B16). The owner's answers of 2026-11-26 are recorded in `author_review.md` and decision D-021.
 
 - [x] Clean clone into a separate directory; `uv sync --frozen` succeeds (output recorded). Evidence: `reproducibility_report.md` section 2 (clone of 704a568, `uv sync --frozen --all-groups --all-extras`, then `Audited 9 packages`).
 - [x] Full test suite run; actual counts recorded in progress.md. Evidence: clean clone `170 passed`; working repository after M6 `176 passed` (`progress.md`, session 10); demo `27 passed`.
@@ -14,3 +16,14 @@
 - [x] Claims audit complete (claims_audit.md). Evidence: `claims_audit.md` (M4); M6 re-check in `evidence_audit.md` section 7 (`m4_audit.py`: integrity and raw checks true, 0 unmatched numbers; X-002, X-003, X-004, X-008 checked against full texts).
 - [ ] Owner review complete (author_review.md)
 - [ ] Owner approval for any push, release or publication (G-PUBLIC)
+
+## Version and date at the release (B8)
+
+Owner, 2026-11-26, decision sheet B8: `CITATION.cff` keeps `version: "0.1.0-rc1"` and no `date-released` until the release. At the release the version becomes `0.1.0` and `date-released` is set to the release day. `pyproject.toml` stays at `0.0.0` (changing it would change `uv.lock` and the recorded environments).
+
+## Release notes (draft)
+
+- Venue: GitHub release only (owner, 2026-11-26, decision sheet R-MARKET-1), with the committed PDFs attached (B10).
+- External build and check tools are used but not redistributed: pandoc (GPL-2.0-or-later) converts Markdown to Typst and LaTeX, Google Chrome (proprietary) runs the demo accessibility check, and MPL-2.0 lightningcss is a build-time dependency of the demo toolchain, as listed in `dependency_licences.md` (B13).
+- Sources not read in full are labelled as such (abstract record read, or the sections checked) in the manuscript references and `research/literature_review.md`; the owner accepted the labels (B14).
+

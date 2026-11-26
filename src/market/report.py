@@ -26,8 +26,11 @@ SUMMARY_METRICS = ("vci", "realised_volatility", "excess_kurtosis", "return_acf1
                    "mean_depth_at_best", "volume_per_step", "max_drawdown", "one_sided_fraction", "rejected_fraction")
 CONTRAST_METRICS = ("vci", "vci_dt10", "vci_dt200", "realised_volatility", "mean_spread", "max_drawdown")
 
-DEFAULT_PANDOC = "/Users/bechir/research/labs/.tools/pandoc"
-DEFAULT_TYPST_PY = "/Users/bechir/research/labs/.tools/py/bin/python"
+# Default tool locations: the shared toolchain folder `.tools/` next to this repository
+# (`../.tools/` from the repository root); overridable by MARKET_PANDOC and MARKET_TYPST_PYTHON.
+_SHARED_TOOLS = Path(__file__).resolve().parents[3] / ".tools"
+DEFAULT_PANDOC = str(_SHARED_TOOLS / "pandoc")
+DEFAULT_TYPST_PY = str(_SHARED_TOOLS / "py" / "bin" / "python")
 
 # Typst rules added before the pandoc template (M6 visual inspection): no creation date, so that
 # a rebuild of unchanged sources gives identical PDF bytes; tables in a smaller size, left

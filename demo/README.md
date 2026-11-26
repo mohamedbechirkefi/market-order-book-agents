@@ -22,4 +22,4 @@ Regenerate the data from the repository root:
     .venv/bin/python scripts/export_demo_data.py
     .venv/bin/python scripts/make_demo_fixture.py
 
-Public URL: [placeholder, not yet published].
+Public URL: https://market-order-book-agents.kefimohamedbechir.workers.dev. The page is hosted as Cloudflare Workers static assets on the free plan (`demo/wrangler.jsonc`: assets only, no Worker script, directory `./dist`). It is deployed by the coordinator, not by any script of this repository. Repository: https://github.com/mohamedbechirkefi/market-order-book-agents.

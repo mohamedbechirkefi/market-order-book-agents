@@ -23,7 +23,7 @@ FREEZE = json.loads((ROOT / "research" / "freeze.json").read_text(encoding="utf-
 DATA_MANIFEST_SHA = FREEZE["data_manifest"]["sha256"]
 SPDX = "<!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->"
 TODAY = "2026-11-25"
-AUTHOR = "Mohamed Bechir Kefi (approved authorship, C3); AI research and development assistant disclosed, not an author"
+AUTHOR = "Mohamed Bechir Kefi, independent researcher (approved authorship, C3); AI research and development assistant disclosed, not an author"
 
 
 M4 = ROOT / "results" / "exploratory" / "M4-SENS" / "m4_exploratory.json"

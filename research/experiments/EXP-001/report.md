@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
 # EXP-001: Agent mixtures and volatility clustering (report)
 
-**Experiment:** EXP-001. **Date:** 2026-11-25. **Version:** protocol v1.0 (frozen 2026-11-24). **Status:** complete, confirmatory, 120 of 120 planned runs. **Authorship:** Mohamed Bechir Kefi (approved authorship, C3); AI research and development assistant disclosed, not an author. **Protocol SHA-256:** `3edbb40f44b8e31920e7cf5d35204a932ce0adcdca67b8c73e93ac7e074ea307`. **Code revision:** `26266f2bf6efe2df1e1c1738e9b12e90f169731e`.
+**Experiment:** EXP-001. **Date:** 2026-11-25. **Version:** protocol v1.0 (frozen 2026-11-24). **Status:** complete, confirmatory, 120 of 120 planned runs. **Authorship:** Mohamed Bechir Kefi, independent researcher (approved authorship, C3); AI research and development assistant disclosed, not an author. **Protocol SHA-256:** `3edbb40f44b8e31920e7cf5d35204a932ce0adcdca67b8c73e93ac7e074ea307`. **Code revision:** `26266f2bf6efe2df1e1c1738e9b12e90f169731e`.
 
 ## 1. Executive summary
 

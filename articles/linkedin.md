@@ -11,7 +11,7 @@ One defensible finding: at the preregistered sampling interval the trend-followe
 
 Caveat: this is one simulated market under explicit assumptions, not a statement about real markets and not trading advice. Read with the sign of the hypothesis as reference, the same rule would say "qualified"; either way, the answer depends on the sampling interval.
 
-Repository: [placeholder, not yet published]
-Demo: [placeholder, not yet published]
+Repository: https://github.com/mohamedbechirkefi/market-order-book-agents
+Demo: https://market-order-book-agents.kefimohamedbechir.workers.dev
 
-Independent preprint draft, not peer-reviewed. AI assistance (Claude, Anthropic) disclosed in the manuscript.
+Mohamed Bechir Kefi, independent researcher. Independent preprint draft, not peer-reviewed. AI assistance (Claude, Anthropic) disclosed in the manuscript.

@@ -328,3 +328,28 @@ No push, tag or release. No `author_review.md` box ticked. Owner-only facts (URL
 
 ### Addendum (same session): fresh-clone re-check of the M6 commit 7597df1
 `pytest -q` -> **176 passed**; `check_links.py` -> `LINK-CHECK PASS: 118 relative links in 55 Markdown files resolve`; `build_pdfs.py` then `git status --short` -> clean (PDFs and `manuscript.tex` byte-identical); demo `added 53 packages`, `Tests 27 passed (27)`, build ok, `A11Y-CHECK PASS`; export then `git status --short` -> clean. Clone deleted. Recorded in `research/publication/reproducibility_report.md` section 6.
+
+## 2026-11-26: Session 11, owner answers of 2026-11-26 applied (D-021)
+
+Authority: owner, 2026-11-26, decision sheet. Wording and configuration only; no result, analysis, figure, config, seed, frozen protocol, hash or checksummed output changed. No push, no deploy, no box ticked.
+
+### Changes
+- A1, B1, B2: repository and demo URLs filled (README, `CITATION.cff` with `repository-code`, manuscript section 10, articles, `demo/README.md`, page footer); `demo/wrangler.jsonc` added (assets only, `./dist`); out-of-date statements corrected in `release_checklist.md`, `reproducibility_report.md` (section 7) and `CLAUDE.md`.
+- B3, B4: author line "Mohamed Bechir Kefi, independent researcher" (manuscript, supplement, five reports through `scripts/write_m3_reports.py`, articles, README, footer; `CITATION.cff` affiliation); funding and competing-interest statements filled.
+- B8, B10, B13, B14, R-MARKET-1: recorded in `release_checklist.md` (version rule, "Release notes (draft)", venue GitHub release only).
+- B9: home paths removed from `CLAUDE.md` and `src/market/report.py` (defaults now relative to the repository); 8 lines in 6 files remain, listed with reasons.
+- Records: decision D-021; `author_review.md` section "Owner answers recorded (2026-11-26)" and placeholder list (one left: the medium.md screenshot, B15).
+
+### Commands and outputs
+- `git status --short` at start -> no line (clean at 599985b).
+- `.venv/bin/python -c "import market.report as r; print(r.DEFAULT_PANDOC)"` -> `<research root>/labs/.tools/pandoc` (same file as before; exists).
+- `../.tools/py/bin/uv sync --frozen` (the `CLAUDE.md` command, run from the repository root) -> `Audited 9 packages in 3ms`.
+- `.venv/bin/python -m pytest -q` -> `176 passed in 4.16s`.
+- `.venv/bin/python scripts/check_links.py` -> `LINK-CHECK PASS: 118 relative links in 55 Markdown files resolve`.
+- `scripts/write_m3_reports.py` on a scratch copy of the edited tree -> the five `report.md` files and every other experiment file byte-identical to the edited repository (`diff -rq` no output).
+- `scripts/m4_audit.py` on the same scratch copy (not committed) -> manuscript, supplement and reports: 0 unmatched numbers; `evidence_audit.md` reports `6,489` and `6,495` unmatched, a file not edited in this session (pre-existing; the committed `audit_result.json` predates that file's M6 text).
+- `.venv/bin/python scripts/build_pdfs.py --png <scratch>/png` -> 7 PDFs rebuilt (every source changed): `manuscript.pdf` 20 pages (329,711 bytes), `supplementary.pdf` 3, reports 8, 7, 5, 5, 5. Inspected as PNG: manuscript pages 1 (title, author line, status), 18 (section 10 with both URLs), 19 (section 11 statements); supplement page 1; EXP-001 report page 1 (authorship line).
+- `cd demo && npm ci --prefer-offline` -> `added 53 packages in 6s`; `npm test` -> `Test Files 2 passed (2)`, `Tests 27 passed (27)`; `npm run build` -> `dist/assets/index-DxPxWXEP.js 251.47 kB`, `built in 370ms`; `node tools/a11y_check.mjs dist` -> nine PASS lines including "no request leaves the local origin", then `A11Y-CHECK PASS`.
+
+### Not done
+No push, deploy, tag or release. No `author_review.md` box ticked. Open for the owner: B15 (articles), B16 (full-text review and sign-off), B18 (release).

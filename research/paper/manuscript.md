@@ -1,13 +1,13 @@
 ---
 title: "Trend followers, aggressive order flow and volatility clustering in a small simulated limit-order book: a preregistered paired-seed study"
-author: "Mohamed Bechir Kefi"
+author: "Mohamed Bechir Kefi, independent researcher"
 date: "Draft, 2026-11-25"
 status: "Independent research manuscript / preprint draft, not peer-reviewed. Protocol v1.0 frozen by the owner on 2026-11-24 (research/freeze.json). Every number is generated from committed results (research/publication/artifact_manifest.json)."
 ---
 
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
 
-**Status.** Independent research manuscript / preprint draft, not peer-reviewed. Not submitted anywhere. Author and affiliation metadata are as approved by the owner (authorship decision C3); no institutional affiliation, funding or endorsement is claimed.
+**Status.** Independent research manuscript / preprint draft, not peer-reviewed. Not submitted anywhere. Author: Mohamed Bechir Kefi, independent researcher (authorship decision C3; owner, 2026-11-26, decision sheet B3); no institutional affiliation, funding or endorsement is claimed.
 
 # Abstract
 
@@ -358,7 +358,7 @@ Under the frozen protocol, the primary interpretation of this small, preregister
 
 # 10. Data and code availability
 
-Repository: `market-order-book-agents` (public URL: [placeholder, not yet published]). Code in `src/market/`; frozen protocols and configs in `research/` and `experiments/` with their hashes in `research/freeze.json`; raw per-run results, analysis outputs and SHA256SUMS in `results/confirmatory/`; exploratory outputs in `results/exploratory/`; experiment reports in `research/experiments/EXP-00N/report.md`; the artifact manifest and evidence audit in `research/publication/`. Reproduction (deterministic given seed and revision):
+Repository: `market-order-book-agents` (https://github.com/mohamedbechirkefi/market-order-book-agents; interactive page https://market-order-book-agents.kefimohamedbechir.workers.dev). Code in `src/market/`; frozen protocols and configs in `research/` and `experiments/` with their hashes in `research/freeze.json`; raw per-run results, analysis outputs and SHA256SUMS in `results/confirmatory/`; exploratory outputs in `results/exploratory/`; experiment reports in `research/experiments/EXP-00N/report.md`; the artifact manifest and evidence audit in `research/publication/`. Reproduction (deterministic given seed and revision):
 
 ```
 uv sync --frozen --all-groups --all-extras
@@ -375,7 +375,7 @@ Real data: FI-2010 [@Ntakaris2018], CC BY 4.0, fetched by `scripts/download_fi20
 
 # 11. Funding, competing interests and AI assistance
 
-Funding and competing interests: none are recorded in the project files. The owner confirms both statements before any release.
+Funding: No funding was received. Competing interests: The author declares no competing interests.
 
 AI assistance: an AI system (Claude, Anthropic) was used as a research and development assistant for code, tests, protocol drafting, analysis scripts, the M4 exploratory checks, the evidence audit and the drafting of this manuscript, under the owner's direction. The owner approved the hypotheses, the protocol freeze, the amendments and every decision recorded in the decision log. Every number in this manuscript is generated from, or checked by script against, committed results (`scripts/m4_tables.py`, `scripts/m4_audit.py`). The AI's internal review (`research/publication/review_pass_2.md`) is quality control, not peer review. The AI system is not an author.
 

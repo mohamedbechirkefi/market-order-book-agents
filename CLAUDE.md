@@ -27,15 +27,15 @@ Then `research/decision_log.md`, `research/experiment_registry.csv` and the rele
 ## 3. Rules (all sessions)
 
 ### Gates
-- Never push, add a remote, create a GitHub repository or publish anything (G-PUBLIC).
+- Never push, add a remote, create a GitHub repository or publish anything (G-PUBLIC). The repository has been public at https://github.com/mohamedbechirkefi/market-order-book-agents since 2026-11-25 (pushed by the coordinator on the owner's word); further pushes, deploys and releases stay the owner's decision.
 - No paid service of any kind: no paid API, inference, dataset, compute, hosting or tool.
 - Never freeze a protocol: freezing is the owner's decision (G-FREEZE). Until then, implementation and exploratory runs only, clearly labelled exploratory.
 - A tiny exploratory smoke check of the toolchain is allowed; label it exploratory.
 - Confirmatory seeds (1001 to 1030) are never run before the freeze.
 
 ### Scope
-- Work only inside this repository. Read-only use of `/Users/bechir/research/labs/.tools/` and of Node at `/Users/bechir/research/helix/.tools/node/bin` (never modify that folder).
-- Do not touch any other folder under `/Users/bechir/research` (hive, helix, cogkt, trading, the other labs).
+- Work only inside this repository. Read-only use of the shared lab toolchain `../.tools/` (relative to this repository) and of Node at `helix/.tools/node/bin` under the research root (never modify that folder).
+- Do not touch any other folder under the research root (hive, helix, cogkt, trading, the other labs).
 - Never kill processes you did not start. Never delete anything you did not create in the current session.
 
 ### Truthfulness
@@ -57,9 +57,11 @@ Then `research/decision_log.md`, `research/experiment_registry.csv` and the rele
 
 ## 4. Development commands
 
+Run from the repository root (`../.tools/` is the shared lab toolchain next to it).
+
 ```
-/Users/bechir/research/labs/.tools/py/bin/uv sync --frozen    # install locked deps into .venv
-/Users/bechir/research/labs/.tools/py/bin/uv run pytest       # tests
-/Users/bechir/research/labs/.tools/py/bin/uv lock             # re-lock (respects exclude-newer)
-/Users/bechir/research/labs/.tools/py/bin/uv run python -m market.cli smoke|run|report|test
+../.tools/py/bin/uv sync --frozen    # install locked deps into .venv
+../.tools/py/bin/uv run pytest       # tests
+../.tools/py/bin/uv lock             # re-lock (respects exclude-newer)
+../.tools/py/bin/uv run python -m market.cli smoke|run|report|test
 ```

@@ -70,3 +70,17 @@ Tolerance: exact equality for every metric (documented determinism; README "Full
 | `scripts/export_demo_data.py`; `git status --short` | no status line (deterministic) |
 
 The fresh clone was deleted after the check.
+
+## 7. Owner answers of 2026-11-26: repository status and home paths
+
+**Repository status (A1).** Sections 1 to 6 describe the state on 2026-11-25, before the push. The repository has been public at https://github.com/mohamedbechirkefi/market-order-book-agents since 2026-11-25 (pushed by the coordinator on the owner's word); the demo address is https://market-order-book-agents.kefimohamedbechir.workers.dev (Cloudflare Workers static assets, free plan, deployed by the coordinator). No release exists.
+
+**Home paths (B9).** Removed on 2026-11-26 from `CLAUDE.md` (toolchain and Node paths now relative to the repository, `../.tools/`, or named in words as "the research root") and from `src/market/report.py`, whose default tool paths are now computed relative to the repository (`../.tools/pandoc`, `../.tools/py/bin/python`; still overridable by `MARKET_PANDOC` and `MARKET_TYPST_PYTHON`; the PDF build was re-run with the defaults). Remaining in the tracked files: 8 lines in 6 files, each kept on purpose:
+
+| File | Lines | Why it stays |
+| --- | --- | --- |
+| `progress.md` | 3 | append-only log; dated entries stay true for their date |
+| `research/feasibility.md` | 1 | M0 measurement record: the `df -h` command is quoted exactly as it was run |
+| `results/confirmatory/EXP-001.log` to `EXP-004.log` | 4 | committed raw run logs of the confirmatory runs; never rewritten |
+
+No absolute home path appears in the PDFs, the demo files, the README, the manuscript or the articles.

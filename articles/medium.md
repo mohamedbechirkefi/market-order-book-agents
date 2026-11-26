@@ -3,7 +3,7 @@
 
 # Do trend followers make a simulated market's volatility cluster? A preregistered test that came back "invalidated"
 
-*Draft. Simulated markets only: nothing here is a statement about real markets, a prediction, trading advice or a claim of profitability.*
+*By Mohamed Bechir Kefi, independent researcher. Draft. Simulated markets only: nothing here is a statement about real markets, a prediction, trading advice or a claim of profitability.*
 
 Markets have calm stretches and turbulent stretches: big price moves tend to follow big price moves. Economists call this volatility clustering. A long line of agent-based models attributes it to traders who chase trends. But a trader who chases trends also trades more aggressively than a random one, so if a market full of trend followers clusters more, is that the trend rule, or just the aggressive orders?
 
@@ -39,6 +39,6 @@ One parameter set, 100 fixed-rule agents, one asset, no calibration to any marke
 
 ## Reproduce it
 
-Everything runs on a laptop at zero cost. Code, frozen protocols, raw results, experiment reports and the manuscript: [repository link placeholder, not yet published]. Interactive page with an in-browser order-book sandbox: [demo link placeholder, not yet published].
+Everything runs on a laptop at zero cost. Code, frozen protocols, raw results, experiment reports and the manuscript: https://github.com/mohamedbechirkefi/market-order-book-agents. Interactive page with an in-browser order-book sandbox: https://market-order-book-agents.kefimohamedbechir.workers.dev.
 
 *AI assistance: an AI system (Claude, Anthropic) helped with code, analysis scripts and drafting, under the author's direction; it is not an author. This is an independent preprint draft, not peer-reviewed.*

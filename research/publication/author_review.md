@@ -35,14 +35,30 @@ The release candidate is prepared, not released (owner, 2026-11-25, "Next" (seco
 8. The owner decides whether the committed PDFs are part of the release or are rebuilt at release time with `scripts/build_pdfs.py` (they are byte-reproducible from the sources).
 9. The owner chooses a publication venue, if any, under the zero-cost rule (paid venues out of scope).
 
-### Remaining owner placeholders (file and line, 2026-11-25)
+### Remaining owner placeholders (file and line, updated 2026-11-26)
 
-- `README.md` line 94: "Repository and demo URL: [placeholder, not yet published]."
-- `README.md` line 102: funding and competing interests, "the owner confirms both statements before any release".
-- `CITATION.cff` line 7 (`message`): "Repository URL: [placeholder, not yet published]."
-- `research/paper/manuscript.md` line 361: "public URL: [placeholder, not yet published]" (also in `manuscript.tex`).
-- `research/paper/manuscript.md` line 378: "The owner confirms both statements before any release."
-- `articles/linkedin.md` lines 14 and 15: repository and demo placeholders.
-- `articles/medium.md` line 18: figure placeholder for the demo screenshot; line 42: repository and demo link placeholders.
-- `demo/README.md` line 25: "Public URL: [placeholder, not yet published]."
-- `demo/src/App.tsx` line 58: "Repository and demo URL: [placeholder, not yet published]." (page footer).
+The repository URL, demo URL, funding and competing-interest placeholders listed on 2026-11-25 were filled on 2026-11-26 (owner, 2026-11-26, decision sheet B1, B2, B4; decision D-021). One placeholder remains:
+
+- `articles/medium.md` line 18: figure placeholder for the demo screenshot (`docs/demo.png` exists); it belongs to the owner's article review (B15).
+
+## Owner answers recorded (2026-11-26)
+
+Source: owner, 2026-11-26, decision sheet (`labs/_shared/owner-decision-sheet-2026-11-26.md`; answers in `labs/_shared/owner-approvals-2026-11-26.md`). Applied in decision D-021. No box above is ticked by this record.
+
+| Id | Answer | Applied here |
+| --- | --- | --- |
+| A1 | Every repository is public since 2026-11-25. | Out-of-date "not published" statements corrected in editable files; append-only records unchanged. |
+| B1 | Repository URL `https://github.com/mohamedbechirkefi/market-order-book-agents`. | README, `CITATION.cff` (`repository-code`), manuscript section 10, articles, demo README and footer. |
+| B2 | Demo on Cloudflare Workers, free plan, `https://market-order-book-agents.kefimohamedbechir.workers.dev`, deployed by the coordinator. | URLs filled; `demo/wrangler.jsonc` (assets only, `./dist`). Not deployed from this repository. |
+| B3 | "Mohamed Bechir Kefi, independent researcher". | Manuscript, supplement, five reports, articles, README, page footer; `CITATION.cff` affiliation "Independent researcher". |
+| B4 | No funding; no competing interests. | Manuscript section 11 and README. |
+| B6, B7 | Title approved; CITATION.cff carries the manuscript title. | Already the case. |
+| B8 | `0.1.0-rc1` now; `0.1.0` and `date-released` at the release; `pyproject.toml` stays `0.0.0`. | Recorded in `release_checklist.md`. |
+| B9 | Scrub home paths from editable files. | `CLAUDE.md`, `src/market/report.py`; 8 lines in 6 files remain, with reasons (`reproducibility_report.md` section 7). |
+| B10, B13 | PDFs kept and attached to the release; build-tool licence sentence. | `release_checklist.md` "Release notes (draft)". |
+| B14 | Source-level labels accepted. | Recorded; no text change needed. |
+| R-MARKET-1 | Publication venue: GitHub release only. | Recorded in `release_checklist.md`. |
+
+Answers 1 to 5 and 7 to 9 of the "Open decisions" list above are settled by these answers (push already done by the coordinator; URLs filled; funding and competing interests stated; author line confirmed; version rule recorded; tools named in the release notes; PDFs kept; venue chosen).
+
+**Still open (owner only):** B15, the article drafts and their titles (`articles/medium.md`, `articles/linkedin.md`); B16, the full-text review of the manuscript and the sign-off of the six boxes above; B18, the GitHub release, tag and any DOI or preprint. No protocol freeze is pending in this repository.

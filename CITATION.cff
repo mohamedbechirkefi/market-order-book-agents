@@ -4,12 +4,14 @@
 # "date-released" is omitted until a release exists (owner-approvals-2026-11-25e, coordinator default);
 # version 0.1.0-rc1 is a release candidate prepared in M6, not a release.
 cff-version: 1.2.0
-message: "If you use this work, please cite it as below. Status: preregistered simulation study, protocol v1.0 frozen (2026-11-24); all 480 confirmatory runs complete; frozen verdict for the primary hypothesis: invalidated (EXP-001, sign reversal under the EXP-004 robustness rule). Independent preprint draft, not peer-reviewed. Simulated markets only; no claim about real markets. The AI assistant used for development is disclosed in the manuscript and is not an author. Repository URL: [placeholder, not yet published]."
+message: "If you use this work, please cite it as below. Status: preregistered simulation study, protocol v1.0 frozen (2026-11-24); all 480 confirmatory runs complete; frozen verdict for the primary hypothesis: invalidated (EXP-001, sign reversal under the EXP-004 robustness rule). Independent preprint draft, not peer-reviewed. Simulated markets only; no claim about real markets. The AI assistant used for development is disclosed in the manuscript and is not an author. Demo: https://market-order-book-agents.kefimohamedbechir.workers.dev."
 title: "Trend followers, aggressive order flow and volatility clustering in a small simulated limit-order book: a preregistered paired-seed study"
 type: software
 authors:
   - family-names: Kefi
     given-names: Mohamed Bechir
+    affiliation: "Independent researcher"
+repository-code: "https://github.com/mohamedbechirkefi/market-order-book-agents"
 version: "0.1.0-rc1"
 keywords:
   - agent-based model

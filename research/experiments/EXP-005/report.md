@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
 # EXP-005: Simulated and real-market volatility, spread and clustering (FI-2010) (report)
 
-**Experiment:** EXP-005 (secondary, descriptive). **Date:** 2026-11-25. **Version:** protocol v1.0. **Status:** complete, confirmatory (0 new runs; uses the 120 EXP-001 runs). **Authorship:** Mohamed Bechir Kefi (approved authorship, C3); AI research and development assistant disclosed, not an author. **Protocol SHA-256:** `d91a4421abeb203af68b4a6c3467aebd69737c9ef55c1897eb4d92d31d4c0fa3`. **Config SHA-256:** `848e9e17a03b31964a7fab5d43b97d9b6004447a3b289f7427b38899e5490719`. **Code revision:** `26266f2bf6efe2df1e1c1738e9b12e90f169731e`.
+**Experiment:** EXP-005 (secondary, descriptive). **Date:** 2026-11-25. **Version:** protocol v1.0. **Status:** complete, confirmatory (0 new runs; uses the 120 EXP-001 runs). **Authorship:** Mohamed Bechir Kefi, independent researcher (approved authorship, C3); AI research and development assistant disclosed, not an author. **Protocol SHA-256:** `d91a4421abeb203af68b4a6c3467aebd69737c9ef55c1897eb4d92d31d4c0fa3`. **Config SHA-256:** `848e9e17a03b31964a7fab5d43b97d9b6004447a3b289f7427b38899e5490719`. **Code revision:** `26266f2bf6efe2df1e1c1738e9b12e90f169731e`.
 
 ## 1. Executive summary
 

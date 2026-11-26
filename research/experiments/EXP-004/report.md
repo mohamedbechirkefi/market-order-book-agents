@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
 # EXP-004: Sensitivity analyses that could invalidate EXP-001 (report)
 
-**Experiment:** EXP-004. **Date:** 2026-11-25. **Version:** protocol v1.0. **Status:** complete, confirmatory, 90 of 90 planned new runs plus the EXP-001 reanalysis. **Authorship:** Mohamed Bechir Kefi (approved authorship, C3); AI research and development assistant disclosed, not an author. **Protocol SHA-256:** `abe44221155d0d5de42eec66db5038589b762fbdf24a9120fa1dbd7257d6e322`. **Code revision:** `26266f2bf6efe2df1e1c1738e9b12e90f169731e`.
+**Experiment:** EXP-004. **Date:** 2026-11-25. **Version:** protocol v1.0. **Status:** complete, confirmatory, 90 of 90 planned new runs plus the EXP-001 reanalysis. **Authorship:** Mohamed Bechir Kefi, independent researcher (approved authorship, C3); AI research and development assistant disclosed, not an author. **Protocol SHA-256:** `abe44221155d0d5de42eec66db5038589b762fbdf24a9120fa1dbd7257d6e322`. **Code revision:** `26266f2bf6efe2df1e1c1738e9b12e90f169731e`.
 
 ## 1. Executive summary
 

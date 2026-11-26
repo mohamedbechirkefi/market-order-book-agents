@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
 # EXP-003: Response to an exogenous sell shock (report)
 
-**Experiment:** EXP-003 (optional, amendment A3; run in full). **Date:** 2026-11-25. **Version:** protocol v1.0. **Status:** complete, confirmatory, 90 of 90 planned runs. **Authorship:** Mohamed Bechir Kefi (approved authorship, C3); AI research and development assistant disclosed, not an author. **Protocol SHA-256:** `f535bd42ba3afa5320088c0ed811f50f2966a69ef0bcd82c34644b9537f607c4`. **Code revision:** `26266f2bf6efe2df1e1c1738e9b12e90f169731e`.
+**Experiment:** EXP-003 (optional, amendment A3; run in full). **Date:** 2026-11-25. **Version:** protocol v1.0. **Status:** complete, confirmatory, 90 of 90 planned runs. **Authorship:** Mohamed Bechir Kefi, independent researcher (approved authorship, C3); AI research and development assistant disclosed, not an author. **Protocol SHA-256:** `f535bd42ba3afa5320088c0ed811f50f2966a69ef0bcd82c34644b9537f607c4`. **Code revision:** `26266f2bf6efe2df1e1c1738e9b12e90f169731e`.
 
 ## 1. Executive summary
 

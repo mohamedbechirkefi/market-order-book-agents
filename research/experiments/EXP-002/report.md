@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-MARKET-NC-Research-1.0 -->
 # EXP-002: Liquidity supply and spread (report)
 
-**Experiment:** EXP-002. **Date:** 2026-11-25. **Version:** protocol v1.0. **Status:** complete, confirmatory, 180 of 180 planned runs. **Authorship:** Mohamed Bechir Kefi (approved authorship, C3); AI research and development assistant disclosed, not an author. **Protocol SHA-256:** `c2e932dab9514a77fc927b2f20396163e477757bd3a1ff6590fd263343c8d230`. **Code revision:** `26266f2bf6efe2df1e1c1738e9b12e90f169731e`.
+**Experiment:** EXP-002. **Date:** 2026-11-25. **Version:** protocol v1.0. **Status:** complete, confirmatory, 180 of 180 planned runs. **Authorship:** Mohamed Bechir Kefi, independent researcher (approved authorship, C3); AI research and development assistant disclosed, not an author. **Protocol SHA-256:** `c2e932dab9514a77fc927b2f20396163e477757bd3a1ff6590fd263343c8d230`. **Code revision:** `26266f2bf6efe2df1e1c1738e9b12e90f169731e`.
 
 ## 1. Executive summary
 
