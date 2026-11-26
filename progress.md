@@ -353,3 +353,18 @@ Authority: owner, 2026-11-26, decision sheet. Wording and configuration only; no
 
 ### Not done
 No push, deploy, tag or release. No `author_review.md` box ticked. Open for the owner: B15 (articles), B16 (full-text review and sign-off), B18 (release).
+
+## 2026-11-26: demo brand identity, motion and UI redesign (owner request)
+
+The owner asked for each lab demo to have its own brand, motion and premium UI. The demo now follows `demo/DESIGN.md`: a 1980s quote board (deep green, amber figures) above a ticker-tape page, bids blue and asks red, Big Shoulders Display and Libre Franklin (Fontsource, OFL-1.1, self-hosted). New: a hand-built logo (an M cut into five volume bars) and wordmark in `demo/public/brand/` (audited with the logo skill's `svg_audit.py`: no issues, 100/100), favicon SVG and 32 px PNG, apple touch icon, a 1200x630 Open Graph image rendered with headless Chrome, theme colour and Open Graph tags. Hero moment: the tape prints marks in clustered bursts and a depth ladder fills from the spread, labelled "Illustration, not study data" with no number; interval charts grow once from their estimate when scrolled into view; the sticky navigation underline slides to the section in view; the sandbox result enters with `@starting-style`. Reduced motion removes all movement. No number, data file, fixture, test or test id was changed; the results data, engine and validators are untouched.
+
+### Commands and outputs
+- `npm_config_before=2026-11-12 npm install --save-exact @fontsource-variable/big-shoulders-display@5.3.0 @fontsource-variable/libre-franklin@5.3.0` -> `added 2 packages`.
+- `npm test` -> `Test Files 2 passed (2)`, `Tests 27 passed (27)`.
+- `npm run build` -> `dist/assets/index-*.js 257.48 kB` (gzip 80.08 kB), CSS 14.90 kB, two woff2 files 29.29 kB and 35.50 kB; whole `dist/` 495,825 bytes.
+- `node tools/a11y_check.mjs dist` -> nine PASS lines, `A11Y-CHECK PASS`.
+- `../.tools/py/bin/uv run --frozen pytest -q` -> `176 passed`.
+- Screenshots (desktop 1440 and phone 390, headless Chrome over the DevTools protocol, served locally on port 5231) were reviewed in four critique passes: headline reflowed to three lines, ladder centred and hidden on phones, tape re-drawn with clearer bursts and kept at a readable scale on phones, chart axis text reduced, disclosure markers added, one decorative tape border removed.
+
+### Not done
+No push or deploy (coordinator's step).

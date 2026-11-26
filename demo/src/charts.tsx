@@ -2,6 +2,7 @@
 // Hand-written SVG and HTML charts. Every chart has a plain-language description and a
 // table or printed values beside it; uncertainty is drawn, never left to a tooltip.
 import type { BookSnapshot } from "./engine/sim";
+import { useRevealOnce } from "./Brand";
 
 // ------------------------------------------------------------------ interval (forest) plot
 
@@ -36,9 +37,10 @@ export function IntervalPlot({ rows, axisLabel, id }: { rows: IntervalRow[]; axi
   hi += pad;
   const x = (v: number) => ((v - lo) / (hi - lo)) * 100;
   const ticks = niceTicks(lo, hi);
+  const [ref, reveal] = useRevealOnce<HTMLDivElement>();
   return (
-    <div className="iplot" role="group" aria-labelledby={`${id}-cap`}>
-      {rows.map((r) => (
+    <div ref={ref} className={`iplot ${reveal}`} role="group" aria-labelledby={`${id}-cap`}>
+      {rows.map((r, i) => (
         <div className="iplot-row" key={r.key}>
           <div className="iplot-label">
             <span>{r.label}</span>
@@ -46,9 +48,11 @@ export function IntervalPlot({ rows, axisLabel, id }: { rows: IntervalRow[]; axi
           </div>
           <svg className="iplot-svg" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true" focusable="false">
             <line x1={x(0)} x2={x(0)} y1={0} y2={24} className="zero" vectorEffect="non-scaling-stroke" />
-            <line x1={x(r.lo)} x2={x(r.hi)} y1={12} y2={12} className="ci" vectorEffect="non-scaling-stroke" />
-            <line x1={x(r.lo)} x2={x(r.lo)} y1={7} y2={17} className="ci" vectorEffect="non-scaling-stroke" />
-            <line x1={x(r.hi)} x2={x(r.hi)} y1={7} y2={17} className="ci" vectorEffect="non-scaling-stroke" />
+            <g className="ci-g" style={{ transformOrigin: `${x(r.estimate)}px 12px`, transitionDelay: `${i * 50}ms` }}>
+              <line x1={x(r.lo)} x2={x(r.hi)} y1={12} y2={12} className="ci" vectorEffect="non-scaling-stroke" />
+              <line x1={x(r.lo)} x2={x(r.lo)} y1={7} y2={17} className="ci" vectorEffect="non-scaling-stroke" />
+              <line x1={x(r.hi)} x2={x(r.hi)} y1={7} y2={17} className="ci" vectorEffect="non-scaling-stroke" />
+            </g>
             <line x1={x(r.estimate)} x2={x(r.estimate)} y1={3} y2={21} className="est" vectorEffect="non-scaling-stroke" />
           </svg>
           <div className="iplot-num">

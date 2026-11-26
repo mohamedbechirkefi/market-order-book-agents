@@ -95,8 +95,11 @@ export function Sandbox() {
 
   return (
     <section id="sandbox" aria-labelledby="h-sandbox" className="sandbox">
-      <p className="tag tag-sandbox">Sandbox: your run, not a research result</p>
-      <h2 id="h-sandbox">Order-book sandbox</h2>
+      <div className="pit-band">
+        <h2 id="h-sandbox">The pit: run the order book yourself</h2>
+        <p className="tag tag-sandbox">Sandbox: your run, not a research result</p>
+      </div>
+      <div className="pit-body">
       <p>
         This runs the study's engine in your browser: a TypeScript port of <code>src/market/</code> (order book, accounting, agents,
         random streams). On the test fixture it reproduces the Python engine exactly, price by price (see Method). It runs one
@@ -193,7 +196,7 @@ export function Sandbox() {
       </p>
 
       {result && m && snap && (
-        <div className="sandbox-result">
+        <div className="sandbox-result" key={`${result.seed}-${result.runtime_ms}`}>
           <div className="sandbox-grid">
             <figure>
               <figcaption>
@@ -248,6 +251,7 @@ export function Sandbox() {
         Nothing you run here is stored or sent anywhere. Sandbox output is a simulation of a toy market under the stated
         assumptions; it is not investment advice and not a statement about any real market.
       </p>
+      </div>
     </section>
   );
 }

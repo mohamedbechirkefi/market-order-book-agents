@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { domainOf, IntervalPlot, PricePanel, type IntervalRow } from "./charts";
 import { fmtEstimate, fmtInterval, loadResults, ResultsError, type Estimate, type MarketResults } from "./results";
 import { Sandbox } from "./Sandbox";
+import { HeroLadder, HeroTape, TapeNav } from "./Brand";
 
 type State = { kind: "loading" } | { kind: "error"; message: string } | { kind: "ready"; results: MarketResults };
 
@@ -17,22 +18,38 @@ export function App() {
       );
   }, []);
 
+  const ready = state.kind === "ready" ? state.results : null;
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
-      <header className="site">
-        <div className="wrap">
-          <p className="kicker">MARKET · a preregistered simulation study of a limit-order book</p>
-          <h1>Do trend followers raise volatility clustering in a simulated order book?</h1>
-          <nav aria-label="Sections">
-            <a href="#overview">Overview</a>
-            <a href="#results">Results</a>
-            <a href="#exploratory">Exploratory</a>
-            <a href="#assumptions">Assumptions</a>
-            <a href="#method">Method and limitations</a>
-            <a href="#sandbox">Sandbox</a>
-          </nav>
+      <TapeNav />
+      <header className="board" id="top">
+        <div className="wrap board-grid">
+          <div className="board-text">
+            <p className="board-kicker">A preregistered simulation study of a limit-order book</p>
+            <h1>Do trend followers raise volatility clustering in a simulated order book?</h1>
+            {ready && (
+              <div className="verdict" role="note" aria-label="Frozen verdict">
+                <p className="verdict-word">
+                  <span className="verdict-lead">Frozen verdict:</span> {ready.headline.frozen_verdict}
+                </p>
+                <p className="verdict-text">{ready.headline.frozen_text}</p>
+                <p className="board-tag">Measured, confirmatory</p>
+              </div>
+            )}
+          </div>
+          <figure className="board-figure" aria-hidden="true">
+            <HeroLadder />
+          </figure>
         </div>
+        <figure className="tape" aria-label="Illustration, not study data: a ticker tape whose marks cluster in bursts">
+          <HeroTape />
+          <figcaption className="wrap tape-cap">
+            <span className="illus-label">Illustration, not study data.</span> Volatility clustering on a tape: large moves
+            arrive in bursts, quiet stretches sit between them. The ladder above shows resting asks and bids around the
+            spread.
+          </figcaption>
+        </figure>
       </header>
       <main id="main" className="wrap">
         {state.kind === "loading" && <p role="status">Loading the published results.</p>}
@@ -47,17 +64,31 @@ export function App() {
         )}
         {state.kind === "ready" && <Published r={state.results} />}
         <Sandbox />
+        {state.kind === "ready" && <MethodSections r={state.results} />}
       </main>
       <footer className="site">
-        <div className="wrap">
-          <p>
-            Runs offline after the first load. No data about visitors is collected, stored or sent anywhere. Simulated markets
-            only: nothing on this page is investment advice, a prediction or a claim about real markets.
-          </p>
-          <p>
-            Mohamed Bechir Kefi, independent researcher. Repository: https://github.com/mohamedbechirkefi/market-order-book-agents. Demo: https://market-order-book-agents.kefimohamedbechir.workers.dev. Licence: MARKET Source-Available Non-Commercial Research
-            License v1.0.
-          </p>
+        <div className="wrap footer-grid">
+          <div className="footer-brand">
+            <img src="brand/market-lockup-paper.svg" alt="MARKET" width="957" height="256" className="footer-lockup" />
+            <p>Mohamed Bechir Kefi, independent researcher.</p>
+          </div>
+          <div>
+            <p>
+              Runs offline after the first load. No data about visitors is collected, stored or sent anywhere. Simulated markets
+              only: nothing on this page is investment advice, a prediction or a claim about real markets.
+            </p>
+            <ul className="footer-links">
+              <li><a href="https://github.com/mohamedbechirkefi/market-order-book-agents">Repository on GitHub</a></li>
+              <li><a href="https://github.com/mohamedbechirkefi/market-order-book-agents/blob/main/research/paper/manuscript.md">Manuscript (preprint draft)</a></li>
+              <li><a href="https://labs.kefimohamedbechir.workers.dev">All lab studies</a></li>
+            </ul>
+            <p className="fine">
+              Licence: MARKET Source-Available Non-Commercial Research License v1.0. AI assistance (Claude, Anthropic) is
+              disclosed in manuscript section 11; the AI system is not an author. Demo:
+              https://market-order-book-agents.kefimohamedbechir.workers.dev. Type: Big Shoulders Display and Libre Franklin,
+              both under the SIL Open Font License, self-hosted.
+            </p>
+          </div>
         </div>
       </footer>
     </>
@@ -101,39 +132,14 @@ function Published({ r }: { r: MarketResults }) {
 
   return (
     <>
-      <section id="overview" aria-labelledby="h-overview">
-        <h2 id="h-overview">Overview</h2>
-        <div className="verdict" role="note" aria-label="Frozen verdict">
-          <p className="tag tag-measured">Measured, confirmatory</p>
-          <p className="verdict-word">Frozen verdict: {r.headline.frozen_verdict}</p>
-          <p>{r.headline.frozen_text}</p>
+      <section id="overview" aria-labelledby="h-overview" className="answer">
+        <div className="answer-head">
+          <h2 id="h-overview">The answer depends on the sampling interval</h2>
+          <p className="lede">
+            <strong>Question.</strong> {r.question}
+          </p>
         </div>
-        <div className="secondary-reading">
-          <p className="tag tag-exploratory">Secondary reading, exploratory</p>
-          <p>{r.headline.secondary_text}</p>
-        </div>
-        <p className="status-label">{r.status_label}</p>
-        <p>
-          <strong>Question.</strong> {r.question}
-        </p>
-        <div className="legend-labels" aria-label="How values are labelled on this page">
-          <span className="tag tag-measured">Measured</span> confirmatory results from committed runs.
-          <span className="tag tag-exploratory">Exploratory</span> post hoc checks, never a verdict.
-          <span className="tag tag-assumption">Assumption</span> model inputs, not results.
-          <span className="tag tag-sandbox">Sandbox</span> your own run in this browser.
-        </div>
-      </section>
-
-      <section id="results" aria-labelledby="h-results">
-        <p className="tag tag-measured">Measured, confirmatory</p>
-        <h2 id="h-results">Published results</h2>
-        <p className="note">
-          Every number is printed exactly as in the manuscript (<code>research/paper/manuscript.md</code>), from the committed
-          results of code revision <code>{r.code_revision.slice(0, 7)}</code>: 95% percentile bootstrap intervals over 30 paired
-          seeds unless the row says Holm interval. None of it comes from the sandbox below.
-        </p>
-
-        <figure className="panel">
+        <figure className="horizon">
           <figcaption id="fig-rule-cap">
             <strong>Why the verdict is "invalidated".</strong> The trend-follower effect on volatility clustering, VCI(A1) minus
             VCI(A0), at the preregistered sampling interval and in the three frozen robustness components. Tick mark: mean
@@ -144,6 +150,28 @@ function Published({ r }: { r: MarketResults }) {
           <IntervalPlot id="fig-rule" rows={verdictRows} axisLabel="VCI difference (dimensionless)" />
         </figure>
 
+        <div className="secondary-reading">
+          <p className="tag tag-exploratory">Secondary reading, exploratory</p>
+          <p>{r.headline.secondary_text}</p>
+        </div>
+        <p className="status-label">{r.status_label}</p>
+        <div className="legend-labels" aria-label="How values are labelled on this page">
+          <span className="tag tag-measured">Measured</span> confirmatory results from committed runs.
+          <span className="tag tag-exploratory">Exploratory</span> post hoc checks, never a verdict.
+          <span className="tag tag-assumption">Assumption</span> model inputs, not results.
+          <span className="tag tag-sandbox">Sandbox</span> your own run in this browser.
+        </div>
+      </section>
+
+      <section id="results" aria-labelledby="h-results">
+        <p className="tag tag-measured">Measured, confirmatory</p>
+        <h2 id="h-results">Evidence: the published results</h2>
+        <p className="note">
+          Every number is printed exactly as in the manuscript (<code>research/paper/manuscript.md</code>), from the committed
+          results of code revision <code>{r.code_revision.slice(0, 7)}</code>: 95% percentile bootstrap intervals over 30 paired
+          seeds unless the row says Holm interval. None of it comes from the sandbox below.
+        </p>
+
         <figure className="panel">
           <figcaption id="fig-placebo-cap">
             <strong>Aggressiveness-matched placebo (EXP-004, dt 50).</strong> Price-independent aggressive agents raised VCI
@@ -153,15 +181,15 @@ function Published({ r }: { r: MarketResults }) {
           <IntervalPlot id="fig-placebo" rows={placeboRows} axisLabel="VCI difference (dimensionless)" />
         </figure>
 
-        <h3 className="cards-title">Every registered experiment</h3>
-        <div className="cards">
+        <h3 className="ledger-title">Every registered experiment, with equal weight</h3>
+        <div className="ledger">
           {r.experiments.map((e) => (
-            <article key={e.id} className="panel card" aria-labelledby={`h-${e.id}`}>
+            <article key={e.id} className="entry" aria-labelledby={`h-${e.id}`}>
               <h3 id={`h-${e.id}`}>
                 {e.id}: {e.title}
               </h3>
               <p className="meta">{e.status}</p>
-              <p className="card-verdict">
+              <p className="entry-verdict">
                 <strong>Verdict under the frozen rule:</strong> {e.verdict}
               </p>
               <div className="table-scroll" id={`tbl-${e.id}`} role="region" aria-label={`${e.id} estimates`} tabIndex={0}>
@@ -198,11 +226,11 @@ function Published({ r }: { r: MarketResults }) {
             </article>
           ))}
           {r.not_measured.map((n) => (
-            <article key={n.outcome} className="panel card not-measured" aria-label={`${n.exp_id}: ${n.outcome}`}>
+            <article key={n.outcome} className="entry not-measured" aria-label={`${n.exp_id}: ${n.outcome}`}>
               <h3>
                 {n.exp_id}: {n.outcome}
               </h3>
-              <p className="card-verdict">
+              <p className="entry-verdict">
                 <strong>Status:</strong> {n.status}
               </p>
               <p className="note">{n.reason}</p>
@@ -271,6 +299,13 @@ function Published({ r }: { r: MarketResults }) {
         </div>
       </section>
 
+    </>
+  );
+}
+
+function MethodSections({ r }: { r: MarketResults }) {
+  return (
+    <>
       <section id="assumptions" aria-labelledby="h-assumptions">
         <p className="tag tag-assumption">Assumptions: model inputs, not results</p>
         <h2 id="h-assumptions">Assumptions</h2>

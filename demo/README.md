@@ -23,3 +23,16 @@ Regenerate the data from the repository root:
     .venv/bin/python scripts/make_demo_fixture.py
 
 Public URL: https://market-order-book-agents.kefimohamedbechir.workers.dev. The page is hosted as Cloudflare Workers static assets on the free plan (`demo/wrangler.jsonc`: assets only, no Worker script, directory `./dist`). It is deployed by the coordinator, not by any script of this repository. Repository: https://github.com/mohamedbechirkefi/market-order-book-agents.
+
+## Design and brand (owner request, 2026-11-26)
+
+The page has its own identity, described in `DESIGN.md`: a 1980s quote board (deep green, amber figures) above a ticker-tape page, bids in blue and asks in red. The hero tape and ladder are a fixed toy drawing labelled "Illustration, not study data" and print no number. Brand files are in `public/brand/`: the mark (`market-mark-*.svg`, an M cut into five volume bars), the wordmark and lockup in ink, amber and paper, `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` and the Open Graph image `og.png` (rendered from an HTML page with headless Chrome). Every animation has a reduced-motion variant.
+
+## Third-party notes: fonts
+
+Both fonts are self-hosted from the Fontsource npm packages (pinned in `package-lock.json`), Latin subset only, bundled into the build; nothing is loaded from another host.
+
+| Family | Package and version | Licence | Use |
+|---|---|---|---|
+| Big Shoulders Display | `@fontsource-variable/big-shoulders-display` 5.3.0 | SIL Open Font License (OFL-1.1) | display type |
+| Libre Franklin | `@fontsource-variable/libre-franklin` 5.3.0 | SIL Open Font License (OFL-1.1) | text and figures |
